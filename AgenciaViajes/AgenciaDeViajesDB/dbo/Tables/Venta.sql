@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Venta] (
+    [numeroVenta]           INT          NOT NULL,
+    [idCliente]             NUMERIC (10) NULL,
+    [idVentaDetalle]        NUMERIC (10) NULL,
+    [idVendedor]            NUMERIC (10) NOT NULL,
+    [idSeguroViajero]       NUMERIC (10) NULL,
+    [idServicioAlojamiento] NUMERIC (10) NULL,
+    [idServicioTraslado]    NUMERIC (10) NULL,
+    [monto]                 FLOAT (53)   NOT NULL,
+    [comision]              INT          NOT NULL,
+    [paisOrigen]            NVARCHAR (3) NULL,
+    [ciudadOrigen]          INT          NULL,
+    [paisDestino]           NVARCHAR (3) NULL,
+    [ciudadDestino]         INT          NULL,
+    [fechaSalida]           DATE         NULL,
+    [fechaRetorno]          DATE         NULL,
+    [documentoviaje]        INT          NULL,
+    [fechaVenta]            DATE         NOT NULL,
+    [motivoViaje]           NUMERIC (2)  NULL,
+    CONSTRAINT [PK_Venta] PRIMARY KEY CLUSTERED ([numeroVenta] ASC),
+    CONSTRAINT [FK_Venta_Ciudad] FOREIGN KEY ([ciudadOrigen]) REFERENCES [dbo].[Ciudad] ([CiudadID]),
+    CONSTRAINT [FK_Venta_Ciudad1] FOREIGN KEY ([ciudadDestino]) REFERENCES [dbo].[Ciudad] ([CiudadID]),
+    CONSTRAINT [FK_Venta_Empleado] FOREIGN KEY ([idVendedor]) REFERENCES [dbo].[Empleado] ([idEmpleado]),
+    CONSTRAINT [FK_Venta_Pais] FOREIGN KEY ([paisOrigen]) REFERENCES [dbo].[Pais] ([PaisCodigo]),
+    CONSTRAINT [FK_Venta_Pais1] FOREIGN KEY ([paisDestino]) REFERENCES [dbo].[Pais] ([PaisCodigo]),
+    CONSTRAINT [FK_Venta_VentaDetalle] FOREIGN KEY ([idVentaDetalle]) REFERENCES [dbo].[VentaDetalle] ([idDetalleVenta])
+);
+
