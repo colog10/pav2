@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDTO.Util
 {
-    public class CommonBase
+    public class CommonBase : DTOBase
     {
         public static DateTime DateTime_NullValue = DateTime.MinValue;
         public static Guid Guid_NullValue = Guid.Empty;
