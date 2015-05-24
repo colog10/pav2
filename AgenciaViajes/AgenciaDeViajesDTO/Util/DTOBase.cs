@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AgenciaDeViajesDTO
+namespace AgenciaDeViajesDTO.Util
 {
-    public class Class1
+    public abstract class DTOBase : CommonBase
     {
+        public bool IsNew { get; set; }
     }
 }

@@ -39,8 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Entities\ReservaDetalleDTO.cs" />
+    <Compile Include="Entities\EstadoCivilDTO.cs" />
+    <Compile Include="Entities\MotivoViajeDTO.cs" />
+    <Compile Include="Entities\OperadorTuristicoDTO.cs" />
+    <Compile Include="Entities\PaisDTO.cs" />
+    <Compile Include="Entities\PasajeroDTO.cs" />
+    <Compile Include="Entities\PaxFrecuenteXCiaAereaDTO.cs" />
+    <Compile Include="Entities\ReservaDTO.cs" />
+    <Compile Include="Entities\SeguroViajeroDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\CommonBase.cs" />
+    <Compile Include="Util\DTOBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
