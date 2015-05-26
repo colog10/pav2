@@ -40,6 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\EstadoCivilDB.cs" />
+    <Compile Include="DAL\MotivoViajeDB.cs" />
+    <Compile Include="DAL\OperadorTuristicoDB.cs" />
+    <Compile Include="DAL\PaisDB.cs" />
+    <Compile Include="DAL\PasajeroDB.cs" />
+    <Compile Include="DAL\PaxFrecuenteXCiaAereaDB.cs" />
+    <Compile Include="DAL\ReservaDB.cs" />
+    <Compile Include="DAL\ReservaDetalleDB.cs" />
+    <Compile Include="DAL\SeguroViajeroDB.cs" />
     <Compile Include="Parsers\DTOParser_EstadoCivil.cs" />
     <Compile Include="Parsers\DTOParser_MotivoViaje.cs" />
     <Compile Include="Parsers\DTOParser_OperadorTuristico.cs" />
@@ -55,9 +64,7 @@
     <Compile Include="Util\DTOParserFactory.cs" />
     <Compile Include="Util\DTOParserSQLClient.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\AgenciaDeViajesDTO\AgenciaDeViajesDTO.csproj">
       <Project>{426c14bf-c115-42d5-9db2-aa1972f03845}</Project>

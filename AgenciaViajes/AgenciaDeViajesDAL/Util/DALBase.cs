@@ -233,6 +233,24 @@ namespace AgenciaDeViajesDAL.Util
             }
         }
 
+        protected static SqlParameter CreateParameter(string name, bool value)
+        {
+            if (value == DTOBase.Boolean_NullValue)
+            {
+                // If value is null then create a null parameter
+                return CreateNullParameter(name, SqlDbType.Bit);
+            }
+            else
+            {
+                SqlParameter parameter = new SqlParameter();
+                parameter.SqlDbType = SqlDbType.Bit;
+                parameter.ParameterName = name;
+                parameter.Value = value;
+                parameter.Direction = ParameterDirection.Input;
+                return parameter;
+            }
+        }
+
         // GetSingleDTO
         protected static T GetSingleDTO<T>(ref SqlCommand command) where T : DTOBase
         {
@@ -308,7 +326,6 @@ namespace AgenciaDeViajesDAL.Util
             }
             return dtoList;
         }
-
 
     }
 }

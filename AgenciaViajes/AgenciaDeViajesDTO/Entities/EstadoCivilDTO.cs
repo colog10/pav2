@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDTO.Entities
 {
-    public class EstadoCivilDTO : CommonBase
+    public class EstadoCivilDTO : DTOBase
     {
         public int IdEstadoCivil { get; set; }
         public string Descripcion { get; set; }
