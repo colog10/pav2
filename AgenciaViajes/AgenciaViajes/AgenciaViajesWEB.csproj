@@ -102,6 +102,20 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AgenciaDeViajesBLL\AgenciaDeViajesBLL.csproj">
+      <Project>{ac77ed3e-4ec2-4513-b548-b94f6a9b4261}</Project>
+      <Name>AgenciaDeViajesBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgenciaDeViajesDAL\AgenciaDeViajesDAL.csproj">
+      <Project>{b4ee8125-e8a7-4730-affa-b4107cc95258}</Project>
+      <Name>AgenciaDeViajesDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AgenciaDeViajesDTO\AgenciaDeViajesDTO.csproj">
+      <Project>{426c14bf-c115-42d5-9db2-aa1972f03845}</Project>
+      <Name>AgenciaDeViajesDTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

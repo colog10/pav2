@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDTO.Entities
 {
-    public class PaisDTO : CommonBase
+    public class PaisDTO : DTOBase
     {
         public string PaisCodigo { get; set; }
         public string PaisNombre { get; set; }

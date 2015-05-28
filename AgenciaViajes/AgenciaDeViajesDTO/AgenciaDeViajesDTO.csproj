@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,6 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\AlojamientoDTO.cs" />
+    <Compile Include="Entities\CiudadDTO.cs" />
+    <Compile Include="Entities\ClienteDTO.cs" />
+    <Compile Include="Entities\CobroDTO.cs" />
+    <Compile Include="Entities\CompaniaAereaDTO.cs" />
+    <Compile Include="Entities\CompraDTO.cs" />
+    <Compile Include="Entities\CompraDetalleDTO.cs" />
+    <Compile Include="Entities\EmpleadoDTO.cs" />
+    <Compile Include="Entities\EmpresaColectivoDTO.cs" />
     <Compile Include="Entities\ReservaDetalleDTO.cs" />
     <Compile Include="Entities\EstadoCivilDTO.cs" />
     <Compile Include="Entities\MotivoViajeDTO.cs" />

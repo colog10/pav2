@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDTO.Entities
 {
-    public class PaxFrecuenteXCiaAereaDTO : CommonBase
+    public class PaxFrecuenteXCiaAereaDTO : DTOBase
     {
         public int IdPasajero { get; set; }
         public int IdCompaniaAerea { get; set; }
