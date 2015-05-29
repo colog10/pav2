@@ -42,6 +42,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\DALBase.cs" />
+    <Compile Include="Util\DTOParser.cs" />
+    <Compile Include="Util\DTOParserFactory.cs" />
+    <Compile Include="Util\DTOParserSQLClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />

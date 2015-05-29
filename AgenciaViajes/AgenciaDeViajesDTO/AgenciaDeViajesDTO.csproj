@@ -59,6 +59,15 @@
     <Compile Include="Entities\PaxFrecuenteXCiaAereaDTO.cs" />
     <Compile Include="Entities\ReservaDTO.cs" />
     <Compile Include="Entities\SeguroViajeroDTO.cs" />
+    <Compile Include="Entities\ServicioAlojamientoDTO.cs" />
+    <Compile Include="Entities\ServicioTrasladoDTO.cs" />
+    <Compile Include="Entities\TipoAlojamientoDTO.cs" />
+    <Compile Include="Entities\TipoDestinoDTO.cs" />
+    <Compile Include="Entities\TipoDocumentoDTO.cs" />
+    <Compile Include="Entities\TipoSeguroViajeroDTO.cs" />
+    <Compile Include="Entities\UsuarioDTO.cs" />
+    <Compile Include="Entities\VentaDTO.cs" />
+    <Compile Include="Entities\VentaDetalleDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\CommonBase.cs" />
     <Compile Include="Util\DTOBase.cs" />

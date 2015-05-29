@@ -245,6 +245,7 @@ namespace AgenciaDeViajesDAL
                 {
                     reader.Read();
                     DTOParserSQLClient parser = DTOParserFactory.GetParserSQLClient(typeof(T));
+
                     parser.PopulateOrdinals(reader);
                     dto = (T)parser.PopulateDTO(reader);
                     reader.Close();
