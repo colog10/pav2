@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{426C14BF-C115-42D5-9DB2-AA1972F03845}</ProjectGuid>
+    <ProjectGuid>{B4EE8125-E8A7-4730-AFFA-B4107CC95258}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AgenciaDeViajesDTO</RootNamespace>
-    <AssemblyName>AgenciaDeViajesDTO</AssemblyName>
+    <RootNamespace>AgenciaDeViajesDAL</RootNamespace>
+    <AssemblyName>AgenciaDeViajesDAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,9 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,36 +40,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\AlojamientoDTO.cs" />
-    <Compile Include="Entities\CiudadDTO.cs" />
-    <Compile Include="Entities\ClienteDTO.cs" />
-    <Compile Include="Entities\CobroDTO.cs" />
-    <Compile Include="Entities\CompaniaAereaDTO.cs" />
-    <Compile Include="Entities\CompraDTO.cs" />
-    <Compile Include="Entities\CompraDetalleDTO.cs" />
-    <Compile Include="Entities\EmpleadoDTO.cs" />
-    <Compile Include="Entities\EmpresaColectivoDTO.cs" />
-    <Compile Include="Entities\ReservaDetalleDTO.cs" />
-    <Compile Include="Entities\EstadoCivilDTO.cs" />
-    <Compile Include="Entities\MotivoViajeDTO.cs" />
-    <Compile Include="Entities\OperadorTuristicoDTO.cs" />
-    <Compile Include="Entities\PaisDTO.cs" />
-    <Compile Include="Entities\PasajeroDTO.cs" />
-    <Compile Include="Entities\PaxFrecuenteXCiaAereaDTO.cs" />
-    <Compile Include="Entities\ReservaDTO.cs" />
-    <Compile Include="Entities\SeguroViajeroDTO.cs" />
-    <Compile Include="Entities\ServicioAlojamientoDTO.cs" />
-    <Compile Include="Entities\ServicioTrasladoDTO.cs" />
-    <Compile Include="Entities\TipoAlojamientoDTO.cs" />
-    <Compile Include="Entities\TipoDestinoDTO.cs" />
-    <Compile Include="Entities\TipoDocumentoDTO.cs" />
-    <Compile Include="Entities\TipoSeguroViajeroDTO.cs" />
-    <Compile Include="Entities\UsuarioDTO.cs" />
-    <Compile Include="Entities\VentaDTO.cs" />
-    <Compile Include="Entities\VentaDetalleDTO.cs" />
+    <Compile Include="DAL\EstadoCivilDB.cs" />
+    <Compile Include="DAL\MotivoViajeDB.cs" />
+    <Compile Include="DAL\OperadorTuristicoDB.cs" />
+    <Compile Include="DAL\PaisDB.cs" />
+    <Compile Include="DAL\PasajeroDB.cs" />
+    <Compile Include="DAL\PaxFrecuenteXCiaAereaDB.cs" />
+    <Compile Include="DAL\ReservaDB.cs" />
+    <Compile Include="DAL\ReservaDetalleDB.cs" />
+    <Compile Include="DAL\SeguroViajeroDB.cs" />
+    <Compile Include="Parsers\DTOParser_EstadoCivil.cs" />
+    <Compile Include="Parsers\DTOParser_MotivoViaje.cs" />
+    <Compile Include="Parsers\DTOParser_OperadorTuristico.cs" />
+    <Compile Include="Parsers\DTOParser_Pais.cs" />
+    <Compile Include="Parsers\DTOParser_Pasajero.cs" />
+    <Compile Include="Parsers\DTOParser_PaxFrecuenteXCiaArea.cs" />
+    <Compile Include="Parsers\DTOParser_Reserva.cs" />
+    <Compile Include="Parsers\DTOParser_ReservaDetalle.cs" />
+    <Compile Include="Parsers\DTOParser_SeguroViajero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\CommonBase.cs" />
-    <Compile Include="Util\DTOBase.cs" />
+    <Compile Include="Util\DALBase.cs" />
+    <Compile Include="Util\DTOParser.cs" />
+    <Compile Include="Util\DTOParserFactory.cs" />
+    <Compile Include="Util\DTOParserSQLClient.cs" />
+  </ItemGroup>
+<<<<<<< HEAD
+  <ItemGroup />
+=======
+  <ItemGroup>
+    <Folder Include="DAL\" />
+    <Folder Include="Parsers\" />
+  </ItemGroup>
+>>>>>>> 2444e8b27916882e5b23e8872e71cdb1162f9147
+  <ItemGroup>
+    <ProjectReference Include="..\AgenciaDeViajesDTO\AgenciaDeViajesDTO.csproj">
+      <Project>{426c14bf-c115-42d5-9db2-aa1972f03845}</Project>
+      <Name>AgenciaDeViajesDTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

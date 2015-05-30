@@ -37,7 +37,7 @@
                         <div class="feature-wrap">
                             <i class="fa fa-check"></i>
                             <h2>Reservas</h2>
-                            <h3>El cliente realizará sus reservas desde su casa.</h3>
+                            <h3>El cliente podrá realizar sus reservas desde su casa.</h3>
                         </div>
                     </div><!--/.col-md-4-->
                 
@@ -73,7 +73,7 @@
         <div class="container">
             <div class="center wow fadeInDown">
                 <h2>Lo Nuevo</h2>
-                <p class="lead">Gestión de pasajeros, operadores turísticos y empleados.<br /> Permite una agil manipulación de los datos y obtener listados de esta información.</p>
+                <p class="lead">Gestión de pasajeros, operadores turísticos y empleados.<br /> Permite una ágil manipulación de los datos y obtener listados de esta información.</p>
             </div>           
         </div><!--/.container-->
     </section><!--/#recent-works-->

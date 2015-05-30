@@ -7,14 +7,14 @@
     <Name>AgenciaDeViajesDB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{c9b511f4-0cdd-4099-a4e4-8beb94eb3f13}</ProjectGuid>
+    <ProjectGuid>{23656f8c-5e20-461d-a2b8-426f688774d1}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
     <RootNamespace>AgenciaDeViajesDB</RootNamespace>
     <AssemblyName>AgenciaDeViajesDB</AssemblyName>
-    <ModelCollation>3082,CI</ModelCollation>
+    <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -23,8 +23,6 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <DefaultCollation>Modern_Spanish_CI_AS</DefaultCollation>
-    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -63,32 +61,32 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\TipoDocumento.sql" />
-    <Build Include="dbo\Tables\Pais.sql" />
-    <Build Include="dbo\Tables\MotivoViaje.sql" />
-    <Build Include="dbo\Tables\EstadoCivil.sql" />
-    <Build Include="dbo\Tables\CompraDetalle.sql" />
-    <Build Include="dbo\Tables\Compra.sql" />
-    <Build Include="dbo\Tables\TipoAlojamiento.sql" />
-    <Build Include="dbo\Tables\SeguroViajero.sql" />
-    <Build Include="dbo\Tables\ReservaDetalle.sql" />
-    <Build Include="dbo\Tables\Alojamiento.sql" />
-    <Build Include="dbo\Tables\ServicioAlojamiento.sql" />
-    <Build Include="dbo\Tables\VentaDetalle.sql" />
-    <Build Include="dbo\Tables\Cliente.sql" />
-    <Build Include="dbo\Tables\Pasajero.sql" />
-    <Build Include="dbo\Tables\TipoDestino.sql" />
-    <Build Include="dbo\Tables\Ciudad.sql" />
-    <Build Include="dbo\Tables\Reserva.sql" />
-    <Build Include="dbo\Tables\PaxFrecuenteXCiaAerea.sql" />
-    <Build Include="dbo\Tables\OperadorTuristico.sql" />
-    <Build Include="dbo\Tables\Venta.sql" />
-    <Build Include="dbo\Tables\Cobro.sql" />
-    <Build Include="dbo\Tables\Empleado.sql" />
-    <Build Include="dbo\Tables\EmpresaColectivos.sql" />
-    <Build Include="dbo\Tables\CompaniaAerea.sql" />
-    <Build Include="dbo\Tables\ServicioTraslado.sql" />
-    <Build Include="dbo\Tables\Usuario.sql" />
-    <Build Include="dbo\Tables\TipoSeguroViajero.sql" />
+    <Build Include="dbo\Tables\VentaDetalle_1.sql" />
+    <Build Include="dbo\Tables\Venta_1.sql" />
+    <Build Include="dbo\Tables\Usuario_1.sql" />
+    <Build Include="dbo\Tables\TipoSeguroViajero_1.sql" />
+    <Build Include="dbo\Tables\TipoDocumento_1.sql" />
+    <Build Include="dbo\Tables\TipoDestino_1.sql" />
+    <Build Include="dbo\Tables\TipoAlojamiento_1.sql" />
+    <Build Include="dbo\Tables\ServicioTraslado_1.sql" />
+    <Build Include="dbo\Tables\ServicioAlojamiento_1.sql" />
+    <Build Include="dbo\Tables\SeguroViajero_1.sql" />
+    <Build Include="dbo\Tables\ReservaDetalle_1.sql" />
+    <Build Include="dbo\Tables\Reserva_1.sql" />
+    <Build Include="dbo\Tables\PaxFrecuenteXCiaAerea_1.sql" />
+    <Build Include="dbo\Tables\Pasajero_1.sql" />
+    <Build Include="dbo\Tables\Pais_1.sql" />
+    <Build Include="dbo\Tables\OperadorTuristico_1.sql" />
+    <Build Include="dbo\Tables\MotivoViaje_1.sql" />
+    <Build Include="dbo\Tables\EstadoCivil_1.sql" />
+    <Build Include="dbo\Tables\EmpresaColectivos_1.sql" />
+    <Build Include="dbo\Tables\Empleado_1.sql" />
+    <Build Include="dbo\Tables\CompraDetalle_1.sql" />
+    <Build Include="dbo\Tables\Compra_1.sql" />
+    <Build Include="dbo\Tables\CompaniaAerea_1.sql" />
+    <Build Include="dbo\Tables\Cobro_1.sql" />
+    <Build Include="dbo\Tables\Cliente_1.sql" />
+    <Build Include="dbo\Tables\Ciudad_1.sql" />
+    <Build Include="dbo\Tables\Alojamiento_1.sql" />
   </ItemGroup>
 </Project>
