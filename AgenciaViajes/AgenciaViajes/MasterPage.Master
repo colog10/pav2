@@ -6,41 +6,107 @@
 <head runat="server">
     <title>Agencia de Viajes</title> <!--Título que aparece en la barra superior del navegador--> <!--Comentario-->
     <link rel="stylesheet" href="../css/bootstrap.min.css"><!--importa la hoja de estilos de Bootstraps-->
-    <link rel="stylesheet" href="../css/bootstrap-customer.css"><!--Archivo de la Sami para customizar Bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap-customer.css"><!--importa la hoja de estilos de Bootstraps-->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     <asp:ContentPlaceHolder ID="head" runat="server"><!--Permite utilizar a una librería a usar solamente en cualquier pagina-->
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top"> <!--Pertenece a Bootstraps-->
-      <div class="container">
-        <div class="navbar-header"><!--hace que la pag sea responsive y reacomode el menú al achicar la pantalla-->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Navegación</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Agencia de Viajes</a><!--Título de la barra de 'menú-->
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Otro</a></li>
-          </ul>
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Iniciar Sesión</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    <form id="form1" runat="server">
-    <div>
+
+    <body class="homepage">
+
+    <header id="header">
+        
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Navegación</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"/></a>
+                </div>
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Inicio</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Nueva Venta</a></li>
+                                <li><a href="#">Informe</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reservas <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Nueva Reserva</a></li>
+                                <li><a href="#">Informe</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Compras <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Nueva Compra</a></li>
+                                <li><a href="#">Informe</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Pasajeros</a></li>
+                                <li><a href="#">Operadores turísticos</a></li>
+                                <li><a href="#">Empleados</a></li>
+                             
+                            </ul>
+                        </li>
+                        <li><a href="#">Contacto</a></li>                        
+                        <li><a href="#">Iniciar Sesión</a></li>                        
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+		
+    </header><!--/header-->
+
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
-    </div>
-    </form>
-</body>
-    <script src="../js/jquery-1.11.2.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2015 <a target="_blank" href="/" title="Hi World">HiWorld</a>. Todos los derechos reservados.
+                </div>
+                <div class="col-sm-6">
+                    <i class="fa fa-at"></i>
+                    info@hiworld.com.ar
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+        </body>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wow.min.js"></script>
+
 </html>
