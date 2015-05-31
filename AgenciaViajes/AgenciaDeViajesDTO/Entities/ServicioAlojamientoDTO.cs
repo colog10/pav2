@@ -9,31 +9,31 @@ namespace AgenciaDeViajesDTO.Entities
 {
     public class ServicioAlojamientoDTO : DTOBase
     {
-      //  public int ServicioAlojamientoDTO {get; set;}
-        public string CategoriaDTO {get; set;}
-        public int comisionDTO {get; set;}
-        public string descripcionDTO {get; set;}
-        public DateTime fechaDesdeDTO {get; set;}
-        public DateTime fechaHastaDTO {get; set;}
-        public DateTime fechaVencReservaDTO {get; set;}
-        public float montoDTO {get; set;}
-        public string numeroReservaDTO {get; set;}
-        public int idAlojamientoDTO {get; set;}
-        public int numeroVentaDTO {get; set;}
-        public int tipoDocumentoDTO {get; set;}
-        public string numeroDocumentoDTO {get; set;}
-        public int numeroCompraDTO {get; set;}
+        public int ServicioAlojamiento { get; set; }
+        public string CategoriaDTO { get; set; }
+        public int comisionDTO { get; set; }
+        public string descripcionDTO { get; set; }
+        public DateTime fechaDesdeDTO { get; set; }
+        public DateTime fechaHastaDTO { get; set; }
+        public DateTime fechaVencReservaDTO { get; set; }
+        public float montoDTO { get; set; }
+        public string numeroReservaDTO { get; set; }
+        public int idAlojamientoDTO { get; set; }
+        public int numeroVentaDTO { get; set; }
+        public int tipoDocumentoDTO { get; set; }
+        public string numeroDocumentoDTO { get; set; }
+        public int numeroCompraDTO { get; set; }
 
-        public ServicioAlojamientoDTO ()
+        public ServicioAlojamientoDTO()
         {
-           // this.ServicioAlojamientoDTO = Int_NullValue;
+            this.ServicioAlojamiento = Int_NullValue;
             this.CategoriaDTO = String_NullValue;
             this.comisionDTO = Int_NullValue;
             this.descripcionDTO = String_NullValue;
             this.fechaDesdeDTO = DateTime_NullValue;
             this.fechaHastaDTO = DateTime_NullValue;
             this.fechaVencReservaDTO = DateTime_NullValue;
-          //  this.montoDTO = float;
+            this.montoDTO = float;
             this.numeroReservaDTO = String_NullValue;
             this.idAlojamientoDTO = Int_NullValue;
             this.numeroVentaDTO = Int_NullValue;
