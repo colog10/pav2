@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace AgenciaDeViajesDAL.DAL
+namespace AgenciaDeViajesDAL.Parsers
 {
     public class ClienteDB : DALBase
     {

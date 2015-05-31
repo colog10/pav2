@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace AgenciaDeViajesDAL.DAL
+namespace AgenciaDeViajesDAL.Parsers
 {
     public class EmpleadoDB : DALBase
     {

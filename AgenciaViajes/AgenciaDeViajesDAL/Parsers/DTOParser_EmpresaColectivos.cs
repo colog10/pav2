@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDAL.Parsers
 {
-    internal class EmpresaColectivos : DTOParserSQLClient
+    internal class DTOParser_EmpresaColectivos : DTOParserSQLClient
     {
         private int Ord_idEmpresaColectivos;
         private int Ord_nombre;
