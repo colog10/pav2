@@ -27,7 +27,7 @@
 <body class="homepage">
     <asp:SiteMapDataSource id="nav1" runat="server" />
 
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="form-inline">
         <header id="header">
         
         <nav class="navbar navbar-inverse" role="banner">
@@ -83,7 +83,7 @@
                                 <%  if (HttpContext.Current.User.IsInRole("administrador"))
                                 {%>
                                 <li><a href="/OperadoresTuristicos.aspx">Operadores turísticos</a></li>
-                                <li><a href="/Empleados.aspx">Empleados</a></li>
+                                <li><a href="/Empleados.aspx">Personal</a></li>
 
                               <%} %>
                             </ul>

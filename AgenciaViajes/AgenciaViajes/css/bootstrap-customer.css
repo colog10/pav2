@@ -20,6 +20,15 @@ h2{
       font-weight: 600;
 }
 
+.btn-default{
+    margin-top:10px;
+}
+
+.form-group{
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
 .title{
     color: #4E4E4E;
       font-size: 24px;
