@@ -33,7 +33,7 @@ namespace AgenciaDeViajesDTO.Entities
             this.fechaDesdeDTO = DateTime_NullValue;
             this.fechaHastaDTO = DateTime_NullValue;
             this.fechaVencReservaDTO = DateTime_NullValue;
-            this.montoDTO = float;
+            this.montoDTO = Float_NullValue;
             this.numeroReservaDTO = String_NullValue;
             this.idAlojamientoDTO = Int_NullValue;
             this.numeroVentaDTO = Int_NullValue;

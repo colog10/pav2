@@ -3,10 +3,10 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<section class="no-margin">
-        <div class="item main-item" style="background-image: url(images/slider/bg1.jpg);">
-        </div><!--/.item-->
-    </section><!--/#main-slider-->
+<div class="no-margin">
+    <div class="item main-item" style="background-image: url(images/slider/bg1.jpg);">
+    </div><!--/.item-->
+    </div><!--/#main-slider-->
 
     <section id="feature" >
         <div class="container">
