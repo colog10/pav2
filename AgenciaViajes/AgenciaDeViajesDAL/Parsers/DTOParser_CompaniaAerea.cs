@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDAL.Parsers
 {
-    class DTOParser_CompaniaAerea
+    class DTOParser_CompaniaAerea : DTOParserSQLClient
     {
         private int Ord_idCompaniaAerea;
         private int Ord_nombre;

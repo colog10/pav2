@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AgenciaDeViajesDAL.Parsers
+namespace AgenciaDeViajesDAL.DAL
 {
     class UsuarioDB : DALBase
     {

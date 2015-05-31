@@ -34,7 +34,7 @@ namespace AgenciaDeViajesDAL.Parsers
 
         internal override DTOBase PopulateDTO(SqlDataReader reader)
         {
- 	        CompraDTO compraDTO = new CompraDTO
+            CompraDTO compraDTO = new CompraDTO();
             //idCompra
             if(!reader.IsDBNull(Ord_idCompra)) { compraDTO.idCompraDTO = reader.GetInt32(Ord_idCompra);}
 

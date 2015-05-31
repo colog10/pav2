@@ -46,7 +46,7 @@ namespace AgenciaDeViajesDAL.Parsers
             if (!reader.IsDBNull(Ord_CiudadDistrito)) { ciudadDTO.ciudadDistritoDTO = reader.GetString(Ord_CiudadDistrito);}
 
             //CiudadPoblacion
-            if(!reader.IsDBNull(Ord_CiudadPoblacion)) {ciudadDTO.ciudadPoblacionDTO = reader.GetInt32(Ord_CiudadPoblacion)}
+            if (!reader.IsDBNull(Ord_CiudadPoblacion)) { ciudadDTO.ciudadPoblacionDTO = reader.GetInt32(Ord_CiudadPoblacion); }
 
             //TipoDestino
             if(!reader.IsDBNull(Ord_TipoDestino)) {ciudadDTO.tipoDestinoDTO = reader.GetInt32(Ord_TipoDestino);}

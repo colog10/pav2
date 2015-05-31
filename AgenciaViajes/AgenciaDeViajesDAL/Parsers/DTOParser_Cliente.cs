@@ -36,7 +36,7 @@ namespace AgenciaDeViajesDAL.Parsers
             Ord_telfax = reader.GetOrdinal("telfax");
         }
 
-        internal override DTOBase PopulateOrdinals(SqlDataReader reader)
+        internal override DTOBase PopulateDTO(SqlDataReader reader)
         {
             ClienteDTO clienteDTO = new ClienteDTO();
             
