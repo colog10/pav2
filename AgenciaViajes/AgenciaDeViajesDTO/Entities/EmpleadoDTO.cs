@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDTO.Entities
 {
-    class EmpleadoDTO : DTOBase
+    public class EmpleadoDTO : DTOBase
     {
         public int idEmpleadoDTO { get; set; }
         public int legajoDTO { get; set; }
@@ -17,7 +17,7 @@ namespace AgenciaDeViajesDTO.Entities
         public DateTime fechaBajaDTO { get; set; }
         public int idUsuarioDTO { get; set; }
         public Boolean activoDTO { get; set; }
-        public int supervisorDTO { get; set; }
+        public Boolean supervisorDTO { get; set; }
 
         public EmpleadoDTO()
         {
@@ -29,7 +29,7 @@ namespace AgenciaDeViajesDTO.Entities
             fechaBajaDTO = DateTime_NullValue;
             idUsuarioDTO = Int_NullValue;
             activoDTO = Boolean_NullValue;
-            supervisorDTO = Int_NullValue;
+            supervisorDTO = Boolean_NullValue;
         }
     }
 }
