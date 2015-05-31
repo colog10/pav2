@@ -1,33 +1,34 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="AgenciaViajes.MasterPage" %>
-
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="AgenciaViajes.MasterPage"  %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Agencia de Viajes</title> <!--Título que aparece en la barra superior del navegador--> <!--Comentario-->
-    <link rel="stylesheet" href="../css/bootstrap.min.css"><!--importa la hoja de estilos de Bootstraps-->
-    <link rel="stylesheet" href="../css/bootstrap-customer.css"><!--importa la hoja de estilos de Bootstraps-->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/><!--importa la hoja de estilos de Bootstraps-->
+    <link rel="stylesheet" href="../css/bootstrap-customer.css"/><!--importa la hoja de estilos de Bootstraps-->
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/animate.min.css" rel="stylesheet"/>
+    <link href="css/prettyPhoto.css" rel="stylesheet"/>
+    <link href="css/main.css" rel="stylesheet"/>
+    <link href="css/responsive.css" rel="stylesheet"/>
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->       
-    <link rel="shortcut icon" href="images/ico/icon.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="images/ico/icon.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png"/>
     <asp:ContentPlaceHolder ID="head" runat="server"><!--Permite utilizar a una librería a usar solamente en cualquier pagina-->
     </asp:ContentPlaceHolder>
 </head>
 
-    <body class="homepage">
+<body class="homepage">
+    <asp:SiteMapDataSource id="nav1" runat="server" />
 
-    <header id="header">
+    <form id="form1" runat="server">
+        <header id="header">
         
         <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
@@ -41,52 +42,73 @@
                     <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"/></a>
                 </div>
 				
-                <div class="collapse navbar-collapse navbar-right">
+                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/">Inicio</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas <i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Nueva Venta</a></li>
-                                <li><a href="#">Informe</a></li>
-                            </ul>
-                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <asp:LoginView ID="topLoginView" runat="server">
+                            <AnonymousTemplate>
+                                <li ><a href="/Login.aspx">Iniciar Sesión</a></li>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <%  if (HttpContext.Current.User.IsInRole("administrador") || HttpContext.Current.User.IsInRole("usuario"))
+                                {%>
+                                
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas <i class="fa fa-angle-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/NuevaVenta.aspx">Nueva Venta</a></li>
+                                        <li><a href="/Ventas.aspx">Informe</a></li>
+                                    </ul>
+                                </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reservas <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Nueva Reserva</a></li>
-                                <li><a href="#">Informe</a></li>
+                                <li><a href="/NuevaReserva.aspx">Nueva Reserva</a></li>
+                                <li><a href="/Reservas.aspx">Informe</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Compras <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Nueva Compra</a></li>
-                                <li><a href="#">Informe</a></li>
+                                <li><a href="/NuevaCompra.aspx">Nueva Compra</a></li>
+                                <li><a href="/Compras.aspx">Informe</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Pasajeros</a></li>
-                                <li><a href="#">Operadores turísticos</a></li>
-                                <li><a href="#">Empleados</a></li>
-                             
+                                <li><a href="/Pasajeros.aspx">Pasajeros</a></li>
+                                <%  if (HttpContext.Current.User.IsInRole("administrador"))
+                                {%>
+                                <li><a href="/OperadoresTuristicos.aspx">Operadores turísticos</a></li>
+                                <li><a href="/Empleados.aspx">Empleados</a></li>
+
+                              <%} %>
                             </ul>
                         </li>
-                        <li><a href="#">Contacto</a></li>                        
-                        <li><a href="#">Iniciar Sesión</a></li>                        
-                    </ul>
+                        <li><a><%= HttpContext.Current.User.Identity.Name %></a></li>
+                        <li>                          
+                            <asp:LinkButton ID="LbtnCerrarSesion" runat="server" OnClick="LbtnCerrarSesion_Click" >Cerrar Sesión</asp:LinkButton>
+                        </li>         
+                        <%} %>
+                    </LoggedInTemplate>
+                </asp:LoginView>
+           </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
 		
     </header><!--/header-->
-
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content-page">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
     <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
@@ -100,6 +122,7 @@
             </div>
         </div>
     </footer><!--/#footer-->
+            </form>
         </body>
 
     <script src="js/jquery.js"></script>

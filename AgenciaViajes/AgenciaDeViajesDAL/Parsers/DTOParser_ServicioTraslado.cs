@@ -134,6 +134,5 @@ namespace AgenciaDeViajesDAL.Parsers
             return ServicioTraslado;
         }
     }
-    {
-    }
+   
 }
