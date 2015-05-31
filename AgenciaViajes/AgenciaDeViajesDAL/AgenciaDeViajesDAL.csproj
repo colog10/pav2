@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\AgenciaDeViajesDB.cs" />
     <Compile Include="DAL\EstadoCivilDB.cs" />
     <Compile Include="DAL\MotivoViajeDB.cs" />
     <Compile Include="DAL\OperadorTuristicoDB.cs" />
@@ -49,6 +50,15 @@
     <Compile Include="DAL\ReservaDB.cs" />
     <Compile Include="DAL\ReservaDetalleDB.cs" />
     <Compile Include="DAL\SeguroViajeroDB.cs" />
+    <Compile Include="DAL\ServicioAlojamientoDB.cs" />
+    <Compile Include="DAL\ServicioTrasladoDB.cs" />
+    <Compile Include="DAL\TipoAlojamientoDB.cs" />
+    <Compile Include="DAL\TipoDestinoDB.cs" />
+    <Compile Include="DAL\TipoDocumentoDB.cs" />
+    <Compile Include="DAL\TipoSeguroViajeroDB.cs" />
+    <Compile Include="DAL\UsuarioDB.cs" />
+    <Compile Include="DAL\VentaDB.cs" />
+    <Compile Include="DAL\VentaDetalleDB.cs" />
     <Compile Include="Parsers\DTOParser_EstadoCivil.cs" />
     <Compile Include="Parsers\DTOParser_MotivoViaje.cs" />
     <Compile Include="Parsers\DTOParser_OperadorTuristico.cs" />
@@ -58,6 +68,15 @@
     <Compile Include="Parsers\DTOParser_Reserva.cs" />
     <Compile Include="Parsers\DTOParser_ReservaDetalle.cs" />
     <Compile Include="Parsers\DTOParser_SeguroViajero.cs" />
+    <Compile Include="Parsers\DTOParser_ServicioAlojamiento.cs" />
+    <Compile Include="Parsers\DTOParser_ServicioTraslado.cs" />
+    <Compile Include="Parsers\DTOParser_TipoAlojamiento.cs" />
+    <Compile Include="Parsers\DTOParser_TipoDestino.cs" />
+    <Compile Include="Parsers\DTOParser_TipoDocumento.cs" />
+    <Compile Include="Parsers\DTOParser_TipoSeguroViajero.cs" />
+    <Compile Include="Parsers\DTOParser_Usuario.cs" />
+    <Compile Include="Parsers\DTOParser_Venta.cs" />
+    <Compile Include="Parsers\DTOParser_VentaDetalle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\DALBase.cs" />
     <Compile Include="Util\DTOParser.cs" />
