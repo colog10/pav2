@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="Compras.aspx" />
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap-customer.css" />
     <Content Include="css\bootstrap-theme.css" />
@@ -229,8 +230,12 @@
     <Content Include="js\respond.min.js" />
     <Content Include="js\wow.min.js" />
     <Content Include="Login.aspx" />
-    <Content Include="Modules\Menu.ascx" />
+    <Content Include="Modules\ConstructionPage.ascx" />
+    <Content Include="NuevaCompra.aspx" />
+    <Content Include="NuevaReserva.aspx" />
     <Content Include="NuevaVenta.aspx" />
+    <Content Include="Reservas.aspx" />
+    <Content Include="Ventas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -240,6 +245,13 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compras.aspx.cs">
+      <DependentUpon>Compras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compras.aspx.designer.cs">
+      <DependentUpon>Compras.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -272,12 +284,26 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Menu.ascx.cs">
-      <DependentUpon>Menu.ascx</DependentUpon>
+    <Compile Include="Modules\ConstructionPage.ascx.cs">
+      <DependentUpon>ConstructionPage.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Modules\Menu.ascx.designer.cs">
-      <DependentUpon>Menu.ascx</DependentUpon>
+    <Compile Include="Modules\ConstructionPage.ascx.designer.cs">
+      <DependentUpon>ConstructionPage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevaCompra.aspx.cs">
+      <DependentUpon>NuevaCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevaCompra.aspx.designer.cs">
+      <DependentUpon>NuevaCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevaReserva.aspx.cs">
+      <DependentUpon>NuevaReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevaReserva.aspx.designer.cs">
+      <DependentUpon>NuevaReserva.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuevaVenta.aspx.cs">
       <DependentUpon>NuevaVenta.aspx</DependentUpon>
@@ -287,6 +313,20 @@
       <DependentUpon>NuevaVenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservas.aspx.cs">
+      <DependentUpon>Reservas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservas.aspx.designer.cs">
+      <DependentUpon>Reservas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas.aspx.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas.aspx.designer.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />

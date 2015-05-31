@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace AgenciaViajes.Modules
 {
-    public partial class Menu : System.Web.UI.UserControl
+    public partial class ConstructionPage : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
