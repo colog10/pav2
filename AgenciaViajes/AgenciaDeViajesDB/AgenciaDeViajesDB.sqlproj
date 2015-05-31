@@ -99,5 +99,10 @@
     <Build Include="dbo\Stored Procedures\usp_Pasajero_GetByID.sql" />
     <Build Include="dbo\Stored Procedures\usp_Pasajero_Insert.sql" />
     <Build Include="dbo\Stored Procedures\usp_Pasajero_Update.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Empleado_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Empleado_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Empleado_GetByID.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Empleado_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Empleado_Update.sql" />
   </ItemGroup>
 </Project>

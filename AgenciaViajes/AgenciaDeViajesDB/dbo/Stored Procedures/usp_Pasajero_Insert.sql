@@ -12,19 +12,19 @@ CREATE PROCEDURE [dbo].[usp_Pasajero_Insert]
 	@fechaNacimiento date,
 	@idNacionalidad nvarchar(3),
 	@profesion nvarchar(50),
-	@domicilio nvarchar(20),
-	@telefono nvarchar(20),
-	@movil nvarchar(20),
-	@email nvarchar(20),
-	@eliminado nvarchar(20),
+	@domicilio nvarchar(100),
+	@telefono nvarchar(50),
+	@movil nvarchar(50),
+	@email nvarchar(50),
+	@eliminado char(1),
 	@activo bit)
 AS
 BEGIN
 	SET NOCOUNT ON;
 
 
-	INSERT INTO Pasajero (idTipoDestino, calificacion,descripcion,direccion,email,nombre,paginaWeb,telefono,activo,fechaAlta)
-	VALUES (@idTipoDestino,@calificacion ,@descripcion ,@direccion ,@email ,@nombre,@paginaWeb ,@telefono ,@activo ,@fechaAlta )
+	INSERT INTO Pasajero (apellido, nombre,idTipoDocumento,numeroDocumento,cuilcuit1,cuilcuit2,cuilcuit3,idEstadoCivil,fechaNacimiento,idNacionalidad,profesion,domicilio,telefono,movil,email,eliminado,activo)
+	VALUES (@apellido, @nombre,@idTipoDocumento,@numeroDocumento,@cuilcuit1,@cuilcuit2,@cuilcuit3,@idEstadoCivil,@fechaNacimiento,@idNacionalidad,@profesion,@domicilio,@telefono,@movil,@email,@eliminado,@activo)
 
 	SET @idPasajero = SCOPE_IDENTITY()
 END
