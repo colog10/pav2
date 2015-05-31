@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+
     <Compile Include="DAL\AlojamientoDB.cs" />
     <Compile Include="DAL\CiudadDB.cs" />
     <Compile Include="DAL\ClienteDB.cs" />
@@ -50,9 +50,8 @@
     <Compile Include="DAL\CompraDetalleDB.cs" />
     <Compile Include="DAL\EmpleadoDB.cs" />
     <Compile Include="DAL\EmpresaColectivoDB.cs" />
-=======
+
     <Compile Include="DAL\AgenciaDeViajesDB.cs" />
->>>>>>> cefecbb5cc52ed8152ccbc6c4514a20c3388648f
     <Compile Include="DAL\EstadoCivilDB.cs" />
     <Compile Include="DAL\MotivoViajeDB.cs" />
     <Compile Include="DAL\OperadorTuristicoDB.cs" />
@@ -62,7 +61,6 @@
     <Compile Include="DAL\ReservaDB.cs" />
     <Compile Include="DAL\ReservaDetalleDB.cs" />
     <Compile Include="DAL\SeguroViajeroDB.cs" />
-<<<<<<< HEAD
     <Compile Include="Parsers\DTOParser_Cobro.cs" />
     <Compile Include="Parsers\DTOParser_Alojamiento.cs" />
     <Compile Include="Parsers\DTOParser_Ciudad.cs" />
@@ -71,7 +69,6 @@
     <Compile Include="Parsers\DTOParser_Compra.cs" />
     <Compile Include="Parsers\DTOParser_CompraDetalle.cs" />
     <Compile Include="Parsers\DTOParser_Empleado.cs" />
-=======
     <Compile Include="DAL\ServicioAlojamientoDB.cs" />
     <Compile Include="DAL\ServicioTrasladoDB.cs" />
     <Compile Include="DAL\TipoAlojamientoDB.cs" />
@@ -81,7 +78,6 @@
     <Compile Include="DAL\UsuarioDB.cs" />
     <Compile Include="DAL\VentaDB.cs" />
     <Compile Include="DAL\VentaDetalleDB.cs" />
->>>>>>> cefecbb5cc52ed8152ccbc6c4514a20c3388648f
     <Compile Include="Parsers\DTOParser_EstadoCivil.cs" />
     <Compile Include="Parsers\DTOParser_MotivoViaje.cs" />
     <Compile Include="Parsers\DTOParser_OperadorTuristico.cs" />
@@ -91,9 +87,7 @@
     <Compile Include="Parsers\DTOParser_Reserva.cs" />
     <Compile Include="Parsers\DTOParser_ReservaDetalle.cs" />
     <Compile Include="Parsers\DTOParser_SeguroViajero.cs" />
-<<<<<<< HEAD
     <Compile Include="Parsers\EmpresaColectivos.cs" />
-=======
     <Compile Include="Parsers\DTOParser_ServicioAlojamiento.cs" />
     <Compile Include="Parsers\DTOParser_ServicioTraslado.cs" />
     <Compile Include="Parsers\DTOParser_TipoAlojamiento.cs" />
@@ -103,7 +97,6 @@
     <Compile Include="Parsers\DTOParser_Usuario.cs" />
     <Compile Include="Parsers\DTOParser_Venta.cs" />
     <Compile Include="Parsers\DTOParser_VentaDetalle.cs" />
->>>>>>> cefecbb5cc52ed8152ccbc6c4514a20c3388648f
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\DALBase.cs" />
     <Compile Include="Util\DTOParser.cs" />
