@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDTO.Entities
 {
-    class EmpresaColectivoDTO : DTOBase
+    public class EmpresaColectivoDTO : DTOBase
     {
         public int idEmpresaColectivoDTO { get; set; }
         public string nombreDTO{ get; set; }

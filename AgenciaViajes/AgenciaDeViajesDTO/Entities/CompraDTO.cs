@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDTO.Entities
 {
-    class CompraDTO : DTOBase
+    public class CompraDTO : DTOBase
     {
         public int idCompraDTO { get; set; }
         public int idOperadorTuristicoDTO { get; set; }
@@ -16,6 +16,17 @@ namespace AgenciaDeViajesDTO.Entities
         public DateTime fechaPagoDTO { get; set; }
         public float montoDTO { get; set; }
         public float saldoDTO { get; set; }
+
+        public CompraDTO()
+        {
+            idCompraDTO = Int_NullValue;
+            idOperadorTuristicoDTO = Int_NullValue;
+            idDetalleCompraDTO = Int_NullValue;
+            fechaCompraDTO = DateTime_NullValue;
+            fechaPagoDTO = DateTime_NullValue;
+            montoDTO = Float_NullValue;
+            saldoDTO = Float_NullValue;
+        }
 
     }
 }
