@@ -6,5 +6,5 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DELETE FROM Pasajero 
-	WHERE idPasajero = @IDPasajero
+	WHERE idPasajero = @IDPasajero;
 END

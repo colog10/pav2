@@ -7,5 +7,5 @@ BEGIN
 
 	SELECT * 
 	FROM OperadorTuristico
-	WHERE idOperadorTuristico = @IDOperadorTuristico
+	WHERE idOperadorTuristico = @IDOperadorTuristico;
 END

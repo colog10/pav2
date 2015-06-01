@@ -5,5 +5,5 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT * 
-	FROM OperadorTuristico
+	FROM OperadorTuristico;
 END

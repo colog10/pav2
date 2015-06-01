@@ -234,6 +234,7 @@
     <Content Include="NuevaCompra.aspx" />
     <Content Include="NuevaReserva.aspx" />
     <Content Include="NuevaVenta.aspx" />
+    <Content Include="Personal.aspx" />
     <Content Include="Reservas.aspx" />
     <Content Include="Ventas.aspx" />
     <Content Include="Web.config" />
@@ -311,6 +312,13 @@
     </Compile>
     <Compile Include="NuevaVenta.aspx.designer.cs">
       <DependentUpon>NuevaVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Personal.aspx.cs">
+      <DependentUpon>Personal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Personal.aspx.designer.cs">
+      <DependentUpon>Personal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservas.aspx.cs">

@@ -12,6 +12,12 @@
     padding-bottom: 280px !important;
 }
 
+.content-page .container-crud{
+    margin-left:auto;
+    margin-right:auto;
+    width:700px;
+}
+
 h2{
       color: #4E4E4E;
       font-size: 24px;

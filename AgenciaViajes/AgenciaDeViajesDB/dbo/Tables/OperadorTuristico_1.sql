@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[OperadorTuristico] (
-    [idOperadorTuristico] NUMERIC (10)   NOT NULL,
-    [idTipoDestino]       NUMERIC (10)   NULL,
-    [calificacion]        NUMERIC (1)    NULL,
+    [idOperadorTuristico] INT   NOT NULL,
+    [idTipoDestino]       INT   NULL,
+    [calificacion]        INT    NULL,
     [descripcion]         NVARCHAR (50)  NULL,
     [direccion]           NVARCHAR (100) NULL,
     [email]               NVARCHAR (35)  NULL,

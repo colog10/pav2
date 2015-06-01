@@ -3,12 +3,12 @@ CREATE PROCEDURE [dbo].[usp_Pasajero_Insert]
 	(@idPasajero int output,
 	@apellido nvarchar(50),
 	@nombre nvarchar(50),
-	@idTipoDocumento numeric(2,0),
-	@numeroDocumento numeric(8,0),
+	@idTipoDocumento int,
+	@numeroDocumento int,
 	@cuilcuit1 nvarchar(2),
 	@cuilcuit2 nvarchar(8),
 	@cuilcuit3 nvarchar(1),
-	@idEstadoCivil numeric(2,0),
+	@idEstadoCivil int,
 	@fechaNacimiento date,
 	@idNacionalidad nvarchar(3),
 	@profesion nvarchar(50),
@@ -24,7 +24,7 @@ BEGIN
 
 
 	INSERT INTO Pasajero (apellido, nombre,idTipoDocumento,numeroDocumento,cuilcuit1,cuilcuit2,cuilcuit3,idEstadoCivil,fechaNacimiento,idNacionalidad,profesion,domicilio,telefono,movil,email,eliminado,activo)
-	VALUES (@apellido, @nombre,@idTipoDocumento,@numeroDocumento,@cuilcuit1,@cuilcuit2,@cuilcuit3,@idEstadoCivil,@fechaNacimiento,@idNacionalidad,@profesion,@domicilio,@telefono,@movil,@email,@eliminado,@activo)
+	VALUES (@apellido, @nombre,@idTipoDocumento,@numeroDocumento,@cuilcuit1,@cuilcuit2,@cuilcuit3,@idEstadoCivil,@fechaNacimiento,@idNacionalidad,@profesion,@domicilio,@telefono,@movil,@email,@eliminado,@activo);
 
-	SET @idPasajero = SCOPE_IDENTITY()
+	SET @idPasajero = SCOPE_IDENTITY();
 END

@@ -40,34 +40,34 @@ namespace AgenciaDeViajesDAL.Parsers
             UsuarioDTO Usuario = new UsuarioDTO();
             if (!reader.IsDBNull(Ord_usuarioDTO))
             {
-                Usuario.usuarioDTO = reader.GetInt32(Ord_usuarioDTO);
+                Usuario.IdUsuario = reader.GetInt32(Ord_usuarioDTO);
             }
             // IdReserva
             if (!reader.IsDBNull(Ord_activoDTO))
             {
-                Usuario.activoDTO = reader.GetBoolean(Ord_activoDTO);
+                Usuario.Activo = reader.GetBoolean(Ord_activoDTO);
             }
             // IdDetalleReserva
          
             // IdCliente
             if (!reader.IsDBNull(Ord_nombreDTO))
             {
-                Usuario.nombreDTO = reader.GetString(Ord_nombreDTO);
+                Usuario.Nombre = reader.GetString(Ord_nombreDTO);
             }
             // IdTipoDocumento
             if (!reader.IsDBNull(Ord_fechaAltaDTO))
             {
-                Usuario.fechaAltaDTO = reader.GetDateTime(Ord_fechaAltaDTO);
+                Usuario.FechaAlta = reader.GetDateTime(Ord_fechaAltaDTO);
             }
             // NumeroDocumento
             if (!reader.IsDBNull(Ord_fechaBajaDTO))
             {
-                Usuario.fechaBajaDTO = reader.GetDateTime(Ord_fechaBajaDTO);
+                Usuario.FechaBaja = reader.GetDateTime(Ord_fechaBajaDTO);
             }
 
             if (!reader.IsDBNull(Ord_passwordDTO))
             {
-                Usuario.passwordDTO = reader.GetString(Ord_passwordDTO);
+                Usuario.Password = reader.GetString(Ord_passwordDTO);
             }
 
             return Usuario;

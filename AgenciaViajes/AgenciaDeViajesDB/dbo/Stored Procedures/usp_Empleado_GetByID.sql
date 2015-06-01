@@ -6,5 +6,5 @@ BEGIN
 
 	SELECT * 
 	FROM Empleado
-	WHERE IDEmpleado= @IDEmpleado
+	WHERE IDEmpleado= @IDEmpleado;
 END

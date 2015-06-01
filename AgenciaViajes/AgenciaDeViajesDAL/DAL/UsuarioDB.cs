@@ -37,15 +37,15 @@ namespace AgenciaDeViajesDAL.DAL
             else
             {
                 command = GetDbSprocCommand("usp_Usuario_Update");
-                command.Parameters.Add(CreateParameter("@IDUsuario", Usuario.usuarioDTO));
+                command.Parameters.Add(CreateParameter("@IDUsuario", Usuario.IdUsuario));
             }
 
 
-            command.Parameters.Add(CreateParameter("@Comision", Usuario.activoDTO));
-            command.Parameters.Add(CreateParameter("@FechaLlegada", Usuario.fechaAltaDTO));
-            command.Parameters.Add(CreateParameter("@FechaReserva", Usuario.fechaBajaDTO));
-            command.Parameters.Add(CreateParameter("@FechaSalida", Usuario.nombreDTO,50));
-            command.Parameters.Add(CreateParameter("@IDCompaniaAerea", Usuario.passwordDTO,8));
+            command.Parameters.Add(CreateParameter("@Comision", Usuario.Activo));
+            command.Parameters.Add(CreateParameter("@FechaLlegada", Usuario.FechaAlta));
+            command.Parameters.Add(CreateParameter("@FechaReserva", Usuario.FechaBaja));
+            command.Parameters.Add(CreateParameter("@FechaSalida", Usuario.Nombre,50));
+            command.Parameters.Add(CreateParameter("@IDCompaniaAerea", Usuario.Password,8));
             
             // Run the command.
             command.Connection.Open();
@@ -56,9 +56,9 @@ namespace AgenciaDeViajesDAL.DAL
             // will have it.
             if (Usuario.IsNew)
             {
-                Usuario.usuarioDTO = (int)command.Parameters["@IDUsuario"].Value;
+                Usuario.IdUsuario = (int)command.Parameters["@IDUsuario"].Value;
             }
         }
-
+       
     }
 }

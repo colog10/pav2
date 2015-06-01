@@ -6,5 +6,5 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DELETE FROM Empleado 
-	WHERE IDEmpleado = @IDEmpleado
+	WHERE IDEmpleado = @IDEmpleado;
 END

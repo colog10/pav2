@@ -4,5 +4,5 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT * 
-	FROM Pasajero
+	FROM Pasajero;
 END

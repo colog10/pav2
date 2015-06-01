@@ -9,27 +9,30 @@ namespace AgenciaDeViajesDTO.Entities
 {
     public class EmpleadoDTO : DTOBase
     {
-        public int idEmpleadoDTO { get; set; }
-        public int legajoDTO { get; set; }
-        public string nombreDTO { get; set; }
-        public string apellidoDTO { get; set; }
-        public DateTime fechaAltaDTO { get; set; }
-        public DateTime fechaBajaDTO { get; set; }
-        public int idUsuarioDTO { get; set; }
-        public Boolean activoDTO { get; set; }
-        public Boolean supervisorDTO { get; set; }
+        public int IdEmpleado { get; set; }
+        public int Legajo { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public DateTime FechaAlta { get; set; }
+        public DateTime FechaBaja { get; set; }
+        public int IdUsuario { get; set; }
+        public Boolean Activo { get; set; }
+        public Boolean Supervisor { get; set; }
+        public UsuarioDTO Usuario { get; set; }
 
         public EmpleadoDTO()
         {
-            idEmpleadoDTO = Int_NullValue;
-            legajoDTO = Int_NullValue;
-            nombreDTO = String_NullValue;
-            apellidoDTO = String_NullValue;
-            fechaAltaDTO = DateTime_NullValue;
-            fechaBajaDTO = DateTime_NullValue;
-            idUsuarioDTO = Int_NullValue;
-            activoDTO = Boolean_NullValue;
-            supervisorDTO = Boolean_NullValue;
+            IdEmpleado = Int_NullValue;
+            Legajo = Int_NullValue;
+            Nombre = String_NullValue;
+            Apellido = String_NullValue;
+            FechaAlta = DateTime_NullValue;
+            FechaBaja = DateTime_NullValue;
+            IdUsuario = Int_NullValue;
+            Activo = Boolean_NullValue;
+            Supervisor = Boolean_NullValue;
         }
+
+        
     }
 }

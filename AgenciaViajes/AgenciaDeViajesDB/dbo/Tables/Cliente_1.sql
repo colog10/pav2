@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Cliente] (
-    [idCliente]           NUMERIC (10)  NOT NULL,
+    [idCliente]           INT  NOT NULL,
     [cuilcuit1]           NVARCHAR (2)  NOT NULL,
     [cuilcuit2]           NVARCHAR (8)  NOT NULL,
     [cuilcuit3]           NVARCHAR (1)  NOT NULL,

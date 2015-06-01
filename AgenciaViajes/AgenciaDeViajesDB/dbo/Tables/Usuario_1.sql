@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Usuario] (
-    [usuario]   NUMERIC (2)   NOT NULL,
+    [usuario]   INT   NOT NULL,
     [activo]    BIT           NOT NULL,
     [fechaAlta] DATETIME      NOT NULL,
     [fechaBaja] DATETIME      NOT NULL,

@@ -32,6 +32,10 @@ namespace AgenciaDeViajesDAL.Util
                     return new DTOParser_Reserva();
                 case "SeguroViajeroDTO":
                     return new DTOParser_SeguroViajero();
+                case "EmpleadoDTO":
+                    return new DTOParser_Empleado();
+                case "UsuarioDTO":
+                    return new DTOParser_Usuario();
                
 
             }

@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Compra] (
-    [idCompra]            NUMERIC (10) NOT NULL,
-    [idOperadorTuristico] NUMERIC (10) NOT NULL,
-    [idDetalleCompra]     NUMERIC (10) NULL,
+    [idCompra]            INT NOT NULL,
+    [idOperadorTuristico] INT NOT NULL,
+    [idDetalleCompra]     INT NULL,
     [fechaCompra]         DATETIME     NOT NULL,
     [fechaPago]           DATETIME     NOT NULL,
     [monto]               FLOAT (53)   NOT NULL,

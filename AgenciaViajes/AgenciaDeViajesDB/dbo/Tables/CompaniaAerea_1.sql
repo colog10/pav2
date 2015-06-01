@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[CompaniaAerea] (
-    [idCompaniaAerea] NUMERIC (10)  NOT NULL,
+    [idCompaniaAerea] INT  NOT NULL,
     [nombre]          NVARCHAR (50) NOT NULL,
     [telefono]        NUMERIC (13)  NULL,
     [paginaWeb]       NVARCHAR (50) NULL,

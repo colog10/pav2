@@ -1,8 +1,8 @@
 ﻿
 CREATE PROCEDURE [dbo].[usp_OperadorTuristico_Update]
 	(@idOperadorTuristico int output,
-	@idTipoDestino numeric(10,0),
-	@calificacion numeric(1,0),
+	@idTipoDestino int,
+	@calificacion int,
 	@descripcion nchar(10),
 	@direccion nvarchar(100),
 	@email nvarchar(35),
@@ -26,5 +26,5 @@ BEGIN
 		telefono=@telefono ,
 		activo =@activo,
 		fechaAlta =@fechaAlta 
-	WHERE @idOperadorTuristico = @idOperadorTuristico
+	WHERE @idOperadorTuristico = @idOperadorTuristico;
 END

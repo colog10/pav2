@@ -39,32 +39,32 @@ namespace AgenciaDeViajesDAL.Parsers
         {
             EmpleadoDTO empleadoDTO = new EmpleadoDTO();
 
-            //idEmpleado
-            if(!reader.IsDBNull(Ord_idEmpleado)) { empleadoDTO.idEmpleadoDTO = reader.GetInt32(Ord_idEmpleado);}
+            //IdEmpleado
+            if(!reader.IsDBNull(Ord_idEmpleado)) { empleadoDTO.IdEmpleado = reader.GetInt32(1);}
             
-            //legajo
-            if(!reader.IsDBNull(Ord_legajo)) { empleadoDTO.legajoDTO = reader.GetInt32(Ord_legajo);}
+            //Legajo
+            if(!reader.IsDBNull(Ord_legajo)) { empleadoDTO.Legajo = reader.GetInt32(Ord_legajo);}
 
-            //apellido
-            if(!reader.IsDBNull(Ord_apellido)) { empleadoDTO.apellidoDTO = reader.GetString(Ord_apellido);}
+            //Apellido
+            if(!reader.IsDBNull(Ord_apellido)) { empleadoDTO.Apellido = reader.GetString(Ord_apellido);}
 
-            //nombre
-            if(!reader.IsDBNull(Ord_nombre)) { empleadoDTO.nombreDTO = reader.GetString(Ord_apellido);}
+            //Nombre
+            if(!reader.IsDBNull(Ord_nombre)) { empleadoDTO.Nombre = reader.GetString(Ord_apellido);}
 
-            //fechaAlta
-            if(!reader.IsDBNull(Ord_fechaAlta)) { empleadoDTO.fechaAltaDTO = reader.GetDateTime(Ord_fechaAlta);}
+            //FechaAlta
+            if(!reader.IsDBNull(Ord_fechaAlta)) { empleadoDTO.FechaAlta = reader.GetDateTime(Ord_fechaAlta);}
 
-            //fechaBaja
-            if(!reader.IsDBNull(Ord_fechaBaja)) { empleadoDTO.fechaBajaDTO = reader.GetDateTime(Ord_fechaBaja);}
+            //FechaBaja
+            if(!reader.IsDBNull(Ord_fechaBaja)) { empleadoDTO.FechaBaja = reader.GetDateTime(Ord_fechaBaja);}
 
-            //idUsuario
-            if(!reader.IsDBNull(Ord_idUsuario)) { empleadoDTO.idUsuarioDTO = reader.GetInt32(Ord_idUsuario);}
+            //IdUsuario
+            if(!reader.IsDBNull(Ord_idUsuario)) { empleadoDTO.IdUsuario = reader.GetInt32(Ord_idUsuario);}
 
-            //activo
-            if(!reader.IsDBNull(Ord_activo)) { empleadoDTO.activoDTO = reader.GetBoolean(Ord_activo);}
+            //Activo
+            if(!reader.IsDBNull(Ord_activo)) { empleadoDTO.Activo = reader.GetBoolean(Ord_activo);}
 
-            //supervisor
-            if(!reader.IsDBNull(Ord_supervisor)) { empleadoDTO.supervisorDTO = reader.GetBoolean(Ord_supervisor);}
+            //Supervisor
+            if(!reader.IsDBNull(Ord_supervisor)) { empleadoDTO.Supervisor = reader.GetBoolean(Ord_supervisor);}
             
             return empleadoDTO;
         }

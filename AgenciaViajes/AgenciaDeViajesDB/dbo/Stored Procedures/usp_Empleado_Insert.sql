@@ -1,13 +1,13 @@
 ﻿
 CREATE PROCEDURE [dbo].[usp_Empleado_Insert]
 	(@idEmpleado int output,
-	@legajo numeric(10,0),
+	@legajo int,
 	@nombre nvarchar(30),
 	@apellido nvarchar(30),
 	@fechaAlta date,
 	@fechaBaja date,
 	@activo bit,
-	@idUsuario numeric(2,0),
+	@idUsuario int,
 	@supervisor bit)
 AS
 BEGIN
@@ -15,7 +15,7 @@ BEGIN
 
 
 	INSERT INTO Empleado (legajo,apellido,nombre,fechaAlta,fechaBaja,idUsuario,activo,supervisor)
-	VALUES (@legajo,@apellido,@nombre,@fechaAlta,@fechaBaja,@idUsuario,@activo,@supervisor)
+	VALUES (@legajo,@apellido,@nombre,@fechaAlta,@fechaBaja,@idUsuario,@activo,@supervisor);
 
-	SET @idEmpleado = SCOPE_IDENTITY()
+	SET @idEmpleado = SCOPE_IDENTITY();
 END

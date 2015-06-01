@@ -6,5 +6,5 @@ BEGIN
 	SET NOCOUNT ON;
 
 	DELETE FROM OperadorTuristico 
-	WHERE IDOperadorTuristico = @IDOperadorTuristico
+	WHERE IDOperadorTuristico = @IDOperadorTuristico;
 END

@@ -83,16 +83,17 @@
                                 <%  if (HttpContext.Current.User.IsInRole("administrador"))
                                 {%>
                                 <li><a href="/OperadoresTuristicos.aspx">Operadores turísticos</a></li>
-                                <li><a href="/Empleados.aspx">Personal</a></li>
+                                <li><a href="/Personal.aspx">Personal</a></li>
 
                               <%} %>
                             </ul>
                         </li>
                         <li><a><%= HttpContext.Current.User.Identity.Name %></a></li>
-                        <li>                          
-                            <asp:LinkButton ID="LbtnCerrarSesion" runat="server" OnClick="LbtnCerrarSesion_Click" >Cerrar Sesión</asp:LinkButton>
-                        </li>         
+                              
                         <%} %>
+                                <li>                          
+                            <asp:LinkButton ID="LbtnCerrarSesion" runat="server" OnClick="LbtnCerrarSesion_Click" >Cerrar Sesión</asp:LinkButton>
+                        </li>   
                     </LoggedInTemplate>
                 </asp:LoginView>
            </ul>

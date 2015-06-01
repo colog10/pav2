@@ -7,5 +7,5 @@ BEGIN
 
 	SELECT * 
 	FROM Pasajero
-	WHERE IDPasajero = @IDPasajero
+	WHERE IDPasajero = @IDPasajero;
 END

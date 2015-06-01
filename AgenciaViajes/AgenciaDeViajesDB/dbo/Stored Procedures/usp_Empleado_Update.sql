@@ -1,12 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[usp_Empleado_Update]
 	(@idEmpleado int output,
-	@legajo numeric(10,0),
+	@legajo int,
 	@nombre nvarchar(30),
 	@apellido nvarchar(30),
 	@fechaAlta date,
 	@fechaBaja date,
 	@activo bit,
-	@idUsuario numeric(2,0),
+	@idUsuario int,
 	@supervisor bit)
 AS
 BEGIN
@@ -21,6 +21,5 @@ BEGIN
 		activo= @activo,
 		idUsuario= @idUsuario,
 		supervisor=@supervisor
-
-	WHERE idEmpleado = @idEmpleado
+	WHERE idEmpleado = @idEmpleado;
 END

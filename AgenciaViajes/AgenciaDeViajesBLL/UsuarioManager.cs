@@ -24,7 +24,7 @@ namespace AgenciaDeViajesBLL
         public static bool AutenticarUsuario(string usuario, string password)
         {
             if (usuario.ToLower() == "administrador" && password == "123") return true;
-            if (usuario.ToLower() == "cliente" && password == "123") return true;
+            if (usuario.ToLower() == "usuario" && password == "123") return true;
            
             return false;
         }

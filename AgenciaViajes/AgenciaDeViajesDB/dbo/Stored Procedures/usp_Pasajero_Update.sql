@@ -3,12 +3,12 @@ CREATE PROCEDURE [dbo].[usp_Pasajero_Update]
 		(@idPasajero int output,
 	@apellido nvarchar(50),
 	@nombre nvarchar(50),
-	@idTipoDocumento numeric(2,0),
-	@numeroDocumento numeric(8,0),
+	@idTipoDocumento int,
+	@numeroDocumento int,
 	@cuilcuit1 nvarchar(2),
 	@cuilcuit2 nvarchar(8),
 	@cuilcuit3 nvarchar(1),
-	@idEstadoCivil numeric(2,0),
+	@idEstadoCivil int,
 	@fechaNacimiento date,
 	@idNacionalidad nvarchar(3),
 	@profesion nvarchar(50),
@@ -40,5 +40,5 @@ BEGIN
 		eliminado=@eliminado,
 		email=@email,
 		activo =@activo
-	WHERE idPasajero = @IdPasajero
+	WHERE idPasajero = @IdPasajero;
 END

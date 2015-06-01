@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Cobro] (
-    [numeroCobro] NUMERIC (10) NOT NULL,
+    [numeroCobro] INT NOT NULL,
     [fechaCobro]  DATETIME     NOT NULL,
     [numeroVenta] INT          NOT NULL,
     [monto]       FLOAT (53)   NOT NULL,

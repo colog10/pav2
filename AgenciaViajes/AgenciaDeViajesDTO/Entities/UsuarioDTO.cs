@@ -9,21 +9,21 @@ namespace AgenciaDeViajesDTO.Entities
 {
     public class UsuarioDTO :DTOBase
     {
-        public int usuarioDTO { get; set; }
-        public Boolean activoDTO { get; set; }
-        public DateTime fechaAltaDTO { get; set; }
-        public DateTime fechaBajaDTO { get; set; }
-        public string nombreDTO { get; set; }
-        public string passwordDTO { get; set; }
+        public int IdUsuario { get; set; }
+        public Boolean Activo { get; set; }
+        public DateTime FechaAlta { get; set; }
+        public DateTime FechaBaja { get; set; }
+        public string Nombre { get; set; }
+        public string Password { get; set; }
 
         public UsuarioDTO()
         {
-            usuarioDTO = Int_NullValue;
-            activoDTO = Boolean_NullValue;
-            fechaAltaDTO = DateTime_NullValue;
-            fechaBajaDTO = DateTime_NullValue;
-            nombreDTO = String_NullValue;
-            passwordDTO = String_NullValue;
+            IdUsuario = Int_NullValue;
+            Activo = Boolean_NullValue;
+            FechaAlta = DateTime_NullValue;
+            FechaBaja = DateTime_NullValue;
+            Nombre = String_NullValue;
+            Password = String_NullValue;
         }
 
     }
