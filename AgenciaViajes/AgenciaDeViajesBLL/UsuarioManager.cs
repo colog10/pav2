@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AgenciaDeViajesDAL.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,11 @@ namespace AgenciaDeViajesBLL
         {
             
             throw new NotImplementedException();
+        }
+
+        public static List<AgenciaDeViajesDTO.Entities.UsuarioDTO> GetUsuarios()
+        {
+            return UsuarioDB.GetAll();
         }
     }
 }

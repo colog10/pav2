@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDAL.DAL
 {
-    class UsuarioDB : DALBase
+    public class UsuarioDB : DALBase
     {
         public static UsuarioDTO GetUsuarioByID(int IDUsuario)
         {

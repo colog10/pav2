@@ -15,4 +15,9 @@ Default skin template. The following skins are provided as examples only.
 --%>
 
 <asp:Button runat="server" class="btn btn-default" />
-<asp:GridView runat="server" class="table table-bordered" />
+<asp:GridView runat="server" CssClass="table table-bordered" >
+    <HeaderStyle CssClass="thead" />
+</asp:GridView>
+<asp:DropDownList runat="server" CssClass="dropdown btn btn-default form-control" ></asp:DropDownList>
+<asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+

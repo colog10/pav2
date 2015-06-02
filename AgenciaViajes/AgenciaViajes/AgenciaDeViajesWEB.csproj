@@ -67,6 +67,12 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery-ui.min.css" />
+    <Content Include="css\jquery-ui.structure.css" />
+    <Content Include="css\jquery-ui.structure.min.css" />
+    <Content Include="css\jquery-ui.theme.css" />
+    <Content Include="css\jquery-ui.theme.min.css" />
     <Content Include="css\main.css" />
     <Content Include="css\prettyPhoto.css" />
     <Content Include="css\responsive.css" />
@@ -222,6 +228,8 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\html5shiv.js" />
     <Content Include="js\jquery-1.11.2.min.js" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.isotope.min.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.prettyPhoto.js" />

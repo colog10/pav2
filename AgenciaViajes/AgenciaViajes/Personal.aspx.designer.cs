@@ -94,24 +94,6 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.TextBox txtLegajo;
         
         /// <summary>
-        /// cldFechaAlta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar cldFechaAlta;
-        
-        /// <summary>
-        /// cldFechaBaja control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar cldFechaBaja;
-        
-        /// <summary>
         /// ddlUsuario control.
         /// </summary>
         /// <remarks>
@@ -119,6 +101,24 @@ namespace AgenciaViajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlUsuario;
+        
+        /// <summary>
+        /// txtFechaAlta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaAlta;
+        
+        /// <summary>
+        /// txtFechaBaja control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaBaja;
         
         /// <summary>
         /// chkSupervisor control.
@@ -146,6 +146,15 @@ namespace AgenciaViajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
+        
+        /// <summary>
+        /// btnModificar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificar;
         
         /// <summary>
         /// btnCancelar control.
