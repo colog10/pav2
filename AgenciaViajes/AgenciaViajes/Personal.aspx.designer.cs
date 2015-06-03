@@ -103,15 +103,6 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.Button btnNuevo;
         
         /// <summary>
-        /// btnEliminar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
-        
-        /// <summary>
         /// btnModificarSeleccionado control.
         /// </summary>
         /// <remarks>
@@ -119,6 +110,15 @@ namespace AgenciaViajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnModificarSeleccionado;
+        
+        /// <summary>
+        /// btnEliminar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
         
         /// <summary>
         /// txtBuscar control.
@@ -218,6 +218,15 @@ namespace AgenciaViajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkActivo;
+        
+        /// <summary>
+        /// hdIdEmpleado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdIdEmpleado;
         
         /// <summary>
         /// btnGuardar control.

@@ -25,5 +25,10 @@ namespace AgenciaDeViajesBLL
             EmpleadoDB.SaveEmpleado(ref empleado);
 
         }
+
+        public static EmpleadoDTO GetEmpleado(int idEmpleado)
+        {
+            return EmpleadoDB.GetEmpleadoByID(idEmpleado);
+        }
     }
 }
