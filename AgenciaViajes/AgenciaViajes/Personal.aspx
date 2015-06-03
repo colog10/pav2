@@ -5,6 +5,13 @@
             $("[id$=txtFechaAlta]").datepicker();
             $("[id$=txtFechaBaja]").datepicker();
         });
+
+        function CheckAllElementos(Checkbox) {
+            var GridVwHeaderChckbox = document.getElementById("<%=gvEmpleados.ClientID %>");
+            for (i = 1; i < GridVwHeaderChckbox.rows.length; i++) {
+                GridVwHeaderChckbox.rows[i].cells[0].getElementsByTagName("INPUT")[0].checked = Checkbox.checked;
+            }
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -41,12 +48,19 @@
             <div class="col-md-12">
                 <asp:GridView ID="gvEmpleados" runat="server" EmptyDataText="No hay datos para mostrar" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" >
                     <Columns>
-                        <asp:CommandField ShowSelectButton="True" />
+                        
+                        <asp:TemplateField ItemStyle-Width="40px">
+                            <HeaderTemplate>
+                                <asp:CheckBox ID="chkSelectAll" runat="server" onclick="CheckAllElementos(this);" />
+                            </HeaderTemplate>
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <ItemTemplate>
+                                <asp:CheckBox ID="chkEmpleado" runat="server"></asp:CheckBox>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField HeaderText="Apellido" DataField="apellido" />
                         <asp:BoundField HeaderText="Nombre" DataField="nombre" />
                         <asp:BoundField HeaderText="Legajo" DataField="legajo" />
-                        
-                        <asp:CheckBoxField />
                     </Columns>
                 </asp:GridView>
             </div>
