@@ -25,7 +25,7 @@ namespace AgenciaDeViajesDAL.Parsers
         internal override void PopulateOrdinals(SqlDataReader reader)
         {
 
-            Ord_usuarioDTO = reader.GetOrdinal("usuario");
+            Ord_usuarioDTO = reader.GetOrdinal("idUsuario");
             Ord_activoDTO = reader.GetOrdinal("activo");
             Ord_fechaAltaDTO = reader.GetOrdinal("fechaAlta");
             Ord_fechaBajaDTO = reader.GetOrdinal("fechaBaja");

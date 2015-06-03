@@ -20,7 +20,7 @@ namespace AgenciaDeViajesDTO.Entities
         public string Cuilcuit3 { get; set; }
         public int IdEstadoCivil { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public int IdNacionalidad { get; set; }
+        public string IdNacionalidad { get; set; }
         public string Profesion { get; set; }
         public string Domicilio { get; set; }
         public string Telefono { get; set; }
@@ -41,7 +41,7 @@ namespace AgenciaDeViajesDTO.Entities
             Cuilcuit3 = String_NullValue;
             IdEstadoCivil = Int_NullValue;
             FechaNacimiento = DateTime_NullValue;
-            IdNacionalidad = Int_NullValue;
+            IdNacionalidad = String_NullValue;
             Profesion = String_NullValue;
             Domicilio = String_NullValue;
             Telefono = String_NullValue;

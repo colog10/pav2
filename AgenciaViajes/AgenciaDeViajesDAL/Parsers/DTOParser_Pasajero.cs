@@ -109,7 +109,7 @@ namespace AgenciaDeViajesDAL.Parsers
             // IdNacionalidad
             if (!reader.IsDBNull(Ord_IdNacionalidad))
             {
-                pasajero.IdNacionalidad = reader.GetInt32(Ord_IdNacionalidad);
+                pasajero.IdNacionalidad = reader.GetString(Ord_IdNacionalidad);
             }
             // Profesion
             if (!reader.IsDBNull(Ord_Profesion))

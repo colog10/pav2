@@ -1,5 +1,6 @@
 ﻿using AgenciaDeViajesBLL;
 using AgenciaDeViajesDTO.Entities;
+using AgenciaDeViajesDTO.Util;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -91,10 +92,17 @@ namespace AgenciaViajes
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
+            HabilitarNuevo();
+        }
+
+        private void HabilitarNuevo()
+        {
+
             ConsultaSection.Visible = false;
             altaModificacionSection.Visible = true;
             btnGuardar.Visible = true;
             btnModificar.Visible = false;
+            ddlUsuario.Enabled = true;
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -155,13 +163,65 @@ namespace AgenciaViajes
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         
         protected void btnModificarSeleccionado_Click(object sender, EventArgs e)
         {
+            OcultarMensajes();
+            int idEmpleado = 0;
+            int cantidadSeleccionados = 0;
 
+            foreach (GridViewRow row in gvEmpleados.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkElemento") as CheckBox);
+                    if (chkRow.Checked)
+                    {
+                        cantidadSeleccionados++;
+                        if (cantidadSeleccionados > 1)
+                        {
+                            DangerMessage.Visible = true;
+                            LblDanger.Text = "No es posible modificar mas de un empleado al mismo tiempo.";
+                            return;
+                        }
+                        idEmpleado = Convert.ToInt16(row.Cells[1].Text);
+                    }
+                }
+            }
+            if (cantidadSeleccionados == 0)
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "Seleccione un empleado para modificar sus datos.";
+                return;
+            }
+            CargarDatos(EmpleadoManager.GetEmpleado(idEmpleado));
+            HabilitarModificacion();
+        }
+
+        private void HabilitarModificacion()
+        {
+            ConsultaSection.Visible = false;
+            altaModificacionSection.Visible = true;
+            btnGuardar.Visible = false;
+            btnModificar.Visible = true;
+            ddlUsuario.Enabled = false;
+        }
+
+        private void CargarDatos(EmpleadoDTO empleadoDTO)
+        {
+            chkActivo.Checked = empleadoDTO.Activo;
+            chkSupervisor.Checked = empleadoDTO.Supervisor;
+            txtFechaAlta.Text = empleadoDTO.FechaAlta.ToString().Split(' ')[0];
+            if (empleadoDTO.FechaBaja != CommonBase.DateTime_NullValue)
+                txtFechaBaja.Text = empleadoDTO.FechaBaja.Value.ToString().Split(' ')[0];
+            txtApellido.Text = empleadoDTO.Apellido;
+            txtLegajo.Text = Convert.ToString(empleadoDTO.Legajo);
+            txtNombre.Text = empleadoDTO.Nombre;
+            ddlUsuario.SelectedValue = Convert.ToString(empleadoDTO.IdUsuario);
+            hdIdEmpleado.Value = Convert.ToString(empleadoDTO.IdEmpleado);
         }
     }
 }

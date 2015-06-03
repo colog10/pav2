@@ -40,7 +40,7 @@ namespace AgenciaDeViajesDAL.Parsers
             EmpleadoDTO empleadoDTO = new EmpleadoDTO();
 
             //IdEmpleado
-            if(!reader.IsDBNull(Ord_idEmpleado)) { empleadoDTO.IdEmpleado = reader.GetInt32(1);}
+            if(!reader.IsDBNull(Ord_idEmpleado)) { empleadoDTO.IdEmpleado = reader.GetInt32(Ord_idEmpleado);}
             
             //Legajo
             if(!reader.IsDBNull(Ord_legajo)) { empleadoDTO.Legajo = reader.GetInt32(Ord_legajo);}
