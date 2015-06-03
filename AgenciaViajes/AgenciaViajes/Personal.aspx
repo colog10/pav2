@@ -34,7 +34,7 @@
        
         <div class="row">
             <div class="col-md-12">
-                <asp:Button ID="btnNuevo" CausesValidation="false" runat="server" Text="Nuevo" CssClass="btn btn-primary" OnClick="btnNuevo_Click" /> <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+                <asp:Button ID="btnNuevo" CausesValidation="false" runat="server" Text="Nuevo" CssClass="btn btn-primary" OnClick="btnNuevo_Click" /> <asp:Button ID="btnModificarSeleccionado" runat="server" Text="Modificar" OnClick="btnModificarSeleccionado_Click" /> <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />  
             </div>
         </div>
         <div class="row">
