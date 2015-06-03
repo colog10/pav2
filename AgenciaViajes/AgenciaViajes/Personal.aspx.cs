@@ -140,7 +140,7 @@ namespace AgenciaViajes
             
             
             EmpleadoDTO empleado = new EmpleadoDTO();
-            UsuarioDTO usuario = new UsuarioDTO();
+            
             empleado.Activo = chkActivo.Checked;
             empleado.Apellido = txtApellido.Text;
             empleado.Nombre = txtNombre.Text;
@@ -154,6 +154,8 @@ namespace AgenciaViajes
                 empleado.IdUsuario = Convert.ToInt32(ddlUsuario.SelectedValue);
             }
             EmpleadoManager.SaveEmpleado(empleado);
+            InicializarPantalla();
+            LoadData();
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -163,7 +165,51 @@ namespace AgenciaViajes
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-            
+            int legajo;
+
+            if (!Int32.TryParse(txtLegajo.Text, out legajo))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El legajo debe ser un valor numérico.";
+                return;
+            }
+            DateTime fechaAlta;
+            if (!DateTime.TryParseExact(txtFechaAlta.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaAlta))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El formato de la fecha de alta debe ser dd/MM/yyyy.";
+                return;
+            }
+
+            DateTime? fechaBaja = null;
+            if (txtFechaBaja.Text != "" && !DateTime.TryParseExact(txtFechaBaja.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaAlta))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El formato de la fecha de baja debe ser dd/MM/yyyy.";
+                return;
+            }
+
+
+            EmpleadoDTO empleado = new EmpleadoDTO();
+
+            empleado.IdEmpleado = Convert.ToInt32(hdIdEmpleado.Value);
+            empleado.Activo = chkActivo.Checked;
+            empleado.Apellido = txtApellido.Text;
+            empleado.Nombre = txtNombre.Text;
+            empleado.FechaAlta = fechaAlta;
+            if (fechaBaja != null)
+                empleado.FechaBaja = fechaBaja;
+            empleado.Legajo = legajo;
+            empleado.IsNew = false;
+            empleado.Supervisor = chkSupervisor.Checked;
+            if (ddlUsuario.SelectedValue != "")
+            {
+                empleado.IdUsuario = Convert.ToInt32(ddlUsuario.SelectedValue);
+            }
+
+            EmpleadoManager.SaveEmpleado(empleado);
+            InicializarPantalla();
+            LoadData();
         }
 
         
@@ -187,7 +233,9 @@ namespace AgenciaViajes
                             LblDanger.Text = "No es posible modificar mas de un empleado al mismo tiempo.";
                             return;
                         }
-                        idEmpleado = Convert.ToInt16(row.Cells[1].Text);
+                        idEmpleado = Convert.ToInt32(gvEmpleados.DataKeys[row.RowIndex].Value.ToString());
+
+
                     }
                 }
             }
