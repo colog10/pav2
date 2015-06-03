@@ -56,6 +56,32 @@ namespace AgenciaViajes
 
         private void LoadData()
         {
+            LoadOperadoresTuristicos();
+            LoadTiposDestino();
+            LoadCalificacion();
+        }
+
+        private void LoadCalificacion()
+        {
+            ddlTipoDestino.Items.Insert(0, "Seleccione");
+            ddlTipoDestino.Items.Insert(1, "Malo");
+            ddlTipoDestino.Items.Insert(2, "Regular");
+            ddlTipoDestino.Items.Insert(3, "Bueno");
+            ddlTipoDestino.Items.Insert(4, "Muy Bueno");
+            ddlTipoDestino.Items.Insert(5, "Excelente");
+        }
+
+        private void LoadTiposDestino()
+        {
+            List<TipoDestinoDTO> tiposDestinos = TipoDestinoManager.GettiposDeDestino();
+            ddlTipoDestino.DataSource = tiposDestinos;
+            ddlTipoDestino.DataBind();
+            ListItem emptyItem = new ListItem("SELECCIONE", "");
+            ddlTipoDestino.Items.Insert(0, emptyItem);
+        }
+
+        private void LoadOperadoresTuristicos()
+        {
             List<OperadorTuristicoDTO> operadoresTuristicos = OperadorTuristicoManager.GetOperadorTuristico();
             gvOperadoresTuristicos.DataSource = operadoresTuristicos;
             gvOperadoresTuristicos.DataBind();

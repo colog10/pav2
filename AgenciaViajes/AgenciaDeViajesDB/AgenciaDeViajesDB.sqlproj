@@ -110,6 +110,7 @@
     <Build Include="dbo\Stored Procedures\usp_EstadoCivil_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\usp_Paises_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\usp_TipoDocumento_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TipoDestino_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AgenciaDeViajesDB.refactorlog" />
