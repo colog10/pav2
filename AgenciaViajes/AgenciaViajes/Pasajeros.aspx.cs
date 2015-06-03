@@ -166,7 +166,7 @@ namespace AgenciaViajes
             pasajero.Activo = chkActivo.Checked;
             pasajero.Apellido = txtApellido.Text;
             pasajero.Nombre = txtNombre.Text;
-            pasajero.FechaNacimiento = cldFechaAlta.SelectedDate;
+            pasajero.FechaNacimiento = Convert.ToDateTime(txtNacimiento.Text);
             pasajero.Cuilcuit1 = txtCuil.Text;
             pasajero.Cuilcuit2 = txtCuil.Text;
             pasajero.Cuilcuit3 = txtCuil.Text;

@@ -121,6 +121,7 @@ namespace AgenciaViajes
                     {
                         int idEmpleado = Convert.ToInt32(gvEmpleados.DataKeys[row.RowIndex].Value.ToString());
                         EmpleadoManager.DeleteEmpleado(idEmpleado);
+                        seleccionados = true;
                     }
                 }
             }
@@ -128,17 +129,15 @@ namespace AgenciaViajes
             if (!seleccionados)
             {
                 DangerMessage.Visible = true;
-                LblDanger.Text = "Seleccione un empleado eliminarlo.";
+                LblDanger.Text = "Seleccione un empleado para eliminarlo.";
                 return;
             }
             else {
                 SuccessMessage.Visible = true;
                 LblSuccess.Text = "Datos Eliminados Correctamente.";
-                return;
-            
             }
-            ReloadData();
             InicializarPantalla();
+            LoadEmpleados();
         }
 
         
