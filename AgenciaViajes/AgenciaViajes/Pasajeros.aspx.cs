@@ -67,10 +67,11 @@ namespace AgenciaViajes
 
         private void LoadData()
         {
-            LoadPasajeros();
             LoadTipoDocumento();
             loadEstadoCivil();
             loadNacinalidad();
+            LoadPasajeros();
+
 
         }
 
@@ -102,7 +103,7 @@ namespace AgenciaViajes
 
         private void LoadPasajeros()
         {
-            List<PasajeroDTO> pasajero = PasajeroManager.GetPasajeros(Termino);
+            List<PasajeroDTO> pasajero = PasajeroManager.GetPasajeros();
             gvPasajero.DataSource = pasajero;
             gvPasajero.DataBind();
 

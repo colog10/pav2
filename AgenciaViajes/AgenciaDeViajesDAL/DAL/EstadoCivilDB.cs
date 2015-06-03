@@ -14,14 +14,14 @@ namespace AgenciaDeViajesDAL.DAL
     {
         public static EstadoCivilDTO GetEstadoCivilByID(int IDEstadoCivil)
         {
-            SqlCommand command = GetDbSprocCommand("usp_EstadosCiviles_GetByID");
+            SqlCommand command = GetDbSprocCommand("usp_EstadoCivil_GetByID");
             command.Parameters.Add(CreateParameter("@IDEstadoCivil", IDEstadoCivil));
             return GetSingleDTO<EstadoCivilDTO>(ref command);
         }
 
         public static List<EstadoCivilDTO> GetAll()
         {
-            SqlCommand command = GetDbSprocCommand("usp_EstadosCiviles_GetAll");
+            SqlCommand command = GetDbSprocCommand("usp_EstadoCivil_GetAll");
             return GetDTOList<EstadoCivilDTO>(ref command);
         }
 
@@ -31,12 +31,12 @@ namespace AgenciaDeViajesDAL.DAL
 
             if (EstadoCivil.IsNew)
             {
-                command = GetDbSprocCommand("usp_EstadosCiviles_Insert");
+                command = GetDbSprocCommand("usp_EstadoCivil_Insert");
                 command.Parameters.Add(CreateOutputParameter("@IDEstadoCivil", SqlDbType.Int));
             }
             else
             {
-                command = GetDbSprocCommand("usp_EstadosCiviles_Update");
+                command = GetDbSprocCommand("usp_EstadoCivil_Update");
                 command.Parameters.Add(CreateParameter("@IDEstadoCivil", EstadoCivil.IdEstadoCivil));
             }
 
