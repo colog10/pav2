@@ -243,6 +243,7 @@
     <Content Include="NuevaReserva.aspx" />
     <Content Include="NuevaVenta.aspx" />
     <Content Include="OperadoresTuristicos.aspx" />
+    <Content Include="Pasajeros.aspx" />
     <Content Include="Personal.aspx" />
     <Content Include="Reservas.aspx" />
     <Content Include="Ventas.aspx" />
@@ -328,6 +329,13 @@
     </Compile>
     <Compile Include="OperadoresTuristicos.aspx.designer.cs">
       <DependentUpon>OperadoresTuristicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pasajeros.aspx.cs">
+      <DependentUpon>Pasajeros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pasajeros.aspx.designer.cs">
+      <DependentUpon>Pasajeros.aspx</DependentUpon>
     </Compile>
     <Compile Include="Personal.aspx.cs">
       <DependentUpon>Personal.aspx</DependentUpon>

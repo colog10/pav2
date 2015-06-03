@@ -106,6 +106,10 @@
     <Build Include="dbo\Stored Procedures\usp_Empleado_Update.sql" />
     <Build Include="dbo\Stored Procedures\usp_Usuario_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\usp_OperadorTuristico_GetByTermino.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Pasajero_GetByTermino.sql" />
+    <Build Include="dbo\Stored Procedures\usp_EstadoCivil_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Paises_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TipoDocumento_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AgenciaDeViajesDB.refactorlog" />
