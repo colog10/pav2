@@ -19,7 +19,7 @@
     [activo]          BIT            NULL,
     CONSTRAINT [PK_Pasajer] PRIMARY KEY CLUSTERED ([idPasajero] ASC),
     CONSTRAINT [FK_Pasajer_EstadoCivil] FOREIGN KEY ([idEstadoCivil]) REFERENCES [dbo].[EstadoCivil] ([idEstadoCivil]),
-    CONSTRAINT [FK_Pasajer_Pais] FOREIGN KEY ([idNacionalidad]) REFERENCES [dbo].[Pais] ([PaisCodigo]),
+    CONSTRAINT [FK_Pasajer_Pais] FOREIGN KEY ([idNacionalidad]) REFERENCES [dbo].[Pais] ([idPais]),
     CONSTRAINT [FK_Pasajer_TipoDocumento] FOREIGN KEY ([idTipoDocumento]) REFERENCES [dbo].[TipoDocumento] ([idTipoDocumento])
 );
 

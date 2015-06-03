@@ -16,12 +16,10 @@ namespace AgenciaDeViajesDAL.Parsers
         private int Ord_PaisNombre;
         private int Ord_PaisContinente;
         private int Ord_PaisRegion;
-        private int Ord_PaisArea;
-        private int Ord_PaisIndependencia;
+      
+     
         private int Ord_PaisPoblacion;
-        private int Ord_PaisExpectativaDeVida;
-        private int Ord_PaisProductoInternoBruto;
-        private int Ord_PaisProductoInternoBrutoAntiguo;
+      
         private int Ord_PaisNombreLocal;
         private int Ord_PaisGobierno;
         private int Ord_PaisJefeDeEstado;
@@ -30,21 +28,18 @@ namespace AgenciaDeViajesDAL.Parsers
 
         internal override void PopulateOrdinals(SqlDataReader reader)
         {
-            Ord_PaisCodigo = reader.GetOrdinal("PaisCodigo");
+            Ord_PaisCodigo = reader.GetOrdinal("idPais");
             Ord_PaisNombre = reader.GetOrdinal("PaisNombre");
             Ord_PaisContinente = reader.GetOrdinal("PaisContinente");
             Ord_PaisRegion = reader.GetOrdinal("PaisRegion");
-            Ord_PaisArea = reader.GetOrdinal("PaisArea");
-            Ord_PaisIndependencia = reader.GetOrdinal("PaisIndependencia");
+           
             Ord_PaisPoblacion = reader.GetOrdinal("PaisPoblacion");
-            Ord_PaisExpectativaDeVida = reader.GetOrdinal("PaisExpectativaDeVida");
-            Ord_PaisProductoInternoBruto = reader.GetOrdinal("PaisProductoInternoBruto");
-            Ord_PaisProductoInternoBrutoAntiguo = reader.GetOrdinal("PaisProductoInternoBrutoAntiguo");
+          
             Ord_PaisNombreLocal = reader.GetOrdinal("PaisNombreLocal");
             Ord_PaisGobierno = reader.GetOrdinal("PaisGobierno");
             Ord_PaisJefeDeEstado = reader.GetOrdinal("PaisJefeDeEstado");
             Ord_PaisCapital = reader.GetOrdinal("PaisCapital");
-            Ord_PaisCodigo2 = reader.GetOrdinal("PaisCodigo2");
+            Ord_PaisCodigo2 = reader.GetOrdinal("idPais2");
         }
 
         internal override DTOBase PopulateDTO(SqlDataReader reader)
@@ -70,36 +65,13 @@ namespace AgenciaDeViajesDAL.Parsers
             {
                 pais.PaisRegion = reader.GetString(Ord_PaisRegion);
             }
-            // PaisArea
-            if (!reader.IsDBNull(Ord_PaisArea))
-            {
-                pais.PaisArea = reader.GetInt32(Ord_PaisArea);
-            }
-            // PaisIndependencia
-            if (!reader.IsDBNull(Ord_PaisIndependencia))
-            {
-                pais.PaisIndependencia = reader.GetInt32(Ord_PaisIndependencia);
-            }
+          
             // PaisPoblacion
             if (!reader.IsDBNull(Ord_PaisPoblacion))
             {
                 pais.PaisPoblacion = reader.GetInt32(Ord_PaisPoblacion);
             }
-            // PaisExpectativaDeVida
-            if (!reader.IsDBNull(Ord_PaisExpectativaDeVida))
-            {
-                pais.PaisExpectativaDeVida = reader.GetInt32(Ord_PaisExpectativaDeVida);
-            }
-            // PaisProductoInternoBruto
-            if (!reader.IsDBNull(Ord_PaisProductoInternoBruto))
-            {
-                pais.PaisProductoInternoBruto = reader.GetInt32(Ord_PaisProductoInternoBruto);
-            }
-            // PaisProductoInternoBrutoAntiguo
-            if (!reader.IsDBNull(Ord_PaisProductoInternoBrutoAntiguo))
-            {
-                pais.PaisProductoInternoBrutoAntiguo = reader.GetFloat(Ord_PaisProductoInternoBrutoAntiguo);
-            }
+          
             // PaisNombreLocal
             if (!reader.IsDBNull(Ord_PaisNombreLocal))
             {

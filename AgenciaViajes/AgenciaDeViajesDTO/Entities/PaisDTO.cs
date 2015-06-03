@@ -13,12 +13,10 @@ namespace AgenciaDeViajesDTO.Entities
         public string PaisNombre { get; set; }
         public string PaisContinente { get; set; }
         public string PaisRegion { get; set; }
-        public float PaisArea { get; set; }
-        public int PaisIndependencia { get; set; }
+
+       
         public int PaisPoblacion { get; set; }
-        public float PaisExpectativaDeVida { get; set; }
-        public float PaisProductoInternoBruto { get; set; }
-        public float PaisProductoInternoBrutoAntiguo { get; set; }
+      
         public string PaisNombreLocal { get; set; }
         public string PaisGobierno { get; set; }
         public string PaisJefeDeEstado { get; set; }
@@ -31,12 +29,10 @@ namespace AgenciaDeViajesDTO.Entities
             PaisNombre = String_NullValue;
             PaisContinente = String_NullValue;
             PaisRegion = String_NullValue;
-            PaisArea = Float_NullValue;
-            PaisIndependencia = Int_NullValue;
+           
+           
             PaisPoblacion = Int_NullValue;
-            PaisExpectativaDeVida = Float_NullValue;
-            PaisProductoInternoBruto = Float_NullValue;
-            PaisProductoInternoBrutoAntiguo = Float_NullValue;
+           
             PaisNombreLocal = String_NullValue;
             PaisGobierno = String_NullValue;
             PaisJefeDeEstado = String_NullValue;
