@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDAL.DAL
 {
-    class TipoDestinoDB : DALBase
+    public class TipoDestinoDB : DALBase
     {
         public static TipoDestinoDTO GetTipoDestinoByID(int IDTipoDestino)
         {
