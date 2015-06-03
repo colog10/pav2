@@ -31,8 +31,6 @@ namespace AgenciaDeViajesDAL.DAL
         {
             SqlCommand command;
             
-            UsuarioDTO usuario = empleado.Usuario;
-
             if (empleado.IsNew)
             {
                 command = GetDbSprocCommand("usp_Empleado_Insert");
@@ -71,6 +69,19 @@ namespace AgenciaDeViajesDAL.DAL
             SqlCommand command = GetDbSprocCommand("usp_Empleado_GetByTermino");
             command.Parameters.Add(CreateParameter("@Termino", termino, 70));
             return GetDTOList<EmpleadoDTO>(ref command);
+        }
+
+        public static void DeleteEmpleado(int idEmpleado)
+        {
+            SqlCommand command;
+            command = GetDbSprocCommand("usp_Empleado_Delete");
+            command.Parameters.Add(CreateParameter("@idEmpleado", idEmpleado));
+            
+            // Run the command.
+            command.Connection.Open();
+            command.ExecuteNonQuery();
+            command.Connection.Close();           
+            
         }
     }
 }

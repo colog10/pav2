@@ -108,6 +108,37 @@ namespace AgenciaViajes
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
 
+            OcultarMensajes();
+            
+            bool seleccionados = false;
+
+            foreach (GridViewRow row in gvEmpleados.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkElemento") as CheckBox);
+                    if (chkRow.Checked)
+                    {
+                        int idEmpleado = Convert.ToInt32(gvEmpleados.DataKeys[row.RowIndex].Value.ToString());
+                        EmpleadoManager.DeleteEmpleado(idEmpleado);
+                    }
+                }
+            }
+
+            if (!seleccionados)
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "Seleccione un empleado eliminarlo.";
+                return;
+            }
+            else {
+                SuccessMessage.Visible = true;
+                LblSuccess.Text = "Datos Eliminados Correctamente.";
+                return;
+            
+            }
+            ReloadData();
+            InicializarPantalla();
         }
 
         
