@@ -14,7 +14,7 @@ namespace AgenciaDeViajesDTO.Entities
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public DateTime FechaAlta { get; set; }
-        public DateTime FechaBaja { get; set; }
+        public DateTime? FechaBaja { get; set; }
         public int IdUsuario { get; set; }
         public Boolean Activo { get; set; }
         public Boolean Supervisor { get; set; }

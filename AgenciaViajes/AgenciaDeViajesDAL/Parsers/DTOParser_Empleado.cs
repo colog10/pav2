@@ -49,7 +49,7 @@ namespace AgenciaDeViajesDAL.Parsers
             if(!reader.IsDBNull(Ord_apellido)) { empleadoDTO.Apellido = reader.GetString(Ord_apellido);}
 
             //Nombre
-            if(!reader.IsDBNull(Ord_nombre)) { empleadoDTO.Nombre = reader.GetString(Ord_apellido);}
+            if(!reader.IsDBNull(Ord_nombre)) { empleadoDTO.Nombre = reader.GetString(Ord_nombre);}
 
             //FechaAlta
             if(!reader.IsDBNull(Ord_fechaAlta)) { empleadoDTO.FechaAlta = reader.GetDateTime(Ord_fechaAlta);}

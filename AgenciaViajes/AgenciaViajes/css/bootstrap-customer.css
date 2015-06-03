@@ -4,8 +4,12 @@
 }
 
 .content-page > section {
-  padding: 70px 0px;
+  padding: 15px 0px;
   padding-bottom: 160px;
+}
+
+.header-section{
+    padding-top:50px;
 }
 
 .page-404, .construction-page {

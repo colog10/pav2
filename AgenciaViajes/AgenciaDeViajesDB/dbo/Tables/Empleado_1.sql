@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Empleado] (
-    [idEmpleado] INT  NOT NULL,
+    [idEmpleado] INT  IDENTITY(1,1) NOT NULL,
     [legajo]     INT  NOT NULL,
     [apellido]   NVARCHAR (30) NOT NULL,
     [nombre]     NVARCHAR (30) NOT NULL,
