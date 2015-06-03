@@ -46,7 +46,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView ID="gvEmpleados" runat="server" EmptyDataText="No hay datos para mostrar" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" >
+                <asp:GridView ID="gvEmpleados" runat="server" DataKeyNames="IdEmpleado" EmptyDataText="No hay datos para mostrar" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" >
                     <Columns>
                         
                         <asp:TemplateField ItemStyle-Width="40px">
@@ -55,12 +55,13 @@
                             </HeaderTemplate>
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             <ItemTemplate>
-                                <asp:CheckBox ID="chkEmpleado" runat="server"></asp:CheckBox>
+                                <asp:CheckBox ID="chkElemento" runat="server"></asp:CheckBox>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField HeaderText="Apellido" DataField="apellido" />
-                        <asp:BoundField HeaderText="Nombre" DataField="nombre" />
-                        <asp:BoundField HeaderText="Legajo" DataField="legajo" />
+                        <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
+                        <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
+                        <asp:BoundField HeaderText="Legajo" DataField="Legajo" />
+                        
                     </Columns>
                 </asp:GridView>
             </div>
@@ -146,10 +147,11 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" runat="server" id="hdIdEmpleado"  />
         <div class="row">
             <div class="col-md-12">
                 <asp:Button runat="server" ID="btnGuardar" Text="Guardar" CssClass="btn btn-primary" ValidationGroup="GuardarGroup" OnClick="btnGuardar_Click" />
-                <asp:Button runat="server" ID="btnModificar" Text="Guardar" CssClass="btn btn-primary" OnClick="btnModificar_Click"  ValidationGroup="GuardarGroup"/>
+                <asp:Button runat="server" ID="btnModificar" Text="Modificar" CssClass="btn btn-primary" OnClick="btnModificar_Click"  ValidationGroup="GuardarGroup"/>
                 <asp:Button runat="server" ID="btnCancelar" Text="Cancelar" OnClick="btnCancelar_Click"/>
             </div>
         </div>

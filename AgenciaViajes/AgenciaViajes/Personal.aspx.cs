@@ -1,5 +1,6 @@
 ﻿using AgenciaDeViajesBLL;
 using AgenciaDeViajesDTO.Entities;
+using AgenciaDeViajesDTO.Util;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -91,10 +92,17 @@ namespace AgenciaViajes
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
+            HabilitarNuevo();
+        }
+
+        private void HabilitarNuevo()
+        {
+
             ConsultaSection.Visible = false;
             altaModificacionSection.Visible = true;
             btnGuardar.Visible = true;
             btnModificar.Visible = false;
+            ddlUsuario.Enabled = true;
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -132,7 +140,7 @@ namespace AgenciaViajes
             
             
             EmpleadoDTO empleado = new EmpleadoDTO();
-            UsuarioDTO usuario = new UsuarioDTO();
+            
             empleado.Activo = chkActivo.Checked;
             empleado.Apellido = txtApellido.Text;
             empleado.Nombre = txtNombre.Text;
@@ -146,6 +154,8 @@ namespace AgenciaViajes
                 empleado.IdUsuario = Convert.ToInt32(ddlUsuario.SelectedValue);
             }
             EmpleadoManager.SaveEmpleado(empleado);
+            InicializarPantalla();
+            LoadData();
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -155,13 +165,111 @@ namespace AgenciaViajes
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+            int legajo;
 
+            if (!Int32.TryParse(txtLegajo.Text, out legajo))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El legajo debe ser un valor numérico.";
+                return;
+            }
+            DateTime fechaAlta;
+            if (!DateTime.TryParseExact(txtFechaAlta.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaAlta))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El formato de la fecha de alta debe ser dd/MM/yyyy.";
+                return;
+            }
+
+            DateTime? fechaBaja = null;
+            if (txtFechaBaja.Text != "" && !DateTime.TryParseExact(txtFechaBaja.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaAlta))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El formato de la fecha de baja debe ser dd/MM/yyyy.";
+                return;
+            }
+
+
+            EmpleadoDTO empleado = new EmpleadoDTO();
+
+            empleado.IdEmpleado = Convert.ToInt32(hdIdEmpleado.Value);
+            empleado.Activo = chkActivo.Checked;
+            empleado.Apellido = txtApellido.Text;
+            empleado.Nombre = txtNombre.Text;
+            empleado.FechaAlta = fechaAlta;
+            if (fechaBaja != null)
+                empleado.FechaBaja = fechaBaja;
+            empleado.Legajo = legajo;
+            empleado.IsNew = false;
+            empleado.Supervisor = chkSupervisor.Checked;
+            if (ddlUsuario.SelectedValue != "")
+            {
+                empleado.IdUsuario = Convert.ToInt32(ddlUsuario.SelectedValue);
+            }
+
+            EmpleadoManager.SaveEmpleado(empleado);
+            InicializarPantalla();
+            LoadData();
         }
 
         
         protected void btnModificarSeleccionado_Click(object sender, EventArgs e)
         {
+            OcultarMensajes();
+            int idEmpleado = 0;
+            int cantidadSeleccionados = 0;
 
+            foreach (GridViewRow row in gvEmpleados.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkElemento") as CheckBox);
+                    if (chkRow.Checked)
+                    {
+                        cantidadSeleccionados++;
+                        if (cantidadSeleccionados > 1)
+                        {
+                            DangerMessage.Visible = true;
+                            LblDanger.Text = "No es posible modificar mas de un empleado al mismo tiempo.";
+                            return;
+                        }
+                        idEmpleado = Convert.ToInt32(gvEmpleados.DataKeys[row.RowIndex].Value.ToString());
+
+
+                    }
+                }
+            }
+            if (cantidadSeleccionados == 0)
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "Seleccione un empleado para modificar sus datos.";
+                return;
+            }
+            CargarDatos(EmpleadoManager.GetEmpleado(idEmpleado));
+            HabilitarModificacion();
+        }
+
+        private void HabilitarModificacion()
+        {
+            ConsultaSection.Visible = false;
+            altaModificacionSection.Visible = true;
+            btnGuardar.Visible = false;
+            btnModificar.Visible = true;
+            ddlUsuario.Enabled = false;
+        }
+
+        private void CargarDatos(EmpleadoDTO empleadoDTO)
+        {
+            chkActivo.Checked = empleadoDTO.Activo;
+            chkSupervisor.Checked = empleadoDTO.Supervisor;
+            txtFechaAlta.Text = empleadoDTO.FechaAlta.ToString().Split(' ')[0];
+            if (empleadoDTO.FechaBaja != CommonBase.DateTime_NullValue)
+                txtFechaBaja.Text = empleadoDTO.FechaBaja.Value.ToString().Split(' ')[0];
+            txtApellido.Text = empleadoDTO.Apellido;
+            txtLegajo.Text = Convert.ToString(empleadoDTO.Legajo);
+            txtNombre.Text = empleadoDTO.Nombre;
+            ddlUsuario.SelectedValue = Convert.ToString(empleadoDTO.IdUsuario);
+            hdIdEmpleado.Value = Convert.ToString(empleadoDTO.IdEmpleado);
         }
     }
 }

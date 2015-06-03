@@ -160,7 +160,24 @@ namespace AgenciaViajes
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-
+            PasajeroDTO pasajero = new PasajeroDTO();
+            TipoDocumentoDTO usuario = new TipoDocumentoDTO();
+            EstadoCivilDTO estadoCivil = new EstadoCivilDTO();
+            pasajero.Activo = chkActivo.Checked;
+            pasajero.Apellido = txtApellido.Text;
+            pasajero.Nombre = txtNombre.Text;
+            pasajero.FechaNacimiento = cldFechaAlta.SelectedDate;
+            pasajero.Cuilcuit1 = txtCuil.Text;
+            pasajero.Cuilcuit2 = txtCuil.Text;
+            pasajero.Cuilcuit3 = txtCuil.Text;
+            pasajero.Domicilio = txtDomicilio.Text;
+            pasajero.Email = txtEmail.Text;
+            pasajero.Movil = txtMovil.Text;
+            pasajero.IdTipoDocumento = Convert.ToInt32(ddlTipoDoc.SelectedValue);
+            pasajero.IdEstadoCivil = Convert.ToInt32(ddlEstadoCivil.SelectedValue);
+            pasajero.IdNacionalidad = ddlNacionalidad.SelectedValue;
+            pasajero.IsNew = false;
+            PasajeroManager.SavePasajero(pasajero);
         }
     }
 }
