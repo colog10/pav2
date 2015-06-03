@@ -223,8 +223,7 @@
                 <div class="form-group">
                     <label>Email</label>
                     <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" MaxLength="30"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ValidationGroup="GuardarGroup" ControlToValidate="txtEmail" Text="Requerido" CssClass="label label-danger"
-                        Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="regexpName" runat="server" ErrorMessage="El cuit no es válido." ControlToValidate="txtCuit" ValidationExpression="^[0-9]{2}-[0-9]{8}-[0-9]$"></asp:RegularExpressionValidator>
                 </div>
                
                 <div class="col-md-12">

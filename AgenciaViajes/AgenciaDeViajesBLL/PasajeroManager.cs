@@ -29,5 +29,10 @@ namespace AgenciaDeViajesBLL
         {
             return PasajeroDB.GetPasajeroByID(idPasajero);
         }
+
+        public static void DeletePasajero(int idPasajero)
+        {
+            PasajeroDB.DeletePasajero(idPasajero);
+        }
     }
 }

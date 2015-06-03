@@ -128,6 +128,37 @@ namespace AgenciaViajes
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
+            OcultarMensajes();
+
+            bool seleccionados = false;
+
+            foreach (GridViewRow row in gvPasajero.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkPasajero") as CheckBox);
+                    if (chkRow.Checked)
+                    {
+                        int idPasajero = Convert.ToInt32(gvPasajero.DataKeys[row.RowIndex].Value.ToString());
+                        PasajeroManager.DeletePasajero(idPasajero);
+                        seleccionados = true;
+                    }
+                }
+            }
+
+            if (!seleccionados)
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "Seleccione un Pasajero para eliminarlo.";
+                return;
+            }
+            else
+            {
+                SuccessMessage.Visible = true;
+                LblSuccess.Text = "Datos Eliminados Correctamente.";
+            }
+            InicializarPantalla();
+            LoadPasajeros();
 
         }
 
