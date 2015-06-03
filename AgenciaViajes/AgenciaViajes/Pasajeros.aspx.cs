@@ -2,6 +2,7 @@
 using AgenciaDeViajesDTO.Entities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -56,7 +57,7 @@ namespace AgenciaViajes
             txtDomicilio.Text = "";
             txtEmail.Text = "";
             txtMovil.Text = "";
-            txtNumeroDocumento.Text = "";
+            
             txtProfesion.Text = "";
             txtTelefono.Text = "";
             chkActivo.Checked = true;
@@ -127,10 +128,18 @@ namespace AgenciaViajes
             PasajeroDTO pasajero = new PasajeroDTO();
             TipoDocumentoDTO usuario = new TipoDocumentoDTO();
             EstadoCivilDTO estadoCivil = new EstadoCivilDTO();
+
+            DateTime fechaNac;
+            if (!DateTime.TryParseExact(txtNacimiento.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaNac))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El formato de la fecha de alta debe ser dd/MM/yyyy.";
+                return;
+            }
             pasajero.Activo = chkActivo.Checked;
             pasajero.Apellido = txtApellido.Text;
             pasajero.Nombre = txtNombre.Text;
-            pasajero.FechaNacimiento = cldFechaAlta.SelectedDate;
+            pasajero.FechaNacimiento = fechaNac;
             pasajero.Cuilcuit1 = txtCuil.Text;
             pasajero.Cuilcuit2 = txtCuil.Text;
             pasajero.Cuilcuit3 = txtCuil.Text;
@@ -157,7 +166,7 @@ namespace AgenciaViajes
             pasajero.Activo = chkActivo.Checked;
             pasajero.Apellido = txtApellido.Text;
             pasajero.Nombre = txtNombre.Text;
-            pasajero.FechaNacimiento = cldFechaAlta.SelectedDate;
+            pasajero.FechaNacimiento = Convert.ToDateTime(txtNacimiento.Text);
             pasajero.Cuilcuit1 = txtCuil.Text;
             pasajero.Cuilcuit2 = txtCuil.Text;
             pasajero.Cuilcuit3 = txtCuil.Text;

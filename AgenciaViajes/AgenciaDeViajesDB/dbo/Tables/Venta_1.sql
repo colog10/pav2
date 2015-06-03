@@ -21,8 +21,8 @@
     CONSTRAINT [FK_Venta_Ciudad] FOREIGN KEY ([ciudadOrigen]) REFERENCES [dbo].[Ciudad] ([CiudadID]),
     CONSTRAINT [FK_Venta_Ciudad1] FOREIGN KEY ([ciudadDestino]) REFERENCES [dbo].[Ciudad] ([CiudadID]),
     CONSTRAINT [FK_Venta_Empleado] FOREIGN KEY ([idVendedor]) REFERENCES [dbo].[Empleado] ([idEmpleado]),
-    CONSTRAINT [FK_Venta_Pais] FOREIGN KEY ([paisOrigen]) REFERENCES [dbo].[Pais] ([PaisCodigo]),
-    CONSTRAINT [FK_Venta_Pais1] FOREIGN KEY ([paisDestino]) REFERENCES [dbo].[Pais] ([PaisCodigo]),
+    CONSTRAINT [FK_Venta_Pais] FOREIGN KEY ([paisOrigen]) REFERENCES [dbo].[Pais] ([idPais]),
+    CONSTRAINT [FK_Venta_Pais1] FOREIGN KEY ([paisDestino]) REFERENCES [dbo].[Pais] ([idPais]),
     CONSTRAINT [FK_Venta_VentaDetalle] FOREIGN KEY ([idVentaDetalle]) REFERENCES [dbo].[VentaDetalle] ([idDetalleVenta])
 );
 

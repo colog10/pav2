@@ -7,4 +7,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="idDetalleReserva" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="7d481493-fa16-48ad-90af-005e8df8d47b" ChangeDateTime="06/03/2015 17:27:03">
+    <Property Name="ElementName" Value="[dbo].[Pais].[PaisCodigo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Pais]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="idPais" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5583b7c3-cd4c-461e-ac59-b1162e38d849" ChangeDateTime="06/03/2015 17:32:12">
+    <Property Name="ElementName" Value="[dbo].[Pais].[PaisCodigo2]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Pais]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="idPais2" />
+  </Operation>
 </Operations>

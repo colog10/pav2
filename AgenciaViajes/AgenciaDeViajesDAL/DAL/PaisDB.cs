@@ -37,22 +37,20 @@ namespace AgenciaDeViajesDAL.DAL
             else
             {
                 command = GetDbSprocCommand("usp_Paises_Update");
-                command.Parameters.Add(CreateParameter("@PaisCodigo", Pais.PaisCodigo, 3));
+                command.Parameters.Add(CreateParameter("@IDPais", Pais.PaisCodigo, 3));
             }
 
-            command.Parameters.Add(CreateParameter("@PaisArea", Pais.PaisArea));
+           
             command.Parameters.Add(CreateParameter("@PaisCapital", Pais.PaisCapital));
-            command.Parameters.Add(CreateParameter("@PaisCodigo2", Pais.PaisCodigo2, 3));
+            command.Parameters.Add(CreateParameter("@idPais2", Pais.PaisCodigo2, 3));
             command.Parameters.Add(CreateParameter("@PaisContinente", Pais.PaisContinente, 50));
-            command.Parameters.Add(CreateParameter("@PaisExpectativaDeVida", Pais.PaisExpectativaDeVida));
             command.Parameters.Add(CreateParameter("@PaisGobierno", Pais.PaisGobierno, 45));
-            command.Parameters.Add(CreateParameter("@PaisIndependencia", Pais.PaisIndependencia));
+
             command.Parameters.Add(CreateParameter("@PaisJefeDeEstado", Pais.PaisJefeDeEstado, 60));
             command.Parameters.Add(CreateParameter("@PaisNombre", Pais.PaisNombre, 52));
             command.Parameters.Add(CreateParameter("@PaisNombreLocal", Pais.PaisNombreLocal, 45));
             command.Parameters.Add(CreateParameter("@PaisPoblacion", Pais.PaisPoblacion));
-            command.Parameters.Add(CreateParameter("@PaisProductoInternoBruto", Pais.PaisProductoInternoBruto));
-            command.Parameters.Add(CreateParameter("@PaisProductoInternoBrutoAntiguo", Pais.PaisProductoInternoBrutoAntiguo));
+            
             command.Parameters.Add(CreateParameter("@PaisRegion", Pais.PaisRegion, 26));
             
 
@@ -68,7 +66,7 @@ namespace AgenciaDeViajesDAL.DAL
             // will have it.
             if (Pais.IsNew)
             {
-                Pais.PaisCodigo = (string)command.Parameters["@PaisCodigo"].Value;
+                Pais.PaisCodigo = (string)command.Parameters["@IDPais"].Value;
             }
         }
 

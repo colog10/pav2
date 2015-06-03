@@ -7,5 +7,5 @@ BEGIN
 
 	SELECT * 
 	FROM Pasajero
-	WHERE nombre = (@termino + '%');
+	WHERE nombre like (@termino + '%') and apellido like (@termino + '%');
 END

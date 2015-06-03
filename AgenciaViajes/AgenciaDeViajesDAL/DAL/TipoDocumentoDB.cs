@@ -37,7 +37,7 @@ namespace AgenciaDeViajesDAL.DAL
             else
             {
                 command = GetDbSprocCommand("usp_TipoDocumento_Update");
-                command.Parameters.Add(CreateParameter("@IDTipoAlojamiento", TipoDocumento.idTipoDocumentoDTO));
+                command.Parameters.Add(CreateParameter("@IDTipoDocumento", TipoDocumento.idTipoDocumentoDTO));
             }
 
 

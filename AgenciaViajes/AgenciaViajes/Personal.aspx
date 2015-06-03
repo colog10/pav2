@@ -46,7 +46,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView ID="gvEmpleados" runat="server" EmptyDataText="No hay datos para mostrar" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" >
+                <asp:GridView ID="gvEmpleados" runat="server" DataKeyNames="IdEmpleado" EmptyDataText="No hay datos para mostrar" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" >
                     <Columns>
                         
                         <asp:TemplateField ItemStyle-Width="40px">
@@ -58,7 +58,6 @@
                                 <asp:CheckBox ID="chkElemento" runat="server"></asp:CheckBox>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField DataField="IdEmpleado" HeaderText="IdEmpleado" />
                         <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
                         <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                         <asp:BoundField HeaderText="Legajo" DataField="Legajo" />
