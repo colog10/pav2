@@ -139,7 +139,7 @@ namespace AgenciaViajes
             pasajero.Movil = txtMovil.Text;
             pasajero.IdTipoDocumento = Convert.ToInt32(ddlTipoDoc.SelectedValue);
             pasajero.IdEstadoCivil = Convert.ToInt32(ddlEstadoCivil.SelectedValue);
-            pasajero.IdNacionalidad = Convert.ToInt32(ddlNacionalidad.SelectedValue);
+            pasajero.IdNacionalidad = Convert.ToString(ddlNacionalidad.SelectedValue);
             pasajero.IsNew = true;
             PasajeroManager.SavePasajero(pasajero);
         }

@@ -36,7 +36,9 @@ namespace AgenciaDeViajesDAL.Util
                     return new DTOParser_Empleado();
                 case "UsuarioDTO":
                     return new DTOParser_Usuario();
-               
+                case "TipoDocumentoDTO":
+                    return new DTOParser_TipoDocumento();
+
 
             }
 
