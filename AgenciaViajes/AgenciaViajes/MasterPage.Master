@@ -113,7 +113,7 @@
                                 <li><a href="/Pasajeros.aspx">Pasajeros</a></li>
                                 <%  if (HttpContext.Current.User.IsInRole("administrador"))
                                 {%>
-                                <li><a href="/OperadoresTuristicos.aspx">Operadores turísticos</a></li>
+                                <li><a href="/OperadoresTuristicos.aspx">Operadores Turísticos</a></li>
                                 <li><a href="/Personal.aspx">Personal</a></li>
 
                               <%} %>

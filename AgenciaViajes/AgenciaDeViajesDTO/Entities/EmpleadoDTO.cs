@@ -31,6 +31,7 @@ namespace AgenciaDeViajesDTO.Entities
             IdUsuario = Int_NullValue;
             Activo = Boolean_NullValue;
             Supervisor = Boolean_NullValue;
+            //Usuario = ??
         }
 
         
