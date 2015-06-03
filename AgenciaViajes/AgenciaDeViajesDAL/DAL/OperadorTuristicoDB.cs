@@ -14,14 +14,14 @@ namespace AgenciaDeViajesDAL.DAL
     {
         public static OperadorTuristicoDTO GetOperadorTuristicoByID(int IDOperadorTuristico)
         {
-            SqlCommand command = GetDbSprocCommand("usp_OperadoresTuristicos_GetByID");
+            SqlCommand command = GetDbSprocCommand("usp_OperadorTuristico_GetByID");
             command.Parameters.Add(CreateParameter("@IDOperadorTuristico", IDOperadorTuristico));
             return GetSingleDTO<OperadorTuristicoDTO>(ref command);
         }
 
         public static List<OperadorTuristicoDTO> GetAll()
         {
-            SqlCommand command = GetDbSprocCommand("usp_OperadoresTuristicos_GetAll");
+            SqlCommand command = GetDbSprocCommand("usp_OperadorTuristico_GetAll");
             return GetDTOList<OperadorTuristicoDTO>(ref command);
         }
 
@@ -31,12 +31,12 @@ namespace AgenciaDeViajesDAL.DAL
 
             if (operadorTuristico.IsNew)
             {
-                command = GetDbSprocCommand("usp_OperadoresTuristicos_Insert");
+                command = GetDbSprocCommand("usp_OperadorTuristico_Insert");
                 command.Parameters.Add(CreateOutputParameter("@IDOperadorTuristico", SqlDbType.Int));
             }
             else
             {
-                command = GetDbSprocCommand("usp_OperadoresTuristicos_Update");
+                command = GetDbSprocCommand("usp_OperadorTuristico_Update");
                 command.Parameters.Add(CreateParameter("@IDOperadorTuristico", operadorTuristico.IdOperadorTuristico));
             }
 

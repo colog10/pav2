@@ -50,7 +50,7 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@Email", Pasajero.Email, 50));
             command.Parameters.Add(CreateParameter("@FechaNacimiento", Pasajero.FechaNacimiento));
             command.Parameters.Add(CreateParameter("@IdEstadoCivil", Pasajero.IdEstadoCivil));
-            command.Parameters.Add(CreateParameter("@IdNacionalidad", Pasajero.IdNacionalidad));
+            command.Parameters.Add(CreateParameter("@IdNacionalidad", Pasajero.IdNacionalidad,3));
             command.Parameters.Add(CreateParameter("@IdPasajero", Pasajero.IdPasajero));
             command.Parameters.Add(CreateParameter("@IdTipoDocumento", Pasajero.IdTipoDocumento));
             command.Parameters.Add(CreateParameter("@Movil", Pasajero.Movil, 50));
