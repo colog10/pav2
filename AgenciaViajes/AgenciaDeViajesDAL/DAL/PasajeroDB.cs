@@ -15,7 +15,7 @@ namespace AgenciaDeViajesDAL.DAL
         public static PasajeroDTO GetPasajeroByID(int IDPasajero)
         {
             SqlCommand command = GetDbSprocCommand("usp_Pasajero_GetByID");
-            command.Parameters.Add(CreateParameter("@IDPasajero", IDPasajero));
+            command.Parameters.Add(CreateParameter("@iDPasajero", IDPasajero));
             return GetSingleDTO<PasajeroDTO>(ref command);
         }
 
@@ -32,32 +32,31 @@ namespace AgenciaDeViajesDAL.DAL
             if (Pasajero.IsNew)
             {
                 command = GetDbSprocCommand("usp_Pasajero_Insert");
-                command.Parameters.Add(CreateOutputParameter("@IDPasajero", SqlDbType.Int));
+                command.Parameters.Add(CreateOutputParameter("@iDPasajero", SqlDbType.Int));
             }
             else
             {
                 command = GetDbSprocCommand("usp_Pasajero_Update");
-                command.Parameters.Add(CreateParameter("@IDPasajero", Pasajero.IdPasajero));
+                command.Parameters.Add(CreateParameter("@iDPasajero", Pasajero.IdPasajero));
             }
 
-            command.Parameters.Add(CreateParameter("@Activo", Pasajero.Activo));
-            command.Parameters.Add(CreateParameter("@Apellido", Pasajero.Apellido, 50));
-            command.Parameters.Add(CreateParameter("@Cuilcuit1", Pasajero.Cuilcuit1, 2));
-            command.Parameters.Add(CreateParameter("@Cuilcuit2", Pasajero.Cuilcuit2, 8));
-            command.Parameters.Add(CreateParameter("@Cuilcuit3", Pasajero.Cuilcuit3, 1));
-            command.Parameters.Add(CreateParameter("@Domicilio", Pasajero.Domicilio, 100));
-            command.Parameters.Add(CreateParameter("@Eliminado", Pasajero.Eliminado, 1));
-            command.Parameters.Add(CreateParameter("@Email", Pasajero.Email, 50));
-            command.Parameters.Add(CreateParameter("@FechaNacimiento", Pasajero.FechaNacimiento));
-            command.Parameters.Add(CreateParameter("@IdEstadoCivil", Pasajero.IdEstadoCivil));
-            command.Parameters.Add(CreateParameter("@IdNacionalidad", Pasajero.IdNacionalidad,3));
-            command.Parameters.Add(CreateParameter("@IdPasajero", Pasajero.IdPasajero));
-            command.Parameters.Add(CreateParameter("@IdTipoDocumento", Pasajero.IdTipoDocumento));
-            command.Parameters.Add(CreateParameter("@Movil", Pasajero.Movil, 50));
-            command.Parameters.Add(CreateParameter("@Nombre", Pasajero.Nombre, 50));
-            command.Parameters.Add(CreateParameter("@NumeroDocumento", Pasajero.NumeroDocumento));
-            command.Parameters.Add(CreateParameter("@Profesion", Pasajero.Profesion, 50));
-            command.Parameters.Add(CreateParameter("@Telefono", Pasajero.Telefono, 50));
+            command.Parameters.Add(CreateParameter("@activo", Pasajero.Activo));
+            command.Parameters.Add(CreateParameter("@apellido", Pasajero.Apellido, 50));
+            command.Parameters.Add(CreateParameter("@cuilcuit1", Pasajero.Cuilcuit1, 2));
+            command.Parameters.Add(CreateParameter("@cuilcuit2", Pasajero.Cuilcuit2, 8));
+            command.Parameters.Add(CreateParameter("@cuilcuit3", Pasajero.Cuilcuit3, 1));
+            command.Parameters.Add(CreateParameter("@domicilio", Pasajero.Domicilio, 100));
+            command.Parameters.Add(CreateParameter("@eliminado", Pasajero.Eliminado, 1));
+            command.Parameters.Add(CreateParameter("@email", Pasajero.Email, 50));
+            command.Parameters.Add(CreateParameter("@fechaNacimiento", Pasajero.FechaNacimiento));
+            command.Parameters.Add(CreateParameter("@idEstadoCivil", Pasajero.IdEstadoCivil));
+            command.Parameters.Add(CreateParameter("@idNacionalidad", Pasajero.IdNacionalidad,3));
+            command.Parameters.Add(CreateParameter("@idTipoDocumento", Pasajero.IdTipoDocumento));
+            command.Parameters.Add(CreateParameter("@movil", Pasajero.Movil, 50));
+            command.Parameters.Add(CreateParameter("@nombre", Pasajero.Nombre, 50));
+            command.Parameters.Add(CreateParameter("@numeroDocumento", Pasajero.NumeroDocumento));
+            command.Parameters.Add(CreateParameter("@profesion", Pasajero.Profesion, 50));
+            command.Parameters.Add(CreateParameter("@telefono", Pasajero.Telefono, 50));
             
 
 

@@ -25,5 +25,9 @@ namespace AgenciaDeViajesBLL
             PasajeroDB.SavePasajero(ref pasajero);
 
         }
+        public static PasajeroDTO GetPasajeroByID(int idPasajero)
+        {
+            return PasajeroDB.GetPasajeroByID(idPasajero);
+        }
     }
 }

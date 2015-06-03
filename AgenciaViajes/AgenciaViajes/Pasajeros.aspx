@@ -40,8 +40,8 @@
         <div class="row">
             <div class="col-md-12">
                 <asp:Button ID="btnNuevo" CausesValidation="false" runat="server" Text="Nuevo" CssClass="btn btn-primary" OnClick="btnNuevo_Click" />
-             <%--   <asp:Button ID="btnModificarSeleccionado"
-                    runat="server" Text="Modificar" OnClick="btnModificarSeleccionado_Click" />--%>
+                <asp:Button ID="btnModificarSeleccionado"
+                    runat="server" Text="Modificar" OnClick="btnModificarSeleccionado_Click" />
                 <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
             </div>
         </div>
@@ -54,7 +54,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView ID="gvPasajero" runat="server" EmptyDataText="No hay datos para mostrar" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
+                <asp:GridView ID="gvPasajero" runat="server" DataKeyNames="idPasajero" EmptyDataText="No hay datos para mostrar" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
                     <Columns>
 
                         <asp:TemplateField ItemStyle-Width="40px">
@@ -114,8 +114,8 @@
                 <div class="form-group">
                     <label>Fecha Nacimiento</label>
                     <asp:TextBox ID="txtNacimiento" runat="server" />
-                    <asp:CompareValidator runat="server" ValidationGroup="GuardarGroup" ControlToValidate="txtNacimiento" Operator="GreaterThan" CssClass="label label-danger"
-                        Text="La fecha de baja debe ser mayor a la de alta" Display="Dynamic"></asp:CompareValidator>
+                    <%--<asp:CompareValidator runat="server" ValidationGroup="GuardarGroup" ControlToValidate="txtNacimiento" Operator="GreaterThan" CssClass="label label-danger"
+                        Text="La fecha de baja debe ser mayor a la de alta" Display="Dynamic"></asp:CompareValidator>--%>
                 </div>
             </div>  
 
@@ -125,8 +125,7 @@
                 <asp:TextBox ID="txtCuil" runat="server" CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ValidationGroup="GuardarGroup" ControlToValidate="txtCuil" Text="Requerido" CssClass="label label-danger"
                     Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RangeValidator runat="server" ValidationGroup="GuardarGroup" Type="Integer" ControlToValidate="txtCuil" MinimumValue="1" Text="Valor numérico entre 1 y 100000"
-                    MaximumValue="100000" CssClass="label label-danger" Display="Dynamic"></asp:RangeValidator>
+                
             </div>
         </div>
 

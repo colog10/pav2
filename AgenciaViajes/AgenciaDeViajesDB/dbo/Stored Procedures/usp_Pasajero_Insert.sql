@@ -4,7 +4,7 @@ CREATE PROCEDURE [dbo].[usp_Pasajero_Insert]
 	@apellido nvarchar(50),
 	@nombre nvarchar(50),
 	@idTipoDocumento int,
-	@numeroDocumento int,
+	@numeroDocumento int=null,
 	@cuilcuit1 nvarchar(2),
 	@cuilcuit2 nvarchar(8),
 	@cuilcuit3 nvarchar(1),
