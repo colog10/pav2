@@ -57,7 +57,7 @@ namespace AgenciaViajes
         private void LoadData()
         {
             LoadOperadoresTuristicos();
-           // LoadTiposDestino();
+            LoadTiposDestino();
             LoadCalificacion();
         }
 
