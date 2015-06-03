@@ -1,5 +1,6 @@
 ﻿using AgenciaDeViajesDAL.Util;
 using AgenciaDeViajesDTO.Entities;
+using AgenciaDeViajesDTO.Util;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,13 +30,12 @@ namespace AgenciaDeViajesDAL.DAL
         public static void SaveEmpleado(ref EmpleadoDTO empleado)
         {
             SqlCommand command;
-            SqlTransaction transaccion;
+            
             UsuarioDTO usuario = empleado.Usuario;
 
             if (empleado.IsNew)
             {
                 command = GetDbSprocCommand("usp_Empleado_Insert");
-                command.Parameters.Add(CreateOutputParameter("@idEmpleado", SqlDbType.Int));
             }
             else
             {
@@ -47,51 +47,22 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@apellido", empleado.Apellido, 30));
             command.Parameters.Add(CreateParameter("@nombre", empleado.Nombre, 30));
             command.Parameters.Add(CreateParameter("@fechaAlta", empleado.FechaAlta));
-            command.Parameters.Add(CreateParameter("@fechaBaja", empleado.FechaBaja));
+            if (empleado.FechaBaja != CommonBase.DateTime_NullValue)
+                command.Parameters.Add(CreateParameter("@fechaBaja", empleado.FechaBaja.Value));
             command.Parameters.Add(CreateParameter("@idUsuario", empleado.IdUsuario));
             command.Parameters.Add(CreateParameter("@activo", empleado.Activo));
             command.Parameters.Add(CreateParameter("@supervisor", empleado.Supervisor));
 
             // Run the command.
             command.Connection.Open();
-            transaccion = command.Connection.BeginTransaction();
-            command.ExecuteNonQuery();
-
-            if (empleado.IsNew)
-            {
-                empleado.IdEmpleado = (int)command.Parameters["@idEmpleado"].Value;
-
-            }
-
-            if (usuario.IsNew)
-            {
-                command = GetDbSprocCommand("usp_Usuario_Insert");
-                command.Parameters.Add(CreateOutputParameter("@IDUsuario", SqlDbType.Int));
-            }
-            else
-            {
-                command = GetDbSprocCommand("usp_Usuario_Update");
-                command.Parameters.Add(CreateParameter("@IDUsuario", usuario.IdUsuario));
-            }
-
-
-            command.Parameters.Add(CreateParameter("@Comision", usuario.Activo));
-            command.Parameters.Add(CreateParameter("@FechaLlegada", usuario.FechaAlta));
-            command.Parameters.Add(CreateParameter("@FechaReserva", usuario.FechaBaja));
-            command.Parameters.Add(CreateParameter("@FechaSalida", usuario.Nombre, 50));
-            command.Parameters.Add(CreateParameter("@IDCompaniaAerea", usuario.Password, 8));
-
-            // Run the command.
-            command.ExecuteNonQuery();
             
-            // If this is a new record, let's set the ID so the object
-            // will have it.
-            if (usuario.IsNew)
-            {
-                usuario.IdUsuario = (int)command.Parameters["@IDUsuario"].Value;
-            }
-        
-            transaccion.Commit();
+            command.ExecuteNonQuery();
+
+            //if (empleado.IsNew)
+            //{
+            //    empleado.IdEmpleado = (int)command.Parameters["@idEmpleado"].Value;
+
+            //}
             command.Connection.Close();
         }
 

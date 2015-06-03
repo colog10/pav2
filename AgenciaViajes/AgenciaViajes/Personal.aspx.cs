@@ -2,6 +2,7 @@
 using AgenciaDeViajesDTO.Entities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,14 +12,12 @@ namespace AgenciaViajes
 {
     public partial class Personal : System.Web.UI.Page
     {
-        private bool isNew = false;
         private string Termino = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                
                 LoadData();
                 InicializarPantalla();
             }
@@ -43,7 +42,16 @@ namespace AgenciaViajes
         {
             ConsultaSection.Visible = true;
             altaModificacionSection.Visible = false;
+            OcultarMensajes();
             LimpiarCampos();
+        }
+
+        private void OcultarMensajes()
+        {
+            DangerMessage.Visible = false;
+            InfoMessage.Visible = false;
+            SuccessMessage.Visible = false;
+            WarningMessage.Visible = false;
         }
 
         private void LimpiarCampos()
@@ -94,14 +102,44 @@ namespace AgenciaViajes
 
         }
 
+        
+
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            int legajo;
+
+            if (!Int32.TryParse(txtLegajo.Text, out legajo))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El legajo debe ser un valor numérico.";
+                return;
+            }
+            DateTime fechaAlta;
+            if (!DateTime.TryParseExact(txtFechaAlta.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaAlta))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El formato de la fecha de alta debe ser dd/MM/yyyy.";
+                return;
+            }
+
+            DateTime? fechaBaja = null;
+            if (txtFechaBaja.Text != "" && !DateTime.TryParseExact(txtFechaBaja.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaAlta))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El formato de la fecha de baja debe ser dd/MM/yyyy.";
+                return;
+            }
+            
+            
             EmpleadoDTO empleado = new EmpleadoDTO();
             UsuarioDTO usuario = new UsuarioDTO();
             empleado.Activo = chkActivo.Checked;
             empleado.Apellido = txtApellido.Text;
-            empleado.FechaAlta = Convert.ToDateTime(txtFechaAlta.Text);
-            empleado.FechaBaja = Convert.ToDateTime(txtFechaBaja.Text);
+            empleado.Nombre = txtNombre.Text;
+            empleado.FechaAlta = fechaAlta;
+            if(fechaBaja != null)
+                empleado.FechaBaja = fechaBaja;
+            empleado.Legajo = legajo;
             empleado.IsNew = true;
             empleado.Supervisor = chkSupervisor.Checked;
             if (ddlUsuario.SelectedValue != "") { 

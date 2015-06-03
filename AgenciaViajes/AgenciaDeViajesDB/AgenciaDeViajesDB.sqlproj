@@ -109,4 +109,8 @@
   <ItemGroup>
     <RefactorLog Include="AgenciaDeViajesDB.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="dbo\Tables\Rol_1.sql" />
+    <None Include="dbo\Tables\UsuarioXRol.sql" />
+  </ItemGroup>
 </Project>

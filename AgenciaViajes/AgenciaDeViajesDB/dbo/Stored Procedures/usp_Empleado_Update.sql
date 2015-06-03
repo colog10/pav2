@@ -4,10 +4,10 @@
 	@nombre nvarchar(30),
 	@apellido nvarchar(30),
 	@fechaAlta date,
-	@fechaBaja date,
-	@activo bit,
+	@fechaBaja date = null,
+	@activo bit = false,
 	@idUsuario int,
-	@supervisor bit)
+	@supervisor bit = false)
 AS
 BEGIN
 	SET NOCOUNT ON;
