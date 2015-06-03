@@ -14,14 +14,14 @@ namespace AgenciaDeViajesDAL.DAL
     {
         public static PasajeroDTO GetPasajeroByID(int IDPasajero)
         {
-            SqlCommand command = GetDbSprocCommand("usp_Pasajeros_GetByID");
+            SqlCommand command = GetDbSprocCommand("usp_Pasajero_GetByID");
             command.Parameters.Add(CreateParameter("@IDPasajero", IDPasajero));
             return GetSingleDTO<PasajeroDTO>(ref command);
         }
 
         public static List<PasajeroDTO> GetAll()
         {
-            SqlCommand command = GetDbSprocCommand("usp_Pasajeros_GetAll");
+            SqlCommand command = GetDbSprocCommand("usp_Pasajero_GetAll");
             return GetDTOList<PasajeroDTO>(ref command);
         }
 
@@ -31,12 +31,12 @@ namespace AgenciaDeViajesDAL.DAL
 
             if (Pasajero.IsNew)
             {
-                command = GetDbSprocCommand("usp_Pasajeros_Insert");
+                command = GetDbSprocCommand("usp_Pasajero_Insert");
                 command.Parameters.Add(CreateOutputParameter("@IDPasajero", SqlDbType.Int));
             }
             else
             {
-                command = GetDbSprocCommand("usp_Pasajeros_Update");
+                command = GetDbSprocCommand("usp_Pasajero_Update");
                 command.Parameters.Add(CreateParameter("@IDPasajero", Pasajero.IdPasajero));
             }
 
@@ -75,5 +75,12 @@ namespace AgenciaDeViajesDAL.DAL
             }
         }
 
+
+        public static List<PasajeroDTO> GetByTermino(string termino)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_Pasajero_GetByTermino");
+            command.Parameters.Add(CreateParameter("@Termino", termino, 70));
+            return GetDTOList<PasajeroDTO>(ref command);
+        }
     }
 }

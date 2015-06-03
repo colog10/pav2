@@ -1,0 +1,9 @@
+﻿
+CREATE PROCEDURE [dbo].[usp_Paises_GetAll]  
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT * 
+	FROM Pais;
+END

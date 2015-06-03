@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDAL.DAL
 {
-    class TipoDocumentoDB : DALBase
+    public class TipoDocumentoDB : DALBase
     {
         public static TipoDocumentoDTO GetTipoDocumentoByID(int IDTipoDocumento)
         {
