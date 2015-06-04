@@ -23,7 +23,7 @@ namespace AgenciaDeViajesDAL.Parsers
         {
             Ord_idCiudad = reader.GetOrdinal("idCiudad");
             Ord_CiudadNombre = reader.GetOrdinal("CiudadNombre");
-            Ord_idPais = reader.GetOrdinal("idPais");
+            Ord_idPais = reader.GetOrdinal("PaisCodigo");
             Ord_CiudadDistrito = reader.GetOrdinal("CiudadDistrito");
             Ord_CiudadPoblacion = reader.GetOrdinal("CiudadPoblacion");
             Ord_TipoDestino = reader.GetOrdinal("TipoDestino");

@@ -28,7 +28,7 @@ namespace AgenciaDeViajesDAL.Parsers
 
         internal override void PopulateOrdinals(SqlDataReader reader)
         {
-            Ord_PaisCodigo = reader.GetOrdinal("idPais");
+            Ord_PaisCodigo = reader.GetOrdinal("PaisCodigo");
             Ord_PaisNombre = reader.GetOrdinal("PaisNombre");
             Ord_PaisContinente = reader.GetOrdinal("PaisContinente");
             Ord_PaisRegion = reader.GetOrdinal("PaisRegion");
@@ -39,7 +39,7 @@ namespace AgenciaDeViajesDAL.Parsers
             Ord_PaisGobierno = reader.GetOrdinal("PaisGobierno");
             Ord_PaisJefeDeEstado = reader.GetOrdinal("PaisJefeDeEstado");
             Ord_PaisCapital = reader.GetOrdinal("PaisCapital");
-            Ord_PaisCodigo2 = reader.GetOrdinal("idPais2");
+            Ord_PaisCodigo2 = reader.GetOrdinal("PaisCodigo2");
         }
 
         internal override DTOBase PopulateDTO(SqlDataReader reader)

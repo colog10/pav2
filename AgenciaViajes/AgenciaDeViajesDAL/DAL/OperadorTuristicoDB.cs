@@ -72,5 +72,23 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@Termino", termino, 70));
             return GetDTOList<OperadorTuristicoDTO>(ref command);
         }
+
+        public static void Delete(int IDOperadorTuristico)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_OperadorTuristico_DeleteByID");
+            command.Parameters.Add(CreateParameter("@IDOperadorTuristico", IDOperadorTuristico));
+            command.Connection.Open();
+            command.ExecuteNonQuery();
+            command.Connection.Close();
+
+        }
+
+        public static OperadorTuristicoDTO GetById(int IDOperadorTuristico)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_OperadorTuristico_GetByID");
+            command.Parameters.Add(CreateParameter("@IDOperadorTuristico", IDOperadorTuristico));
+            return GetSingleDTO<OperadorTuristicoDTO>(ref command);
+        }
+
     }
 }

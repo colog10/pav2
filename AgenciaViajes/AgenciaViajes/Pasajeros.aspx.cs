@@ -192,6 +192,7 @@ namespace AgenciaViajes
             pasajero.IdNacionalidad = Convert.ToString(ddlNacionalidad.SelectedValue);
             pasajero.Eliminado = "0";
             pasajero.IsNew = true;
+            pasajero.Telefono = txtTelefono.Text;
             PasajeroManager.SavePasajero(pasajero);
         }
 
@@ -244,7 +245,7 @@ namespace AgenciaViajes
 
 
             PasajeroDTO pasajero = new PasajeroDTO();
-
+            pasajero.IdPasajero = Convert.ToInt32(hdId.Value);
             pasajero.Activo = chkActivo.Checked;
             pasajero.Apellido = txtApellido.Text;
             pasajero.Nombre = txtNombre.Text;
@@ -259,6 +260,9 @@ namespace AgenciaViajes
             pasajero.IdEstadoCivil = Convert.ToInt32(ddlEstadoCivil.SelectedValue);
             pasajero.IdNacionalidad = ddlNacionalidad.SelectedValue;
             pasajero.IsNew = false;
+            pasajero.NumeroDocumento = Convert.ToInt32(txtNumero.Text);
+            pasajero.Profesion = txtProfesion.Text;
+            pasajero.Telefono = txtTelefono.Text;
             PasajeroManager.SavePasajero(pasajero);
         }
 
@@ -316,16 +320,19 @@ namespace AgenciaViajes
             chkActivo.Checked = pasajero.Activo;
             txtApellido.Text = pasajero.Apellido;
             txtNombre.Text = pasajero.Nombre;
+
             txtNacimiento.Text = Convert.ToString(pasajero.FechaNacimiento);
-            txtCuil.Text = pasajero.Cuilcuit1;
-            txtCuil.Text = pasajero.Cuilcuit2;
-            txtCuil.Text = pasajero.Cuilcuit3;
+            txtCuil.Text = pasajero.Cuilcuit1 + '-' + pasajero.Cuilcuit2 + '-' + pasajero.Cuilcuit3;
             txtDomicilio.Text = pasajero.Domicilio;
             txtEmail.Text = pasajero.Email;
             txtMovil.Text = pasajero.Movil;
             ddlTipoDoc.SelectedValue = Convert.ToString(pasajero.IdTipoDocumento); ;
             ddlEstadoCivil.SelectedValue = Convert.ToString(pasajero.IdEstadoCivil);
             ddlNacionalidad.SelectedValue = Convert.ToString(pasajero.IdNacionalidad);
+            txtNumero.Text = Convert.ToString(pasajero.NumeroDocumento);
+            txtProfesion.Text = pasajero.Profesion;
+            txtTelefono.Text = pasajero.Telefono;
+            hdId.Value = Convert.ToString(pasajero.IdPasajero);
 
         }
 

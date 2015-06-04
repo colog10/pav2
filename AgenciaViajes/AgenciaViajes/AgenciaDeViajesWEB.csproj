@@ -366,6 +366,7 @@
     <Content Include="css\fonts\FontAwesome.otf" />
     <Content Include="images\404.xcf" />
     <Content Include="App_Themes\AgenciaViajesTheme\AgenciaViajesTheme.skin" />
+    <Content Include="css\fonts\fontawesome-webfont.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

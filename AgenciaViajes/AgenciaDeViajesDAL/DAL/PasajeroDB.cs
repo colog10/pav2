@@ -32,12 +32,12 @@ namespace AgenciaDeViajesDAL.DAL
             if (Pasajero.IsNew)
             {
                 command = GetDbSprocCommand("usp_Pasajero_Insert");
-                command.Parameters.Add(CreateOutputParameter("@iDPasajero", SqlDbType.Int));
+                command.Parameters.Add(CreateOutputParameter("@idPasajero", SqlDbType.Int));
             }
             else
             {
                 command = GetDbSprocCommand("usp_Pasajero_Update");
-                command.Parameters.Add(CreateParameter("@iDPasajero", Pasajero.IdPasajero));
+                command.Parameters.Add(CreateParameter("@idPasajero", Pasajero.IdPasajero));
             }
 
             command.Parameters.Add(CreateParameter("@activo", Pasajero.Activo));

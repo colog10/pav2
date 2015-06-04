@@ -7,9 +7,31 @@
         $(document).ready(function () {
             $("[id$=txtFechaAlta]").datepicker();
         });
+
+        function CheckAllElementos(Checkbox) {
+            var GridVwHeaderChckbox = document.getElementById("<%=gvOperadoresTuristicos.ClientID %>");
+            for (i = 1; i < GridVwHeaderChckbox.rows.length; i++) {
+                GridVwHeaderChckbox.rows[i].cells[0].getElementsByTagName("INPUT")[0].checked = Checkbox.checked;
+            }
+        }
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div class="abm-section container-crud header-section">
+         <div class="row">
+            <div class="col-md-12">
+                <h2>Empleados</h2>
+            </div>
+        </div>
+         <div class="row">
+             <div class="col-md-12">
+                 <div id="SuccessMessage" runat="server"  class="alert alert-success" role="alert" visible="false"><asp:Label ID="LblSuccess" runat="server"></asp:Label></div>
+                 <div id="InfoMessage" runat="server"  class="alert alert-info" role="alert" visible="false"><asp:Label ID="LblInfo" runat="server"></asp:Label></div>
+                 <div id="WarningMessage" runat="server"  class="alert alert-warning" role="alert" visible="false"><asp:Label ID="LblWarning" runat="server"></asp:Label></div>
+                 <div id="DangerMessage" runat="server" class="alert alert-danger" role="alert" visible="false"><asp:Label ID="LblDanger" runat="server"></asp:Label></div>
+             </div>
+         </div>
+     </div>
     <section id="SectionConsulta" class="abm-section container-crud" runat="server">
         <div class="row">
             <div class="col-md-12">
@@ -19,8 +41,8 @@
 
         <div class="row">
             <div class="col-md-12">
-                <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" CssClass="btn btn-primary" OnClick="btnNuevo_Click"/> 
-                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click"/>
+                                <asp:Button ID="btnNuevo" CausesValidation="false" runat="server" Text="Nuevo" CssClass="btn btn-primary" OnClick="btnNuevo_Click" /> <asp:Button ID="btnModificarSeleccionado" runat="server" Text="Modificar" OnClick="btnModificarSeleccionado_Click" /> <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />  
+
             </div>
         </div>
 
@@ -35,9 +57,17 @@
 
         <div class="row" >
             <div class="col-md-12">
-                <asp:GridView ID="gvOperadoresTuristicos" runat="server" ShowHeaderWhenEmpty="true" EmptyDataText="No hay datos para mostrar" AutoGenerateColumns="false">
+                <asp:GridView ID="gvOperadoresTuristicos"  DataKeyNames="IdOperadorTuristico" runat="server" ShowHeaderWhenEmpty="true" EmptyDataText="No hay datos para mostrar" AutoGenerateColumns="false">
                     <Columns>
-                        <asp:CommandField ShowSelectButton="true" />
+                          <asp:TemplateField ItemStyle-Width="40px">
+                            <HeaderTemplate>
+                                <asp:CheckBox ID="chkSelectAll" runat="server" onclick="CheckAllElementos(this);" />
+                            </HeaderTemplate>
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <ItemTemplate>
+                                <asp:CheckBox ID="chkElemento" runat="server"></asp:CheckBox>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField HeaderText="Nombre" DataField="Descripcion" />
                         <asp:BoundField HeaderText="Domicilio" DataField="Direccion" />
                         <asp:BoundField HeaderText="Nombre de Contacto" DataField="Nombre" />                       
@@ -76,19 +106,19 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Tipo de Destino</label><br />
-                    <asp:DropDownList ID="ddlTipoDestino" runat="server" DataValueField="idTipoDestino" DataTextField="descripcion">
+                    <asp:DropDownList ID="ddlTipoDestino" runat="server" DataValueField="idTipoDestinoDTO" DataTextField="descripcionDTO">
                         <asp:ListItem Text="Seleccione" Value=""></asp:ListItem>
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="col-md-6">
+            <%--<div class="col-md-6">
                 <div class="form-group">
                     <label>Calificacion</label><br />
                     <asp:DropDownList ID="ddlCalificacion" runat="server">
                         <asp:ListItem Text="Seleccione" Value=""></asp:ListItem>
                     </asp:DropDownList>
                 </div>
-            </div>
+            </div>--%>
 
         </div>
 
@@ -142,6 +172,7 @@
                     <asp:TextBox ID="TextMailContacto" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
+             <input type="hidden" runat="server" id="hdId"  />
         </div>
 
 

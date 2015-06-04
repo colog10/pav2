@@ -27,5 +27,20 @@ namespace AgenciaDeViajesBLL
 
         }
 
+
+        public static void DeleteOperadorTuristico(int id)
+        {
+            OperadorTuristicoDB.Delete(id);
+        }
+
+        public static OperadorTuristicoDTO GetOperadorTuristico(int id)
+        {
+            return OperadorTuristicoDB.GetById(id);
+        }
+
+        public static void UpdateOperadorTuristico(OperadorTuristicoDTO operadorTuristico)
+        {
+            OperadorTuristicoDB.SaveOperadorTuristico(ref operadorTuristico);
+        }
     }
 }

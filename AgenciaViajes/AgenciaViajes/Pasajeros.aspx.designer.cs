@@ -184,6 +184,15 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.TextBox txtCuil;
         
         /// <summary>
+        /// Control regexpName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexpName;
+        
+        /// <summary>
         /// Control ddlTipoDoc.
         /// </summary>
         /// <remarks>
@@ -265,15 +274,6 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// Control regexpName.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexpName;
-        
-        /// <summary>
         /// Control chkActivo.
         /// </summary>
         /// <remarks>
@@ -308,5 +308,14 @@ namespace AgenciaViajes {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// Control hdId.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdId;
     }
 }
