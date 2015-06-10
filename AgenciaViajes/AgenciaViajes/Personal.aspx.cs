@@ -150,7 +150,8 @@ namespace AgenciaViajes
             {
                 DangerMessage.Visible = true;
                 LblDanger.Text = "El legajo debe ser un valor numérico.";
-                return;
+                return
+;
             }
             DateTime fechaAlta;
             if (!DateTime.TryParseExact(txtFechaAlta.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaAlta))

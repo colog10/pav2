@@ -80,6 +80,7 @@
                         <asp:BoundField HeaderText="Movil" DataField="movil" />
                         <asp:BoundField HeaderText="Email" DataField="email" />--%>
                     </Columns>
+                    <PagerSettings Mode="NextPreviousFirstLast" />
                 </asp:GridView>
             </div>
         </div>
