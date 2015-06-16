@@ -61,5 +61,12 @@ namespace AgenciaDeViajesDAL.DAL
                 cliente.idClienteDTO = (int)command.Parameters["@idCliente"].Value;
             }
         }
+
+        public static List<ClienteDTO> GetClientesByRazonSocialOrCuil(string filtroBusqueda)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_Cliente_GetByRazonSocialOrCuil");
+            command.Parameters.Add(CreateParameter("@filtroCliente", filtroBusqueda, 50));
+            return GetDTOList<ClienteDTO>(ref command);
+        }
     }
 }

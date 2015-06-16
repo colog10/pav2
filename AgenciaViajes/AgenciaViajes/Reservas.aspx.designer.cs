@@ -11,14 +11,5 @@ namespace AgenciaViajes {
     
     
     public partial class Reservas {
-        
-        /// <summary>
-        /// ConstructionPage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AgenciaViajes.Modules.ConstructionPage ConstructionPage;
     }
 }

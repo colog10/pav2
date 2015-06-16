@@ -16,7 +16,7 @@
     padding-bottom: 280px !important;
 }
 
-.content-page .container-crud{
+.content-page .container-crud, .content-page .container-transaccion{
     margin-left:auto;
     margin-right:auto;
     width:700px;
