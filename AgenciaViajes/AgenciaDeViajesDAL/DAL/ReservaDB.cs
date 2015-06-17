@@ -91,7 +91,7 @@ namespace AgenciaDeViajesDAL.DAL
                 
             }
         }
-    }
+    
       
 
         public static List<ReservaDTO> GetInforme(int monto, DateTime fecha, bool efectuada)
@@ -105,4 +105,4 @@ namespace AgenciaDeViajesDAL.DAL
         }
 }
     }
-}
+
