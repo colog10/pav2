@@ -22,5 +22,10 @@ namespace AgenciaDeViajesBLL
         {
             return ReservaDB.GetAll();
         }
+
+        public static List<ReservaDTO> Reservas_ReservaDTO()
+        {
+            return ReservaDB.GetReservasByName();
+        }
     }
 }
