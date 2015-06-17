@@ -43,7 +43,7 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@idTipoAlojamiento", alojamientoDTO.idTipoAlojamientoDTO));
             command.Parameters.Add(CreateParameter("@domicilio", alojamientoDTO.domicilioDTO, 50));
             command.Parameters.Add(CreateParameter("@nombre", alojamientoDTO.nombreDTO, 50));
-            command.Parameters.Add(CreateParameter("@telefono", alojamientoDTO.numeroTelefonoDTO, 13));
+            command.Parameters.Add(CreateParameter("@telefono", alojamientoDTO.numeroTelefonoDTO));
             
             // Run the command.
             command.Connection.Open();

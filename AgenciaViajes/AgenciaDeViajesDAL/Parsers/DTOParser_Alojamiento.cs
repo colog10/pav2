@@ -44,7 +44,7 @@ namespace AgenciaDeViajesDAL.Parsers
             if(!reader.IsDBNull(Ord_nombre)) {alojamientoDTO.nombreDTO = reader.GetString(Ord_nombre);}
 
             //Telefono
-            if(!reader.IsDBNull(Ord_telefono)) {alojamientoDTO.numeroTelefonoDTO = reader.GetString(Ord_telefono);}
+            if (!reader.IsDBNull(Ord_telefono)) { alojamientoDTO.numeroTelefonoDTO = reader.GetInt32(Ord_telefono); }
 
 
             return alojamientoDTO;

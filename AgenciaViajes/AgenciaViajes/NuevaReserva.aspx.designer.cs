@@ -67,13 +67,22 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.Button btnAgregar;
         
         /// <summary>
-        /// gvPasajeros control.
+        /// gvDetalleReserva control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPasajeros;
+        protected global::System.Web.UI.WebControls.GridView gvDetalleReserva;
+        
+        /// <summary>
+        /// btnGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
         
         /// <summary>
         /// reservaDetalleSection control.
@@ -91,7 +100,25 @@ namespace AgenciaViajes {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPasajero;
+        protected global::System.Web.UI.WebControls.TextBox txtPasajero;
+        
+        /// <summary>
+        /// btnBuscarPasajero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarPasajero;
+        
+        /// <summary>
+        /// gvPasajeros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvPasajeros;
         
         /// <summary>
         /// ddlDocumentoViaje control.
@@ -112,6 +139,15 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.TextBox txtNumeroDocumentoViaje;
         
         /// <summary>
+        /// ddlPaisOrigen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPaisOrigen;
+        
+        /// <summary>
         /// ddlOrigen control.
         /// </summary>
         /// <remarks>
@@ -119,6 +155,15 @@ namespace AgenciaViajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOrigen;
+        
+        /// <summary>
+        /// ddlPaisDestino control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPaisDestino;
         
         /// <summary>
         /// ddlDestino control.
@@ -148,13 +193,13 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.TextBox txtFechaRegreso;
         
         /// <summary>
-        /// txtFechaVencimientoTeserva control.
+        /// txtFechaVencimientoReserva control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaVencimientoTeserva;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaVencimientoReserva;
         
         /// <summary>
         /// ddlTransporte control.
@@ -245,5 +290,23 @@ namespace AgenciaViajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMontoSeguro;
+        
+        /// <summary>
+        /// btnAceptar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAceptar;
+        
+        /// <summary>
+        /// btnCancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
     }
 }

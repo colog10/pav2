@@ -39,16 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlojamientoManager.cs" />
+    <Compile Include="CiudadManager.cs" />
     <Compile Include="ClienteManager.cs" />
+    <Compile Include="CompaniaAereaManager.cs" />
     <Compile Include="EmpleadoManager.cs" />
     <Compile Include="EstadoCivilManager.cs" />
     <Compile Include="PaislManager.cs" />
     <Compile Include="PasajeroManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservaManager.cs" />
     <Compile Include="RolManager.cs" />
     <Compile Include="OperadorTuristicoManager.cs" />
     <Compile Include="TipoDestinoManager.cs" />
     <Compile Include="TipoDocumentoManager.cs" />
+    <Compile Include="TipoSeguroViajeroManager.cs" />
     <Compile Include="UsuarioManager.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -19,6 +19,7 @@ namespace AgenciaDeViajesDTO.Entities
         public int IdDocumentoViaje { get; set; }
         public bool Comprada { get; set; }
         public bool Efectuada { get; set; }
+        public int IdPasajero { get; set; }
 
         public ReservaDetalleDTO()
         {
@@ -32,6 +33,24 @@ namespace AgenciaDeViajesDTO.Entities
             IdDocumentoViaje = Int_NullValue;
             Comprada = Boolean_NullValue;
             Efectuada = Boolean_NullValue;
+            IdPasajero = Int_NullValue;
+        }
+
+
+
+        public PasajeroDTO Pasajero { get; set; }
+        public string NombrePasajero {
+            get
+            {
+                return Pasajero.Nombre;
+            }
+        }
+        public string ApellidoPasajero
+        {
+            get
+            {
+                return Pasajero.Apellido;
+            }
         }
     }
 }

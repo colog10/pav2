@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDAL.DAL
 {
-    class TipoSeguroViajeroDB : DALBase
+    public class TipoSeguroViajeroDB : DALBase
     {
         public static TipoSeguroViajeroDTO GetTipoSeguroViajeroByID(int IDTipoSeguroViajero)
         {

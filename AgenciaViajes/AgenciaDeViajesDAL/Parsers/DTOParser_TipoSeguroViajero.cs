@@ -21,7 +21,7 @@ namespace AgenciaDeViajesDAL.Parsers
         internal override void PopulateOrdinals(SqlDataReader reader)
         {
 
-            Ord_TipoSeguroViajero = reader.GetOrdinal("tipoSeguroViajero");
+            Ord_TipoSeguroViajero = reader.GetOrdinal("idTipoSeguroViajero");
             Ord_descripcionDTO = reader.GetOrdinal("descripcion");
 
 

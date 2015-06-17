@@ -19,6 +19,13 @@ namespace AgenciaDeViajesDAL.DAL
             return GetSingleDTO<CiudadDTO>(ref command);
         }
 
+        public static List<CiudadDTO> GetByPais(string codigoPais)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_Ciudad_GetByIDPais");
+            command.Parameters.Add(CreateParameter("@CodigoPais", codigoPais, 3));
+            return GetDTOList<CiudadDTO>(ref command);
+        }
+
         public static List<CiudadDTO> GetAll()
         {
             SqlCommand command = GetDbSprocCommand("usp_Ciudad_GetAll");

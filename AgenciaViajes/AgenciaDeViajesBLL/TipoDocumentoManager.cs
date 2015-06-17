@@ -20,5 +20,7 @@ namespace AgenciaDeViajesBLL
             return TipoDocumentoDB.GetAll();
         }
 
+
+        
     }
 }

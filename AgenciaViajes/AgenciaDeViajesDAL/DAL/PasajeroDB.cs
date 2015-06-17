@@ -93,5 +93,7 @@ namespace AgenciaDeViajesDAL.DAL
             command.ExecuteNonQuery();
             command.Connection.Close();  
         }
+
+       
     }
 }

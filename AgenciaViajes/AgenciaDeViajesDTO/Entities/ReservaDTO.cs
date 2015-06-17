@@ -44,5 +44,7 @@ namespace AgenciaDeViajesDTO.Entities
             Efectuada = Boolean_NullValue;
         }
 
+
+        public List<ReservaDetalleDTO> DetallesReserva { get; set; }
     }
 }
