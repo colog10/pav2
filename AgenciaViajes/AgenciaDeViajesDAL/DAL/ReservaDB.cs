@@ -91,14 +91,5 @@ namespace AgenciaDeViajesDAL.DAL
                 
             }
         }
-
-
-
-        public static ReservaDTO GetReservasByName(String nombre)
-        {
-            SqlCommand command = GetDbSprocCommand("usp_Reservas_GetByName");
-            command.Parameters.Add(CreateParameter("@Nombre", nombre,50));
-            return GetSingleDTO<ReservaDTO>(ref command);
-        }
     }
 }

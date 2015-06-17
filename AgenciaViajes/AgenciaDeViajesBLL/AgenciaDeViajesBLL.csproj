@@ -43,6 +43,7 @@
     <Compile Include="CiudadManager.cs" />
     <Compile Include="ClienteManager.cs" />
     <Compile Include="CompaniaAereaManager.cs" />
+    <Compile Include="DetalleReservaManager.cs" />
     <Compile Include="EmpleadoManager.cs" />
     <Compile Include="EstadoCivilManager.cs" />
     <Compile Include="PaislManager.cs" />

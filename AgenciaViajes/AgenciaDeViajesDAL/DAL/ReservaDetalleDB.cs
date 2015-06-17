@@ -24,7 +24,12 @@ namespace AgenciaDeViajesDAL.DAL
             SqlCommand command = GetDbSprocCommand("usp_ReservasDetalles_GetAll");
             return GetDTOList<ReservaDetalleDTO>(ref command);
         }
-
+        public static ReservaDetalleDTO GetReservasGetByDocumento(int documento)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_ReservasDetalle_GetByDocumento");
+            command.Parameters.Add(CreateParameter("@Documento", documento));
+            return GetSingleDTO<ReservaDetalleDTO>(ref command);
+        }
         public static void SaveReservaDetalle(ref ReservaDetalleDTO reservaDetalle)
         {
             SqlCommand command;

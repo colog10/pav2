@@ -1,11 +1,11 @@
 ﻿
-CREATE PROCEDURE [dbo].[usp_Pasajero_GetByID]
-	(@IDPasajero int)
+CREATE PROCEDURE [dbo].[usp_ReservasDetalle_GetByDocumento]
+	(@Documento int)
 AS
 BEGIN
 	SET NOCOUNT ON;
 
 	SELECT * 
-	FROM Pasajero
-	WHERE IDPasajero = @IDPasajero;
+	FROM ReservaDetalle
+	WHERE numeroDocumento= @Documento;
 END

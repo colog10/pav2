@@ -31,8 +31,8 @@ namespace AgenciaViajes
 
         protected void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            string filtroBusqueda = txtCliente.Text;
-            gvDetalleVenta.DataSource = ClienteManager.GetClienteByRazonSocialOrCuil(filtroBusqueda);
+            int filtroBusqueda = Convert.ToInt32(txtCliente.Text);
+            gvDetalleVenta.DataSource = DetalleReservaManager.Reservas_ReservaDTO(filtroBusqueda);
             gvDetalleVenta.DataBind();
         }
 
