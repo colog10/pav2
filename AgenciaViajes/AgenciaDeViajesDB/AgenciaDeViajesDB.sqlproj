@@ -112,6 +112,7 @@
     <Build Include="dbo\Stored Procedures\usp_TipoDocumento_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\usp_TipoDestino_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\USP_CompaniaAerea_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Reservas_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AgenciaDeViajesDB.refactorlog" />

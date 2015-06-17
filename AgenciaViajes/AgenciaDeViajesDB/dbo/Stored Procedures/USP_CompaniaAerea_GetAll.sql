@@ -6,3 +6,4 @@ BEGIN
 	SELECT * 
 	FROM CompaniaAerea;
 END
+

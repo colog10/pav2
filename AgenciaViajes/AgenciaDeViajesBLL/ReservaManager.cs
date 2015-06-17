@@ -15,5 +15,12 @@ namespace AgenciaDeViajesBLL
         {
             ReservaDB.SaveReserva(ref reserva);
         }
+
+
+
+        public static void Reservas_getAll()
+        {
+            ReservaDB.GetAll();
+        }
     }
 }

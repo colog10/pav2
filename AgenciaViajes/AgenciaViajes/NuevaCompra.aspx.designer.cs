@@ -13,12 +13,30 @@ namespace AgenciaViajes {
     public partial class NuevaCompra {
         
         /// <summary>
-        /// ConstructionPage control.
+        /// seccionReserva control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AgenciaViajes.Modules.ConstructionPage ConstructionPage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl seccionReserva;
+        
+        /// <summary>
+        /// gvListaDeReservas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvListaDeReservas;
+        
+        /// <summary>
+        /// sectionDetalleReserva control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sectionDetalleReserva;
     }
 }
