@@ -28,8 +28,8 @@ namespace AgenciaViajes
             CargarComboDocumentoViaje();
             CargarComboPaises();
             CargarComboTransportes();
-            CargarComboAlojamiento();
-            CargarComboSeguros();
+         //   CargarComboAlojamiento();
+         //   CargarComboSeguros();
         }
 
         private void CargarComboSeguros()
@@ -156,7 +156,7 @@ namespace AgenciaViajes
             reserva.IsNew = true;
             reserva.NumeroReserva = Convert.ToInt32(txtNumero.Text);
             reserva.IdCliente = Convert.ToInt32(gvClientes.SelectedDataKey.Value);
-            reserva.DetallesReserva = detalles;
+            reserva.DetallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
             ReservaManager.Save(reserva);
         }
 
@@ -177,6 +177,7 @@ namespace AgenciaViajes
             LimpiarCamposDetalle();
             reservaDetalleSection.Visible = false;
             reservaSection.Visible = true;
+            Session["detalles"] = detalles;
         }
     }
 }
