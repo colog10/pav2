@@ -21,7 +21,7 @@ namespace AgenciaDeViajesDAL.DAL
 
         public static List<ReservaDTO> GetAll()
         {
-            SqlCommand command = GetDbSprocCommand("usp_Reservas_GetAll");
+            SqlCommand command = GetDbSprocCommand("usp_Pasajero_GetAll");
             return GetDTOList<ReservaDTO>(ref command);
         }
 
@@ -94,6 +94,14 @@ namespace AgenciaDeViajesDAL.DAL
 
 
 
+        public static ReservaDTO GetReservasByName(String nombre)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_Reservas_GetByName");
+            command.Parameters.Add(CreateParameter("@Nombre", nombre,50));
+            return GetSingleDTO<ReservaDTO>(ref command);
+        }
+      
+
         public static List<ReservaDTO> GetInforme(int monto, DateTime fecha, bool efectuada)
         {
             SqlCommand command = GetDbSprocCommand("usp_Reserva_GetInforme");
@@ -101,6 +109,7 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@fechaReserva", fecha));
             command.Parameters.Add(CreateParameter("@efectuada", efectuada));
             return GetDTOList<ReservaDTO>(ref command);
+
         }
     }
 }

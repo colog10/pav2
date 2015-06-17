@@ -40,6 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgenciaDeViajesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgenciaDeViajesDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\AlojamientoDB.cs" />
     <Compile Include="DAL\CiudadDB.cs" />
     <Compile Include="DAL\ClienteDB.cs" />
@@ -95,12 +100,34 @@
     <Compile Include="Parsers\DTOParser_Usuario.cs" />
     <Compile Include="Parsers\DTOParser_Venta.cs" />
     <Compile Include="Parsers\DTOParser_VentaDetalle.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Util\DALBase.cs" />
     <Compile Include="Util\DTOParser.cs" />
     <Compile Include="Util\DTOParserFactory.cs" />
     <Compile Include="Util\DTOParserSQLClient.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="AgenciaDeViajesDataSet.xsc">
+      <DependentUpon>AgenciaDeViajesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AgenciaDeViajesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AgenciaDeViajesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AgenciaDeViajesDataSet.xss">
+      <DependentUpon>AgenciaDeViajesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AgenciaDeViajesDTO\AgenciaDeViajesDTO.csproj">
       <Project>{426c14bf-c115-42d5-9db2-aa1972f03845}</Project>
