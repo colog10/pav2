@@ -92,4 +92,17 @@ namespace AgenciaDeViajesDAL.DAL
             }
         }
     }
+      
+
+        public static List<ReservaDTO> GetInforme(int monto, DateTime fecha, bool efectuada)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_Reserva_GetInforme");
+            command.Parameters.Add(CreateParameter("@monto", monto));
+            command.Parameters.Add(CreateParameter("@fechaReserva", fecha));
+            command.Parameters.Add(CreateParameter("@efectuada", efectuada));
+            return GetDTOList<ReservaDTO>(ref command);
+
+        }
+}
+    }
 }

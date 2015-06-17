@@ -220,6 +220,15 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.TextBox txtMonto;
         
         /// <summary>
+        /// alojamientoSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alojamientoSection;
+        
+        /// <summary>
         /// ddlAlojamiento control.
         /// </summary>
         /// <remarks>
@@ -263,6 +272,15 @@ namespace AgenciaViajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMontoAlojamiento;
+        
+        /// <summary>
+        /// seguroViajeroSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl seguroViajeroSection;
         
         /// <summary>
         /// ddlTipoSeguro control.
