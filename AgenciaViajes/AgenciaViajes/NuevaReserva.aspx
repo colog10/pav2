@@ -197,8 +197,8 @@
                 </div>
             </div>
         </div>                 
-        
-        <div class="row">
+        <div id="alojamientoSection" runat="server">
+            <div class="row">
             <div class="col-md-12">
                 <h2>Alojamiento</h2>
             </div>
@@ -243,6 +243,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div id="seguroViajeroSection" runat="server">
             <div class="row">
                 <div class="col-md-12">
                     <h2> Seguro Viajero</h2>
@@ -270,6 +272,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
+            
         
         <div class="row">
             <div class="col-md-12">

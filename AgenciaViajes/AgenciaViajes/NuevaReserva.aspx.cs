@@ -17,6 +17,8 @@ namespace AgenciaViajes
             if (!IsPostBack)
             {
                 reservaDetalleSection.Visible = false;
+                alojamientoSection.Visible = false;
+                seguroViajeroSection.Visible = false;
                 InicializarDetalleReserva();
                 InicializarCombos();
             }
@@ -168,7 +170,6 @@ namespace AgenciaViajes
             
             detalle.IdPasajero = Convert.ToInt32(gvPasajeros.SelectedDataKey.Value);
             detalle.Pasajero = PasajeroManager.GetPasajeroByID(detalle.IdPasajero);
-            
             detalle.NumeroDocumento = txtNumeroDocumentoViaje.Text;
             detalle.IdTipoDocumento = Convert.ToInt32(ddlDocumentoViaje.SelectedValue);
             detalles.Add(detalle);
