@@ -18,9 +18,9 @@ namespace AgenciaDeViajesBLL
 
 
 
-        public static void Reservas_getAll()
+        public static List<ReservaDTO> Reservas_getAll()
         {
-            ReservaDB.GetAll();
+            return ReservaDB.GetAll();
         }
     }
 }

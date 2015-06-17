@@ -19,7 +19,7 @@
     <br />
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-        <asp:GridView ID="gvListaDeReservas" runat="server" DataKeyNames="idPasajero" EmptyDataText="Algún texto" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
+        <asp:GridView ID="gvListaDeReservas" runat="server" DataKeyNames="idReserva" EmptyDataText="Algún texto" ShowHeaderWhenEmpty="True" AutoGenerateColumns="false">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="NombrePasajero" HeaderText="Nombre" />
