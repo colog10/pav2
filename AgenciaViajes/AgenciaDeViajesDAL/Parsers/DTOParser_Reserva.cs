@@ -13,7 +13,6 @@ namespace AgenciaDeViajesDAL.Parsers
     internal class DTOParser_Reserva : DTOParserSQLClient
     {
         private int Ord_IdReserva;
-        private int Ord_IdDetalleReserva;
         private int Ord_IdCliente;
         private int Ord_IdTipoDocumento;
         private int Ord_NumeroDocumento;
@@ -31,7 +30,6 @@ namespace AgenciaDeViajesDAL.Parsers
         internal override void PopulateOrdinals(SqlDataReader reader)
         {
             Ord_IdReserva = reader.GetOrdinal("IdReserva");
-            Ord_IdDetalleReserva = reader.GetOrdinal("IdDetalleReserva");
             Ord_IdCliente = reader.GetOrdinal("IdCliente");
             Ord_IdTipoDocumento = reader.GetOrdinal("IdTipoDocumento");
             Ord_NumeroDocumento = reader.GetOrdinal("NumeroDocumento");
@@ -53,11 +51,6 @@ namespace AgenciaDeViajesDAL.Parsers
             if (!reader.IsDBNull(Ord_IdReserva))
             {
                 reserva.IdReserva = reader.GetInt32(Ord_IdReserva);
-            }
-            // IdDetalleReserva
-            if (!reader.IsDBNull(Ord_IdDetalleReserva))
-            {
-                reserva.IdDetalleReserva = reader.GetInt32(Ord_IdDetalleReserva);
             }
             // IdCliente
             if (!reader.IsDBNull(Ord_IdCliente))

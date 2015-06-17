@@ -10,7 +10,6 @@ namespace AgenciaDeViajesDTO.Entities
     public class ReservaDTO : DTOBase
     {
         public int IdReserva { get; set; }
-        public int IdDetalleReserva { get; set; }
         public int IdCliente { get; set; }
         public int IdEmpleado { get; set; }
         public int IdTipoDocumento { get; set; }
@@ -28,7 +27,6 @@ namespace AgenciaDeViajesDTO.Entities
         public ReservaDTO()
         {
             IdReserva = Int_NullValue;
-            IdDetalleReserva = Int_NullValue;
             IdCliente = Int_NullValue;
             IdEmpleado = Int_NullValue;
             IdTipoDocumento = Int_NullValue;
