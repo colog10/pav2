@@ -145,6 +145,7 @@ namespace AgenciaViajes
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             int legajo;
+            DateTime? fechaBaja;
 
             if (!Int32.TryParse(txtLegajo.Text, out legajo))
             {
@@ -161,13 +162,13 @@ namespace AgenciaViajes
                 return;
             }
 
-            DateTime? fechaBaja = null;
-            if (txtFechaBaja.Text != "" && !DateTime.TryParseExact(txtFechaBaja.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaAlta))
+            DateTime fechaBajaAux = CommonBase.DateTime_NullValue;
+            if (txtFechaBaja.Text != "" && !DateTime.TryParseExact(txtFechaBaja.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaBajaAux))
             {
                 DangerMessage.Visible = true;
                 LblDanger.Text = "El formato de la fecha de baja debe ser dd/MM/yyyy.";
                 return;
-            }
+            }          
             
             
             EmpleadoDTO empleado = new EmpleadoDTO();
@@ -176,8 +177,7 @@ namespace AgenciaViajes
             empleado.Apellido = txtApellido.Text;
             empleado.Nombre = txtNombre.Text;
             empleado.FechaAlta = fechaAlta;
-            if(fechaBaja != null)
-                empleado.FechaBaja = fechaBaja;
+            empleado.FechaBaja = fechaBajaAux;
             empleado.Legajo = legajo;
             empleado.IsNew = true;
             empleado.Supervisor = chkSupervisor.Checked;

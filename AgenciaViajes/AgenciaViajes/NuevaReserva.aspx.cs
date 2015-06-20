@@ -1,7 +1,9 @@
 ﻿using AgenciaDeViajesBLL;
 using AgenciaDeViajesDTO.Entities;
+using AgenciaDeViajesDTO.Util;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -32,7 +34,7 @@ namespace AgenciaViajes
             CargarComboPaises();
             CargarComboTransportes();
          //   CargarComboAlojamiento();
-         //   CargarComboSeguros();
+            CargarComboSeguros();
         }
 
         private void CargarComboSeguros()
@@ -166,9 +168,29 @@ namespace AgenciaViajes
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ReservaDTO reserva = new ReservaDTO();
+            ServicioTrasladoDTO servicioTraslado = new ServicioTrasladoDTO();
+            DateTime fechaSalida = CommonBase.DateTime_NullValue;
+            DateTime fechaLlegada = CommonBase.DateTime_NullValue;
+
             reserva.IsNew = true;
             reserva.NumeroReserva = Convert.ToInt32(txtNumero.Text);
             reserva.IdCliente = Convert.ToInt32(gvClientes.SelectedDataKey.Value);
+            servicioTraslado.IsNew = true;
+            servicioTraslado.destinoDTO = Int32.Parse(ddlDestino.SelectedValue);
+            servicioTraslado.origenDTO = Int32.Parse(ddlOrigen.SelectedValue);
+            
+            if (txtFechaSalida.Text != "" && !DateTime.TryParseExact(txtFechaSalida.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaSalida))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El formato de la fecha de baja debe ser dd/MM/yyyy.";
+                return;
+            }
+            servicioTraslado.fechaSalidaDTO = fechaSalida;
+            servicioTraslado.fechaLlegadaDTO = fechaLlegada;
+
+            
+
+            reserva.ServicioTraslado = servicioTraslado;
             reserva.DetallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
             ReservaManager.Save(reserva);
             LblSuccess.Text = "La Reserva se guardo con exito";

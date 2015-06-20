@@ -44,5 +44,7 @@ namespace AgenciaDeViajesDTO.Entities
 
 
         public List<ReservaDetalleDTO> DetallesReserva { get; set; }
+
+        public ServicioTrasladoDTO ServicioTraslado { get; set; }
     }
 }
