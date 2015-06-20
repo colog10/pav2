@@ -13,7 +13,8 @@ namespace AgenciaDeViajesDAL.Parsers
     internal class DTOParser_ReservaDetalle : DTOParserSQLClient
     {
         private int Ord_IdDetallaReserva;
-        private int Ord_IdReserva;
+        private int Ord_IdReserva; 
+        private int Ord_IdPasajero;
         private int Ord_IdSeguroViajero;
         private int Ord_IdTipoDocumento;
         private int Ord_NumeroDocumento;
@@ -27,6 +28,7 @@ namespace AgenciaDeViajesDAL.Parsers
         {
             Ord_IdDetallaReserva = reader.GetOrdinal("IdDetallaReserva");
             Ord_IdReserva = reader.GetOrdinal("IdReserva");
+            Ord_IdPasajero= reader.GetOrdinal("IdPasajero");
             Ord_IdSeguroViajero = reader.GetOrdinal("IdSeguroViajero");
             Ord_IdTipoDocumento = reader.GetOrdinal("IdTipoDocumento");
             Ord_NumeroDocumento = reader.GetOrdinal("NumeroDocumento");
@@ -80,6 +82,11 @@ namespace AgenciaDeViajesDAL.Parsers
             if (!reader.IsDBNull(Ord_IdDocumentoViaje))
             {
                 detalleReserva.IdDocumentoViaje = reader.GetInt32(Ord_IdDocumentoViaje);
+            }
+            //idpasajero
+            if (!reader.IsDBNull(Ord_IdPasajero))
+            {
+                detalleReserva.IdPasajero = reader.GetInt32(Ord_IdPasajero);
             }
             // Comprada
             if (!reader.IsDBNull(Ord_Comprada))

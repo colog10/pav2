@@ -15,5 +15,23 @@ namespace AgenciaDeViajesBLL
         {
             return ReservaDetalleDB.GetReservasGetByDocumento(documento);
         }
+
+        public static void Save(ReservaDTO reserva)
+        {
+            // ReservaDetalleDB.SaveReservaDetalle(ref reserva);
+        }
+
+
+
+        public static List<ReservaDetalleDTO> ReservasDetalle_getAll()
+        {
+            return ReservaDetalleDB.GetAll();
+        }
+
+        public static List<ReservaDetalleDTO> GetInforme(int monto, DateTime fecha, bool efectuada)
+        {
+            //  return ReservaDetalleDB.GetInforme(monto, fecha, efectuada);
+            return null;
+        }
     }
 }

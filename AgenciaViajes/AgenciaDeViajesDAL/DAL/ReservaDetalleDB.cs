@@ -16,13 +16,25 @@ namespace AgenciaDeViajesDAL.DAL
         {
             SqlCommand command = GetDbSprocCommand("usp_ReservasDetalles_GetByID");
             command.Parameters.Add(CreateParameter("@IDDetalleReserva", IDReservaDetalle));
-            return GetSingleDTO<ReservaDetalleDTO>(ref command);
+            ReservaDetalleDTO dr = GetSingleDTO<ReservaDetalleDTO>(ref command);
+
+            dr.Pasajero = PasajeroDB.GetPasajeroByID(dr.IdPasajero);
+            dr.ServicioAlojamiento = ServicioAlojamientoDB.GetServicioAlojamientoByID(dr.IdServicioAlojamiento);
+            dr.Seguro = SeguroViajeroDB.GetSegurosViajerosByID(dr.IdSeguroViajero);
+            return dr;
         }
 
         public static List<ReservaDetalleDTO> GetAll()
         {
-            SqlCommand command = GetDbSprocCommand("usp_ReservasDetalles_GetAll");
-            return GetDTOList<ReservaDetalleDTO>(ref command);
+            SqlCommand command = GetDbSprocCommand("usp_ReservasDetalle_GetAll");
+            List<ReservaDetalleDTO> dr = GetDTOList<ReservaDetalleDTO>(ref command);
+            foreach (ReservaDetalleDTO re in dr)
+            {
+                re.Pasajero = PasajeroDB.GetPasajeroByID(re.IdPasajero);
+                re.ServicioAlojamiento = ServicioAlojamientoDB.GetServicioAlojamientoByID(re.IdServicioAlojamiento);
+                re.Seguro = SeguroViajeroDB.GetSegurosViajerosByID(re.IdSeguroViajero);
+            }
+            return dr;
         }
         public static ReservaDetalleDTO GetReservasGetByDocumento(int documento)
         {
@@ -56,8 +68,8 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@IdServicioTraslado", reservaDetalle.IdServicioTraslado));
             command.Parameters.Add(CreateParameter("@IdTipoDocumento", reservaDetalle.IdTipoDocumento));
             command.Parameters.Add(CreateParameter("@NumeroDocumento", reservaDetalle.NumeroDocumento, 8));
-            
-            
+
+
             // Run the command.
             command.Connection.Open();
             command.ExecuteNonQuery();

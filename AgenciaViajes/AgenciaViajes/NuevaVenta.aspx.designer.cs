@@ -40,13 +40,13 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.Button btnBuscarCliente;
         
         /// <summary>
-        /// Control gvDetalleVenta.
+        /// Control gvDetalleReserva.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDetalleVenta;
+        protected global::System.Web.UI.WebControls.GridView gvDetalleReserva;
         
         /// <summary>
         /// Control btnGuardar.
