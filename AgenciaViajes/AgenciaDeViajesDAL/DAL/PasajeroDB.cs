@@ -15,7 +15,7 @@ namespace AgenciaDeViajesDAL.DAL
         public static PasajeroDTO GetPasajeroByID(int IDPasajero)
         {
             SqlCommand command = GetDbSprocCommand("usp_Pasajero_GetByID");
-            command.Parameters.Add(CreateParameter("@iDPasajero", IDPasajero));
+            command.Parameters.Add(CreateParameter("@IDPasajero", IDPasajero));
             return GetSingleDTO<PasajeroDTO>(ref command);
         }
 

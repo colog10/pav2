@@ -39,6 +39,7 @@ namespace AgenciaDeViajesDTO.Entities
 
 
         public PasajeroDTO Pasajero { get; set; }
+       
         public string NombrePasajero {
             get
             {
@@ -52,5 +53,32 @@ namespace AgenciaDeViajesDTO.Entities
                 return Pasajero.Apellido;
             }
         }
+
+        public SeguroViajeroDTO Seguro { get; set; }
+
+        public string NombreSeguro
+        {
+            get
+            {
+                return Seguro.Descripcion;
+            }
+        }
+
+       // public ServicioTrasladoDTO ServicioTraslado { get; set; }
+
+        
+
+        public ServicioAlojamientoDTO ServicioAlojamiento { get; set; }
+
+        public string NombreAlojamiento
+        {
+            get
+            {
+                return ServicioAlojamiento.descripcionDTO;
+            }
+        }
+
+       
+
     }
 }

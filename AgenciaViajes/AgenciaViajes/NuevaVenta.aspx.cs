@@ -23,17 +23,18 @@ namespace AgenciaViajes
 
         private void InicializarDetalleReserva()
         {
-
-            gvDetalleVenta.DataSource = ReservaManager.Reservas_getAll();
-            gvDetalleVenta.DataBind();
+            List<ReservaDetalleDTO> det = DetalleReservaManager.ReservasDetalle_getAll();
+                      
+            gvDetalleReserva.DataSource =det ;
+            gvDetalleReserva.DataBind();
 
         }
 
         protected void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             int filtroBusqueda = Convert.ToInt32(txtCliente.Text);
-            gvDetalleVenta.DataSource = DetalleReservaManager.Reservas_ReservaDTO(filtroBusqueda);
-            gvDetalleVenta.DataBind();
+            gvDetalleReserva.DataSource = DetalleReservaManager.Reservas_ReservaDTO(filtroBusqueda);
+            gvDetalleReserva.DataBind();
         }
 
 

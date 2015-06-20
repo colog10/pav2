@@ -38,13 +38,13 @@
 
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView runat="server" ID="gvDetalleVenta" DataKeyNames="IdVenta" EmptyDataText="Haz click en agregar para ingresar los datos del viaje" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
+                <asp:GridView runat="server" ID="gvDetalleReserva" DataKeyNames="IdDetallaReserva" EmptyDataText="Haz click en agregar para ingresar los datos del viaje" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
                     <Columns>
                         <asp:BoundField DataField="NombrePasajero" HeaderText="Nombre" />
                         <asp:BoundField DataField="ApellidoPasajero" HeaderText="Apellido" />
-                        <asp:BoundField DataField="SeguroViajero" HeaderText="seguro" />
-                        <asp:BoundField DataField="ServicioDeAlojamiento" HeaderText="Servicio De Alojamiento" />
-                        <asp:BoundField DataField="ServicioDeTraslado" HeaderText="Servicio De Traslado" />
+                        <asp:BoundField DataField="NombreSeguro" HeaderText="seguro" />
+                        <asp:BoundField DataField="NombreAlojamiento" HeaderText="Servicio De Alojamiento" />
+                        <%--<asp:BoundField DataField="ServicioDeTraslado" HeaderText="Servicio De Traslado" />--%>
                         <asp:BoundField DataField="Comprada" HeaderText="Comprada" />
                         <asp:BoundField DataField="Vendido" HeaderText="Vendido" />
                         
