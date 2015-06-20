@@ -16,6 +16,19 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="row container-transaccion">
+            <div class="col-md-12">
+                <div id="SuccessMessage" runat="server" class="alert alert-success" role="alert" visible="false">
+                    <asp:Label ID="LblSuccess" runat="server"></asp:Label></div>
+                <div id="InfoMessage" runat="server" class="alert alert-info" role="alert" visible="false">
+                    <asp:Label ID="LblInfo" runat="server"></asp:Label></div>
+                <div id="WarningMessage" runat="server" class="alert alert-warning" role="alert" visible="false">
+                    <asp:Label ID="LblWarning" runat="server"></asp:Label></div>
+                <div id="DangerMessage" runat="server" class="alert alert-danger" role="alert" visible="false">
+                    <asp:Label ID="LblDanger" runat="server"></asp:Label></div>
+                   
+            </div>
+        </div>
     <section id="reservaSection" runat="server" class="container-transaccion">
 
         <div class="row">
@@ -23,6 +36,9 @@
                <h3>Nueva Reserva</h3>
             </div>
         </div>
+
+        
+
 
         <div class="row">
             <div class="col-md-6">

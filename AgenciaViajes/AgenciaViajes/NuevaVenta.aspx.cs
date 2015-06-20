@@ -45,8 +45,8 @@ namespace AgenciaViajes
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            //VentaDTO venta = new VentaDTO();
-            //venta.IsNew = true;
+            VentaDTO venta = new VentaDTO();
+            venta.IsNew = true;
             //venta.NumeroReserva = Convert.ToInt32(txtNumero.Text);
             //venta.IdCliente = Convert.ToInt32(gvDetalleVenta.SelectedDataKey.Value);
             //venta.DetallesReserva = detalles;
@@ -74,7 +74,7 @@ namespace AgenciaViajes
 
         protected void actualizarDetalle(object sender, EventArgs e)
         {
-           
+            ReservaDetalleDTO detalle = new ReservaDetalleDTO();
         }
 
     }

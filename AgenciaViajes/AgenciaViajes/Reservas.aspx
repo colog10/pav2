@@ -42,7 +42,11 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView runat="server" ID="gvReservas" PageSize="10" >
+                <asp:GridView runat="server" ID="gvReservas" AutoGenerateColumns="False" >
+                    <Columns>
+                        <asp:BoundField DataField="NumeroReserva" HeaderText="Numero" />
+                        <asp:BoundField DataField="Monto" HeaderText="Monto" />
+                    </Columns>
 
                 </asp:GridView>
             </div>

@@ -21,7 +21,7 @@ namespace AgenciaDeViajesDAL.DAL
 
         public static List<ReservaDTO> GetAll()
         {
-            SqlCommand command = GetDbSprocCommand("usp_Pasajero_GetAll");
+            SqlCommand command = GetDbSprocCommand("usp_Reservas_GetAll");
             return GetDTOList<ReservaDTO>(ref command);
         }
 

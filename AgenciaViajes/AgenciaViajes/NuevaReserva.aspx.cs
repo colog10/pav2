@@ -21,6 +21,7 @@ namespace AgenciaViajes
                 seguroViajeroSection.Visible = false;
                 InicializarDetalleReserva();
                 InicializarCombos();
+                OcultarMensajes();
             }
 
         }
@@ -73,7 +74,6 @@ namespace AgenciaViajes
             ddlPaisOrigen.DataTextField = "PaisNombre";
             ddlPaisOrigen.DataValueField = "PaisCodigo";
             ddlPaisOrigen.DataBind();
-
             ddlPaisDestino.DataSource = paises;
             ddlPaisDestino.DataTextField = "PaisNombre";
             ddlPaisDestino.DataValueField = "PaisCodigo";
@@ -95,6 +95,7 @@ namespace AgenciaViajes
             string filtroBusqueda = txtCliente.Text;
             gvClientes.DataSource = ClienteManager.GetClienteByRazonSocialOrCuil(filtroBusqueda);
             gvClientes.DataBind();
+            
         }
 
         protected void btnBuscarPasajero_Click(object sender, EventArgs e)
@@ -144,6 +145,16 @@ namespace AgenciaViajes
             ddlOrigen.DataBind();
         }
 
+
+        private void OcultarMensajes()
+        {
+            DangerMessage.Visible = false;
+            InfoMessage.Visible = false;
+            SuccessMessage.Visible = false;
+            WarningMessage.Visible = false;
+        }
+
+
         protected void ddlPaisDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
             ddlDestino.DataSource = CiudadManager.GetByPais(ddlPaisDestino.SelectedValue);
@@ -160,6 +171,10 @@ namespace AgenciaViajes
             reserva.IdCliente = Convert.ToInt32(gvClientes.SelectedDataKey.Value);
             reserva.DetallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
             ReservaManager.Save(reserva);
+            LblSuccess.Text = "La Reserva se guardo con exito";
+            reservaSection.Visible = false;
+
+            SuccessMessage.Visible = true;
         }
 
         
