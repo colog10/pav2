@@ -66,8 +66,12 @@ namespace AgenciaViajes
 
 
         private void InicializarDetalleReserva(int idReserva)
+        
         {
-            gvMonto.DataSource = ReservaManager.GetReservasByID(idReserva);
+            List<ReservaDTO> res = new List<ReservaDTO>();
+            res.Add(ReservaManager.GetReservasByID(idReserva));
+
+            gvMonto.DataSource = res;
             gvMonto.DataBind();
             List<ReservaDetalleDTO> det = DetalleReservaManager.GetDetalleByReserva(idReserva);
 
@@ -75,6 +79,7 @@ namespace AgenciaViajes
             gvDetalleReserva.DataBind();
 
         }
+
 
         protected void gvReserva_SelectedIndexChanged(object sender, EventArgs e)
         {
