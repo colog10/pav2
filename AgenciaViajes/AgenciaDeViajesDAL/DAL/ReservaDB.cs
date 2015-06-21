@@ -39,7 +39,14 @@ namespace AgenciaDeViajesDAL.DAL
         {
             
             SqlCommand command = null;
-            
+            float montoReserva = 0;
+
+            foreach (ReservaDetalleDTO reservaDetalle in reserva.DetallesReserva)
+            {
+                montoReserva += reservaDetalle.Monto;
+            }
+
+            reserva.Monto = montoReserva;
 
             try {
                 command = GetDbSprocCommand("usp_Reserva_Insert");

@@ -16,7 +16,7 @@ namespace AgenciaDeViajesDTO.Entities
         public string NumeroDocumento { get; set; }
         public int IdDocumentoViaje { get; set; }
         public int NumeroReserva { get; set; }
-        public int Monto { get; set; }
+        public float Monto { get; set; }
         public DateTime FechaReserva { get; set; }
         public int IdSeguroViajero { get; set; }
         public int IdServicioAlojamiento { get; set; }
