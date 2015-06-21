@@ -71,7 +71,7 @@ namespace AgenciaDeViajesDAL.DAL
                 command.ExecuteNonQuery();
 
                 command.Parameters.Clear();
-                command.CommandText = "usp_ReservaDetalle_Sell";
+                command.CommandText = "usp_ReservaDetalle_Buy";
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add(CreateParameter("@idDetalleReserva", rd.idDetalleReservaDTO));
 
