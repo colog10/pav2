@@ -83,13 +83,11 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView runat="server" ID="gvMonto" EmptyDataText="" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
-                    <Columns>
-                        <asp:BoundField DataField="Monto" HeaderText="Monto Total" />
-                        <asp:BoundField DataField="Comision" HeaderText="Comision" />
-
-                    </Columns>
-                </asp:GridView>
+                <div class="form-group">
+                    
+                    <asp:TextBox type="text" ID="txtComision" runat="server" MaxLength="50" class="form-control" />
+                    <asp:TextBox type="text" ID="txtMontoTotal" runat="server" MaxLength="50" class="form-control" />
+                </div>
             </div>
         </div>
         <div class="row">

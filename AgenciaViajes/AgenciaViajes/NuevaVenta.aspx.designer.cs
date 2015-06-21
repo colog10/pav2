@@ -67,13 +67,22 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.GridView gvDetalleReserva;
         
         /// <summary>
-        /// Control gvMonto.
+        /// Control txtComision.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMonto;
+        protected global::System.Web.UI.WebControls.TextBox txtComision;
+        
+        /// <summary>
+        /// Control txtMontoTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMontoTotal;
         
         /// <summary>
         /// Control Button2.

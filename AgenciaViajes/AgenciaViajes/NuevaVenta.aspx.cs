@@ -68,16 +68,25 @@ namespace AgenciaViajes
         private void InicializarDetalleReserva(int idReserva)
         
         {
-            List<ReservaDTO> res = new List<ReservaDTO>();
-            res.Add(ReservaManager.GetReservasByID(idReserva));
-
-            gvMonto.DataSource = res;
-            gvMonto.DataBind();
+            
             List<ReservaDetalleDTO> det = DetalleReservaManager.GetDetalleByReserva(idReserva);
 
             gvDetalleReserva.DataSource = det;
             gvDetalleReserva.DataBind();
 
+            CalcularMonto(det);
+            
+        }
+
+        private void CalcularMonto(List<ReservaDetalleDTO> det)
+        {
+            float MontoTotal=0;
+            foreach (ReservaDetalleDTO re in det)
+            {
+                MontoTotal += re.Monto;
+            }
+            txtMontoTotal.Text = Convert.ToString(MontoTotal);
+            
         }
 
 
