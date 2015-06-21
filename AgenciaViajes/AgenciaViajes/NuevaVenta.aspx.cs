@@ -16,25 +16,26 @@ namespace AgenciaViajes
         {
             if (!IsPostBack)
             {
-                InicializarDetalleReserva();
+                InicializarReserva();
             }
 
         }
 
-        private void InicializarDetalleReserva()
+        private void InicializarReserva()
         {
-            List<ReservaDetalleDTO> det = DetalleReservaManager.ReservasDetalle_getAll();
+            
+            List<ReservaDTO> det = ReservaManager.Reservas_getAll();
                       
-            gvDetalleReserva.DataSource =det ;
-            gvDetalleReserva.DataBind();
+            gvReserva.DataSource =det ;
+            gvReserva.DataBind();
 
         }
 
         protected void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            int filtroBusqueda = Convert.ToInt32(txtCliente.Text);
-            gvDetalleReserva.DataSource = DetalleReservaManager.Reservas_ReservaDTO(filtroBusqueda);
-            gvDetalleReserva.DataBind();
+            String filtroBusqueda = txtCliente.Text;
+            gvReserva.DataSource = ReservaManager.GetCliente(filtroBusqueda);
+            gvReserva.DataBind();
         }
 
 
@@ -46,36 +47,42 @@ namespace AgenciaViajes
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            VentaDTO venta = new VentaDTO();
-            venta.IsNew = true;
-            //venta.NumeroReserva = Convert.ToInt32(txtNumero.Text);
+            //VentaDTO venta = new VentaDTO();
+            //venta.IsNew = true;
+            //venta.ciudadDestinoDTO = Convert.ToInt32(txtNumero.Text);
+            //venta.ciudadOrigenDTO=null;
+            //     venta.
             //venta.IdCliente = Convert.ToInt32(gvDetalleVenta.SelectedDataKey.Value);
             //venta.DetallesReserva = detalles;
             //ReservaManager.Save(venta);
         }
 
 
-
-        protected void btnAceptar_Click1(object sender, EventArgs e)
-        {
-            VentaDetalleDTO detalle = new VentaDetalleDTO();
-
-            //detalle.IdPasajero = Convert.ToInt32(gvPasajeros.SelectedDataKey.Value);
-            //detalle.Pasajero = PasajeroManager.GetPasajeroByID(detalle.IdPasajero);
-
-            //detalle.NumeroDocumento = txtNumeroDocumentoViaje.Text;
-            //detalle.IdTipoDocumento = Convert.ToInt32(ddlDocumentoViaje.SelectedValue);
-            detalles.Add(detalle);
-            //gvDetalleReserva.DataSource = detalles;
-            //gvDetalleReserva.DataBind();
-            //LimpiarCamposDetalle();
-            //reservaDetalleSection.Visible = false;
-            //reservaSection.Visible = true;
-        }
-
         protected void actualizarDetalle(object sender, EventArgs e)
         {
             ReservaDetalleDTO detalle = new ReservaDetalleDTO();
+        }
+
+
+
+        private void InicializarDetalleReserva(int idReserva)
+        {
+            gvMonto.DataSource = ReservaManager.GetReservasByID(idReserva);
+            gvMonto.DataBind();
+            List<ReservaDetalleDTO> det = DetalleReservaManager.GetDetalleByReserva(idReserva);
+
+            gvDetalleReserva.DataSource = det;
+            gvDetalleReserva.DataBind();
+
+        }
+
+        protected void gvReserva_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VentaSection.Visible = false;
+            SectionDetalleReserva.Visible = true;
+            int st = Convert.ToInt32(gvReserva.SelectedValue);
+            InicializarDetalleReserva(st);
+
         }
 
     }

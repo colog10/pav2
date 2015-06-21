@@ -94,7 +94,7 @@ namespace AgenciaDeViajesDAL.Parsers
             // Monto
             if (!reader.IsDBNull(Ord_monto))
             {
-                ServicioAlojamiento.montoDTO = reader.GetInt32(Ord_monto);
+                ServicioAlojamiento.montoDTO = (float)reader.GetDecimal(Ord_monto);
             }
             // FechaReserva
             if (!reader.IsDBNull(Ord_numeroCompraDTO))

@@ -82,5 +82,22 @@ namespace AgenciaDeViajesDAL.DAL
                 reservaDetalle.IdDetallaReserva = (int)command.Parameters["@IdDetallaReserva"].Value;
             }
         }
+
+        public static List<ReservaDetalleDTO> GetDetalleByReserva(int idReserva)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_ReservasDetalle_GetByIDReserva");
+            command.Parameters.Add(CreateParameter("@IDReserva", idReserva));
+
+
+            List<ReservaDetalleDTO> dr= GetDTOList<ReservaDetalleDTO>(ref command); 
+
+             foreach (ReservaDetalleDTO re in dr)
+            {
+                re.Pasajero = PasajeroDB.GetPasajeroByID(re.IdPasajero);
+                re.ServicioAlojamiento = ServicioAlojamientoDB.GetServicioAlojamientoByID(re.IdServicioAlojamiento);
+                re.Seguro = SeguroViajeroDB.GetSegurosViajerosByID(re.IdSeguroViajero);
+            }
+            return dr;
+        }
     }
 }

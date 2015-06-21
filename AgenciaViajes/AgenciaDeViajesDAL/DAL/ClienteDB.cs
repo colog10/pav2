@@ -68,5 +68,6 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@filtroCliente", filtroBusqueda, 50));
             return GetDTOList<ClienteDTO>(ref command);
         }
+
     }
 }
