@@ -50,5 +50,7 @@ namespace AgenciaDeViajesDTO.Entities
         public ClienteDTO Cliente { get; set; }
         public string NombreCliente { get { return Cliente.razonSocialDTO; } }
 
+
+        public EmpleadoDTO Empleado { get; set; }
     }
 }

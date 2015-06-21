@@ -145,7 +145,7 @@ namespace AgenciaViajes
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             int legajo;
-            DateTime? fechaBaja;
+            
 
             if (!Int32.TryParse(txtLegajo.Text, out legajo))
             {

@@ -28,5 +28,7 @@ namespace AgenciaDeViajesDTO.Entities
             saldoDTO = Float_NullValue;
         }
 
+
+        public List<CompraDetalleDTO> Detalles { get; set; }
     }
 }

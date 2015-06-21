@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AgenciaDeViajesDAL.DAL
 {
-    class VentaDB : DALBase
+    public class VentaDB : DALBase
     {
         public static VentaDTO GetServicioAlojamientoByID(int IDVenta)
         {
@@ -25,52 +25,64 @@ namespace AgenciaDeViajesDAL.DAL
             return GetDTOList<VentaDTO>(ref command);
         }
 
-        public static void SaveServicioAlojamiento(ref VentaDTO Venta)
+        public static void SaveVenta(ref VentaDTO Venta)
         {
-            SqlCommand command;
+            SqlCommand command = null;
+            
+            float montoVenta = 0;
 
-            if (Venta.IsNew)
+            foreach (VentaDetalleDTO rd in Venta.DetallesVenta)
             {
-                command = GetDbSprocCommand("usp_Venta_Insert");
-                command.Parameters.Add(CreateOutputParameter("@IDVenta", SqlDbType.Int));
-            }
-            else
-            {
-                command = GetDbSprocCommand("usp_Venta_Update");
-                command.Parameters.Add(CreateParameter("@IDVenta", Venta.numeroVentaDTO));
+                montoVenta += rd.Monto;
             }
 
-            command.Parameters.Add(CreateParameter("@CuidadDestino", Venta.ciudadDestinoDTO));
-            command.Parameters.Add(CreateParameter("@CuidadOrigen", Venta.ciudadOrigenDTO));
+            Venta.montoDTO = montoVenta;
+            
+            command = GetDbSprocCommand("usp_Venta_Insert");
+            command.Parameters.Add(CreateOutputParameter("@IDVenta", SqlDbType.Int));
             command.Parameters.Add(CreateParameter("@Comision", Venta.comisionDTO));
-            command.Parameters.Add(CreateParameter("@documentoViajero", Venta.documentoViajeDTO));
-            command.Parameters.Add(CreateParameter("@FechaRetorno", Venta.fechaRetornoDTO));
-            command.Parameters.Add(CreateParameter("@FechaSalida", Venta.fechaSalidaDTO));
             command.Parameters.Add(CreateParameter("@FechaVenta", Venta.fechaVentaDTO));
             command.Parameters.Add(CreateParameter("@IDCliente", Venta.idClienteDTO));
-            command.Parameters.Add(CreateParameter("@IDSeguroViajero", Venta.idSeguroViajeroDTO));
-            command.Parameters.Add(CreateParameter("@IDServicioAlojamiento", Venta.idServicioAlojamientoDTO));
-            command.Parameters.Add(CreateParameter("@IDServicioTraslado", Venta.idServicioTrasladoDTO));
             command.Parameters.Add(CreateParameter("@IDVendedor", Venta.idVendedorDTO));
-            command.Parameters.Add(CreateParameter("@IDDetalleVenta", Venta.idVentaDetalleDTO));
             command.Parameters.Add(CreateParameter("@Monto", Venta.montoDTO));
-            command.Parameters.Add(CreateParameter("@MontoViajero", Venta.motivoViajeDTO));
-            command.Parameters.Add(CreateParameter("@PaisDestino", Venta.paisDestinoDTO,3));
-            command.Parameters.Add(CreateParameter("@PaisOrigen", Venta.paisOrigenDTO,3));
-
-
-            // Run the command.
+            command.Parameters.Add(CreateParameter("@MotivoViaje", Venta.motivoViajeDTO));
+            command.Parameters.Add(CreateParameter("@NumeroFactura", Venta.NumeroFactura));
+            
             command.Connection.Open();
-            command.ExecuteNonQuery();
-            command.Connection.Close();
+            command.Transaction = command.Connection.BeginTransaction();
 
-            // If this is a new record, let's set the ID so the object
-            // will have it.
+            command.ExecuteNonQuery();
+                                  
             if (Venta.IsNew)
             {
                 Venta.numeroVentaDTO= (int)command.Parameters["@IDVenta"].Value;
             }
-        }
 
+            foreach (VentaDetalleDTO rd in Venta.DetallesVenta)
+            {
+                command.Parameters.Clear();
+                command.CommandText = "usp_VentaDetalle_Insert";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(CreateOutputParameter("@idDetalleVenta", SqlDbType.Int));
+                command.Parameters.Add(CreateParameter("@idPasajero", rd.idPasajeroDTO));
+                command.Parameters.Add(CreateParameter("@idDocumentoViaje", rd.idTipoDocumentoViajeDTO));
+                command.Parameters.Add(CreateParameter("@idSeguroViajero", rd.idSeguroViajeroDTO));
+                command.Parameters.Add(CreateParameter("@idServicioAlojamiento", rd.idServicioAlojamientoDTO));
+                command.Parameters.Add(CreateParameter("@idServicioTraslado", rd.idServicioTrasladoDTO));
+                command.Parameters.Add(CreateParameter("@idVenta", Venta.numeroVentaDTO));
+                command.Parameters.Add(CreateParameter("@monto", rd.Monto));
+                command.Parameters.Add(CreateParameter("@idDetalleReserva", rd.idDetalleReservaDTO));
+                
+                command.ExecuteNonQuery();
+
+                command.Parameters.Clear();
+                command.CommandText = "usp_ReservaDetalle_Sell";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(CreateParameter("@idDetalleReserva", rd.idDetalleReservaDTO));
+
+                command.ExecuteNonQuery();
+            }
+            command.Connection.Close();
+        }
     }
 }

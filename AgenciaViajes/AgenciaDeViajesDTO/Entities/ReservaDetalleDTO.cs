@@ -64,13 +64,14 @@ namespace AgenciaDeViajesDTO.Entities
         {
             get
             {
-                return Seguro.Descripcion;
+                string nombre = "N/D";
+                if (Seguro != null)
+                    nombre = Seguro.Descripcion;
+                return nombre;
+        
             }
         }
 
-       // public ServicioTrasladoDTO ServicioTraslado { get; set; }
-
-        
 
         public ServicioAlojamientoDTO ServicioAlojamiento { get; set; }
 
@@ -78,13 +79,22 @@ namespace AgenciaDeViajesDTO.Entities
         {
             get
             {
-                return ServicioAlojamiento.descripcionDTO;
+                string nombre = "N/D";
+                if(ServicioAlojamiento != null)
+                nombre =  ServicioAlojamiento.descripcionDTO;
+                return nombre;
             }
         }
 
-
-
-
-        
+        public string NombreTraslado
+        {
+            get
+            {
+                string nombre = "N/D";
+                if (ServicioTraslado != null)
+                    nombre = ServicioTraslado.NombreTraslado;
+                return nombre;
+            }
+        }
     }
 }

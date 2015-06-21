@@ -191,8 +191,18 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@monto", monto));
             command.Parameters.Add(CreateParameter("@fechaReserva", fecha));
             command.Parameters.Add(CreateParameter("@efectuada", efectuada));
-            return GetDTOList<ReservaDTO>(ref command);
 
+            List<ReservaDTO> reservasAux = GetDTOList<ReservaDTO>(ref command);
+            List<ReservaDTO> reservas = new List<ReservaDTO>();
+
+            foreach(ReservaDTO reservaAux in reservasAux){
+                ReservaDTO reserva = reservaAux;
+                reserva.Empleado = EmpleadoDB.GetEmpleadoByID(reserva.IdEmpleado);
+                reserva.Cliente = ClienteDB.GetClienteByID(reserva.IdCliente);
+                reservas.Add(reserva);
+            }
+            
+            return reservas;
         }
 
         public static List<ReservaDTO> GetReservasByCliente(string termino)

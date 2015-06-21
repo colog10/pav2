@@ -16,19 +16,22 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row container-transaccion">
-            <div class="col-md-12">
-                <div id="SuccessMessage" runat="server" class="alert alert-success" role="alert" visible="false">
-                    <asp:Label ID="LblSuccess" runat="server"></asp:Label></div>
-                <div id="InfoMessage" runat="server" class="alert alert-info" role="alert" visible="false">
-                    <asp:Label ID="LblInfo" runat="server"></asp:Label></div>
-                <div id="WarningMessage" runat="server" class="alert alert-warning" role="alert" visible="false">
-                    <asp:Label ID="LblWarning" runat="server"></asp:Label></div>
-                <div id="DangerMessage" runat="server" class="alert alert-danger" role="alert" visible="false">
-                    <asp:Label ID="LblDanger" runat="server"></asp:Label></div>
-                   
+    <section class="row container-transaccion">
+        <div class="col-md-12">
+            <div id="SuccessMessage" runat="server" class="alert alert-success" role="alert" visible="false">
+                <asp:Label ID="LblSuccess" runat="server"></asp:Label>
+            </div>
+            <div id="InfoMessage" runat="server" class="alert alert-info" role="alert" visible="false">
+                <asp:Label ID="LblInfo" runat="server"></asp:Label>
+            </div>
+            <div id="WarningMessage" runat="server" class="alert alert-warning" role="alert" visible="false">
+                    <asp:Label ID="LblWarning" runat="server"></asp:Label>
+            </div>
+            <div id="DangerMessage" runat="server" class="alert alert-danger" role="alert" visible="false">
+                    <asp:Label ID="LblDanger" runat="server"></asp:Label>
             </div>
         </div>
+    </section>
     <section id="reservaSection" runat="server" class="container-transaccion">
 
         <div class="row">
@@ -52,7 +55,7 @@
             <div class="col-md-12">
                 <div  class="form-group">
                     <label>Cliente</label>
-                    <asp:TextBox type="text" id="txtCliente" runat="server" maxlength="50" class="form-control" />
+                    <asp:TextBox id="txtCliente" runat="server" maxlength="50" CssClass="form-control" />
                     <asp:Button runat="server" ID="btnBuscarCliente" OnClick="btnBuscarCliente_Click" Text="Buscar" />
                 </div>
             </div>
@@ -109,7 +112,7 @@
             <div class="col-md-12">
                 <div  class="form-group">
                     <label>Pasajero</label>
-                    <asp:TextBox type="text" id="txtPasajero" runat="server" maxlength="50" class="form-control" />
+                    <asp:TextBox id="txtPasajero" runat="server" maxlength="50" CssClass="form-control" />
                     <asp:Button runat="server" ID="btnBuscarPasajero" OnClick="btnBuscarPasajero_Click" Text="Buscar" />
                 </div>
             </div>

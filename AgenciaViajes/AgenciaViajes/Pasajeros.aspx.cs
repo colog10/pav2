@@ -13,7 +13,6 @@ namespace AgenciaViajes
 {
     public partial class Pasajero : System.Web.UI.Page
     {
-        private bool isNew = false;
         private string Termino = "";
 
         protected void Page_Load(object sender, EventArgs e)

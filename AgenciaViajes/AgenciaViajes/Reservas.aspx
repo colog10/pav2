@@ -45,6 +45,8 @@
                 <asp:GridView runat="server" ID="gvReservas" AutoGenerateColumns="False" >
                     <Columns>
                         <asp:BoundField DataField="NumeroReserva" HeaderText="Numero" />
+                        <asp:BoundField DataField="NombreYApellidoEmpleado" HeaderText="Empleado" />
+                        <asp:BoundField DataField="NombreYApellidoCliente" HeaderText="Cliente" />
                         <asp:BoundField DataField="Monto" HeaderText="Monto" />
                     </Columns>
 

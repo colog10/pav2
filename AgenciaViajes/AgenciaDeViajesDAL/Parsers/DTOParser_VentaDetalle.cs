@@ -61,11 +61,7 @@ namespace AgenciaDeViajesDAL.Parsers
             {
                 VentaDetalle.idDetalleReservaDTO = reader.GetInt32(Ord_idDetalleReservaDTO);
             }
-            // IdDetalleReserva
-            if (!reader.IsDBNull(Ord_numeroDocumentoDTO))
-            {
-                VentaDetalle.numeroDocumentoDTO = reader.GetString(Ord_numeroDocumentoDTO);
-            }
+            
             // IdCliente
             if (!reader.IsDBNull(Ord_idSeguroViajeroDTO))
             {
@@ -75,31 +71,14 @@ namespace AgenciaDeViajesDAL.Parsers
             {
                 VentaDetalle.idServicioAlojamientoDTO = reader.GetInt32(Ord_idServicioAlojamientoDTO);
             }
-            // IdTipoDocumento
-            if (!reader.IsDBNull(Ord_fechaPasaporteDesdeDTO))
-            {
-                VentaDetalle.fechaPasaporteDesdeDTO= reader.GetDateTime(Ord_fechaPasaporteDesdeDTO);
-            }
-            // NumeroDocumento
-            if (!reader.IsDBNull(Ord_fechaPasaporteHastaDTO))
-            {
-                VentaDetalle.fechaPasaporteHastaDTO = reader.GetDateTime(Ord_fechaPasaporteHastaDTO);
-            }
-            // IdEmpleado
-            if (!reader.IsDBNull(Ord_fechaVISADesdeDTO))
-            {
-                VentaDetalle.fechaVISADesdeDTO = reader.GetDateTime(Ord_fechaVISADesdeDTO);
-            }
+            
+            
             // IdDocumentoViaje
             if (!reader.IsDBNull(Ord_idVentaDetalleDTO))
             {
                 VentaDetalle.idDetalleVentaDTO = reader.GetInt32(Ord_idVentaDetalleDTO);
             }
-            // Monto
-            if (!reader.IsDBNull(Ord_idTipoDocumentoDTO))
-            {
-                VentaDetalle.idTipoDocumentoDTO= reader.GetInt32(Ord_idTipoDocumentoDTO);
-            }
+            
             // FechaReserva
             if (!reader.IsDBNull(Ord_idServicioTrasladoDTO))
             {
@@ -110,23 +89,7 @@ namespace AgenciaDeViajesDAL.Parsers
             {
                 VentaDetalle.idTipoDocumentoViajeDTO = reader.GetInt32(Ord_idTipoDocumentoViajeDTO);
             }
-            // IdServicioAlojamiento
-           
-            if (!reader.IsDBNull(Ord_fechaVISAHastaDTO))
-            {
-                VentaDetalle.fechaVISAHastaDTO = reader.GetDateTime(Ord_fechaVISAHastaDTO);
-            }
-
-            // IdServicioTraslado
-            if (!reader.IsDBNull(Ord_numeroVentaDTO))
-            {
-                VentaDetalle.numeroVentaDTO = reader.GetInt32(Ord_numeroVentaDTO);
-            }
-            if (!reader.IsDBNull(Ord_motivoViajeDTO))
-            {
-                VentaDetalle.idMotivoViajeDTO = reader.GetInt32(Ord_motivoViajeDTO);
-            }
-
+            
             return VentaDetalle;
         }
     }

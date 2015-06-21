@@ -43,6 +43,7 @@
     <Compile Include="CiudadManager.cs" />
     <Compile Include="ClienteManager.cs" />
     <Compile Include="CompaniaAereaManager.cs" />
+    <Compile Include="CompraManager.cs" />
     <Compile Include="DetalleReservaManager.cs" />
     <Compile Include="EmpleadoManager.cs" />
     <Compile Include="EstadoCivilManager.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="TipoDocumentoManager.cs" />
     <Compile Include="TipoSeguroViajeroManager.cs" />
     <Compile Include="UsuarioManager.cs" />
+    <Compile Include="VentaManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

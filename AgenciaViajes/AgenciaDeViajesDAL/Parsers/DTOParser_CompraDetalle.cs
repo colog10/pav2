@@ -15,12 +15,14 @@ namespace AgenciaDeViajesDAL.Parsers
         private int Ord_idDetalleCompra;
         private int Ord_idDetalleReserva;
         private int Ord_descripcion;
+        private int Ord_monto;
 
         internal override void PopulateOrdinals(SqlDataReader reader)
         {
             Ord_idDetalleCompra = reader.GetOrdinal("idDetalleCompra");
             Ord_idDetalleReserva = reader.GetOrdinal("idDetalleReserva");
             Ord_descripcion = reader.GetOrdinal("descripcion");
+            Ord_monto = reader.GetOrdinal("monto");
         }
 
         internal override DTOBase PopulateDTO(SqlDataReader reader)
@@ -35,6 +37,9 @@ namespace AgenciaDeViajesDAL.Parsers
 
             //descripcion
             if (!reader.IsDBNull(Ord_descripcion)) { compraDetalleDTO.descripcionDTO = reader.GetString(Ord_descripcion);}
+            
+            //monto 
+            if (!reader.IsDBNull(Ord_monto)) { compraDetalleDTO.Monto = reader.GetFloat(Ord_monto); }
 
             return compraDetalleDTO;
 

@@ -12,23 +12,117 @@ namespace AgenciaViajes
 {
     public partial class NuevaCompra : System.Web.UI.Page
     {
+        List<CompraDetalleDTO> detalles = new List<CompraDetalleDTO>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                seccionReserva.Visible = true;
-                sectionDetalleReserva.Visible = false;
-                cargarGrillaPasajeros();
-                
+                InicializarReserva();
+                CargarCombos();
             }
+
         }
 
-        private void cargarGrillaPasajeros()
+        private void CargarCombos()
         {
-            ReservaManager.Reservas_getAll();
-            List<Reservas> ListaDeReservas = new List<Reservas>();
-            gvListaDeReservas.DataSource = ListaDeReservas;
-            gvListaDeReservas.DataBind();
+            ddlOperadorTuristico.DataSource = OperadorTuristicoManager.GetOperadorTuristico();
+            ddlOperadorTuristico.DataValueField = "IdOperadorTuristico";
+            ddlOperadorTuristico.DataTextField = "Descripcion";
+            ddlOperadorTuristico.DataBind();
         }
+
+        private void OcultarMensajes()
+        {
+            DangerMessage.Visible = false;
+            InfoMessage.Visible = false;
+            SuccessMessage.Visible = false;
+            WarningMessage.Visible = false;
+        }
+
+
+        private void InicializarReserva()
+        {
+
+            List<ReservaDTO> det = ReservaManager.Reservas_getAll();
+            gvReserva.DataSource = det;
+            gvReserva.DataBind();
+
+        }
+
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            double montoCompra = 0;
+            OcultarMensajes();
+            List<CompraDetalleDTO> detalles = new List<CompraDetalleDTO>();
+            ReservaDTO reserva = (ReservaDTO)Session["Reserva"];
+
+            List<ReservaDetalleDTO> detallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
+
+            foreach (ReservaDetalleDTO dr in detallesReserva)
+            {
+                CompraDetalleDTO cd = new CompraDetalleDTO();
+                dr.IsNew = true;
+                cd.idDetalleReservaDTO = dr.IdDetallaReserva;
+                cd.Monto = dr.Monto / 1.10;
+                cd.descripcionDTO = "Pasajero: " + dr.NombrePasajero + " - Translado: " + dr.NombreTraslado + " - Alojamiento: " + dr.NombreAlojamiento + " - Seguro: " + dr.NombreSeguro; 
+                detalles.Add(cd);
+                montoCompra += cd.Monto;
+            }
+
+            CompraDTO compra = new CompraDTO();
+            compra.IsNew = true;
+            compra.idOperadorTuristicoDTO = Convert.ToInt32(ddlOperadorTuristico.SelectedValue);
+            compra.fechaCompraDTO = DateTime.Now;
+            compra.montoDTO = (float)montoCompra;
+            compra.saldoDTO = (float)montoCompra;
+            compra.Detalles = detalles;
+            
+            CompraManager.SaveCompra(compra);
+
+            SuccessMessage.Visible = true;
+            LblSuccess.Text = "La compra se ha guardado correctamente";
+            CompraSection.Visible = false;
+            SectionDetalleReserva.Visible = false;
+        }
+
+
+        private void InicializarDetalleReserva(int idReserva)
+        {
+            OcultarMensajes();
+            List<ReservaDetalleDTO> det = DetalleReservaManager.GetDetalleByReserva(idReserva);
+            gvDetalleReserva.DataSource = det;
+            gvDetalleReserva.DataBind();
+            CalcularMonto(det);
+            Session["detalles"] = det;
+        }
+
+        private void CalcularMonto(List<ReservaDetalleDTO> det)
+        {
+            double MontoTotal = 0;
+            foreach (ReservaDetalleDTO re in det)
+            {
+                MontoTotal += (re.Monto / 1.10);
+            }
+            txtMontoTotal.Text = Convert.ToString(MontoTotal);
+        }
+
+
+        protected void gvReserva_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OcultarMensajes();
+            CompraSection.Visible = false;
+            SectionDetalleReserva.Visible = true;
+            int st = Convert.ToInt32(gvReserva.SelectedValue);
+            Session["Reserva"] = ReservaManager.GetReservasByID(st);
+            InicializarDetalleReserva(st);
+        }
+
     }
 }

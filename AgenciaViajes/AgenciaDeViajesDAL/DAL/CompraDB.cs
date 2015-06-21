@@ -27,39 +27,64 @@ namespace AgenciaDeViajesDAL.DAL
 
         public static void SaveCompra(ref CompraDTO compra)
         {
-            SqlCommand command;
+            SqlCommand command = null;
 
-            if (compra.IsNew)
+            double montoCompra = 0;
+
+            foreach (CompraDetalleDTO rd in compra.Detalles)
             {
-                command = GetDbSprocCommand("usp_Compra_Insert");
-                command.Parameters.Add(CreateOutputParameter("@idcompra", SqlDbType.Int));
-            }
-            else
-            {
-                command = GetDbSprocCommand("usp_Compra_Update");
-                command.Parameters.Add(CreateParameter("@idCompra", compra.idCompraDTO));
+                montoCompra += rd.Monto;
             }
 
+            compra.montoDTO = (float)montoCompra;
+
+            command = GetDbSprocCommand("usp_Compra_Insert");
+
+            command.Parameters.Add(CreateOutputParameter("@IDCompra", SqlDbType.Int));
             command.Parameters.Add(CreateParameter("@idOperadorTuristico", compra.idOperadorTuristicoDTO));
-            command.Parameters.Add(CreateParameter("@idDetalleCompra", compra.idDetalleCompraDTO));
             command.Parameters.Add(CreateParameter("@fechaCompra", compra.fechaCompraDTO));
             command.Parameters.Add(CreateParameter("@fechaPago", compra.fechaPagoDTO));
-            command.Parameters.Add(CreateParameter("@monto", compra.montoDTO));
+            command.Parameters.Add(CreateParameter("@monto", (float)compra.montoDTO));
             command.Parameters.Add(CreateParameter("@saldo", compra.saldoDTO));
 
 
             // Run the command.
             command.Connection.Open();
             command.ExecuteNonQuery();
-            command.Connection.Close();
 
-            // If this is a new record, let's set the ID so the object
-            // will have it.
             if (compra.IsNew)
             {
-                compra.idCompraDTO= (int)command.Parameters["@idCompra"].Value;
+                compra.idCompraDTO = (int)command.Parameters["@IDCompra"].Value;
             }
+
+            foreach (CompraDetalleDTO rd in compra.Detalles)
+            {
+                command.Parameters.Clear();
+                command.CommandText = "usp_CompraDetalle_Insert";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(CreateOutputParameter("@idDetalleCompra", SqlDbType.Int));
+                
+                command.Parameters.Add(CreateParameter("@idDetalleReserva", rd.idDetalleReservaDTO));
+                command.Parameters.Add(CreateParameter("@Monto", (float)rd.Monto));
+                command.Parameters.Add(CreateParameter("@Descripcion", rd.descripcionDTO, 50));
+
+                command.ExecuteNonQuery();
+
+                command.Parameters.Clear();
+                command.CommandText = "usp_ReservaDetalle_Sell";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(CreateParameter("@idDetalleReserva", rd.idDetalleReservaDTO));
+
+                command.ExecuteNonQuery();
+            }
+
+
+            command.Connection.Close();
+
+            
         }
 
+
+        
     }
 }

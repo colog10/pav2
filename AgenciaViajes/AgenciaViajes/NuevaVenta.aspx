@@ -13,26 +13,32 @@
             $("[id$=txtFechaVencimientoReservaAlojamiento]").datepicker();
 
         });
-
-
     </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <section class="row container-transaccion">
+        <div class="col-md-12">
+            <div id="SuccessMessage" runat="server" class="alert alert-success" role="alert" visible="false">
+                <asp:Label ID="LblSuccess" runat="server"></asp:Label>
+            </div>
+            <div id="InfoMessage" runat="server" class="alert alert-info" role="alert" visible="false">
+                <asp:Label ID="LblInfo" runat="server"></asp:Label>
+            </div>
+            <div id="WarningMessage" runat="server" class="alert alert-warning" role="alert" visible="false">
+                    <asp:Label ID="LblWarning" runat="server"></asp:Label>
+            </div>
+            <div id="DangerMessage" runat="server" class="alert alert-danger" role="alert" visible="false">
+                    <asp:Label ID="LblDanger" runat="server"></asp:Label>
+            </div>
+        </div>
+    </section>
+
     <section id="VentaSection" runat="server" class="container-transaccion">
 
         <div class="row">
             <div class="col-md-12">
                 <h3>Nueva Venta</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Nombre del Cliente</label>
-                    <asp:TextBox type="text" ID="txtCliente" runat="server" MaxLength="50" class="form-control" />
-                    <asp:Button runat="server" ID="btnBuscarCliente" OnClick="btnBuscarCliente_Click" Text="Buscar" />
-                </div>
             </div>
         </div>
 
@@ -66,6 +72,17 @@
             </div>
         </div>
 
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nro. Factura</label>
+                    <asp:TextBox ID="txtNroFactura" runat="server" MaxLength="12" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="col-md-12">
                 <asp:GridView runat="server" ID="gvDetalleReserva" DataKeyNames="idDetallaReserva" EmptyDataText="" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False">
@@ -82,12 +99,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
+                    <label>Comisión</label>
+                    <asp:TextBox ID="txtComision" runat="server" MaxLength="50" CssClass="form-control" />
                     
-                    <asp:TextBox type="text" ID="txtComision" runat="server" MaxLength="50" class="form-control" />
-                    <asp:TextBox type="text" ID="txtMontoTotal" runat="server" MaxLength="50" class="form-control" />
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Monto</label>
+                <asp:TextBox ID="txtMontoTotal" runat="server" MaxLength="50" CssClass="form-control" />
             </div>
         </div>
         <div class="row">

@@ -21,24 +21,25 @@ namespace AgenciaViajes
 
         }
 
+        private void OcultarMensajes()
+        {
+            DangerMessage.Visible = false;
+            InfoMessage.Visible = false;
+            SuccessMessage.Visible = false;
+            WarningMessage.Visible = false;
+        }
+
+
         private void InicializarReserva()
         {
             
             List<ReservaDTO> det = ReservaManager.Reservas_getAll();
-                      
             gvReserva.DataSource =det ;
             gvReserva.DataBind();
 
         }
 
-        protected void btnBuscarCliente_Click(object sender, EventArgs e)
-        {
-            String filtroBusqueda = txtCliente.Text;
-            gvReserva.DataSource = ReservaManager.GetCliente(filtroBusqueda);
-            gvReserva.DataBind();
-        }
-
-
+        
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
          
@@ -47,35 +48,51 @@ namespace AgenciaViajes
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            //VentaDTO venta = new VentaDTO();
-            //venta.IsNew = true;
-            //venta.ciudadDestinoDTO = Convert.ToInt32(txtNumero.Text);
-            //venta.ciudadOrigenDTO=null;
-            //     venta.
-            //venta.IdCliente = Convert.ToInt32(gvDetalleVenta.SelectedDataKey.Value);
-            //venta.DetallesReserva = detalles;
-            //ReservaManager.Save(venta);
-        }
-
-
-        protected void actualizarDetalle(object sender, EventArgs e)
-        {
-            ReservaDetalleDTO detalle = new ReservaDetalleDTO();
-        }
-
-
-
-        private void InicializarDetalleReserva(int idReserva)
-        
-        {
+            OcultarMensajes();
+            List<VentaDetalleDTO> detalles = new List<VentaDetalleDTO>();
+            ReservaDTO reserva = (ReservaDTO)Session["Reserva"];
             
-            List<ReservaDetalleDTO> det = DetalleReservaManager.GetDetalleByReserva(idReserva);
+            List<ReservaDetalleDTO> detallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
 
+            foreach (ReservaDetalleDTO dr in detallesReserva)
+            {
+                VentaDetalleDTO vd = new VentaDetalleDTO();
+                dr.IsNew = true;
+                vd.idDetalleReservaDTO = dr.IdDetallaReserva;
+                vd.idTipoDocumentoViajeDTO = dr.IdDocumentoViaje;
+                vd.idPasajeroDTO = dr.IdPasajero;
+                vd.idSeguroViajeroDTO = dr.IdSeguroViajero;
+                vd.idSeguroViajeroDTO = dr.IdServicioAlojamiento;
+                vd.idServicioTrasladoDTO = dr.IdServicioTraslado;
+                vd.Monto = dr.Monto;
+                detalles.Add(vd);
+            }
+
+            VentaDTO venta = new VentaDTO();
+            venta.IsNew = true;
+            venta.idClienteDTO = reserva.IdCliente;
+            venta.fechaVentaDTO = DateTime.Now;
+            if (txtComision.Text != "")
+                venta.comisionDTO = float.Parse(txtComision.Text);
+            venta.NumeroFactura = Convert.ToInt32(txtNroFactura.Text);
+            venta.DetallesVenta = detalles;
+            VentaManager.SaveVenta(venta);
+
+            SuccessMessage.Visible = true;
+            LblSuccess.Text = "La venta se ha guardado correctamente";
+            VentaSection.Visible = false;
+            SectionDetalleReserva.Visible = false;
+        }
+
+        
+        private void InicializarDetalleReserva(int idReserva)
+        {
+            OcultarMensajes();
+            List<ReservaDetalleDTO> det = DetalleReservaManager.GetDetalleByReserva(idReserva);
             gvDetalleReserva.DataSource = det;
             gvDetalleReserva.DataBind();
-
             CalcularMonto(det);
-            
+            Session["detalles"] = det;
         }
 
         private void CalcularMonto(List<ReservaDetalleDTO> det)
@@ -86,17 +103,17 @@ namespace AgenciaViajes
                 MontoTotal += re.Monto;
             }
             txtMontoTotal.Text = Convert.ToString(MontoTotal);
-            
         }
 
 
         protected void gvReserva_SelectedIndexChanged(object sender, EventArgs e)
         {
+            OcultarMensajes();
             VentaSection.Visible = false;
             SectionDetalleReserva.Visible = true;
             int st = Convert.ToInt32(gvReserva.SelectedValue);
+            Session["Reserva"] = ReservaManager.GetReservasByID(st);
             InicializarDetalleReserva(st);
-
         }
 
     }

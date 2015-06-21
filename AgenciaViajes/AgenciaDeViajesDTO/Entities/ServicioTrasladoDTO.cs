@@ -25,6 +25,8 @@ namespace AgenciaDeViajesDTO.Entities
         public int tipoDocumentoDTO {get; set;}
         public string numeroDocumentoDTO {get; set;}
 
+        public CiudadDTO CiudadDestino { get; set; }
+
         public ServicioTrasladoDTO ()
         {
             this.idServicioTrasladoDTO = Int_NullValue;
@@ -44,5 +46,7 @@ namespace AgenciaDeViajesDTO.Entities
             this.numeroDocumentoDTO = String_NullValue;
 
         }
+
+        public string NombreTraslado { get; set; }
     }
 }
