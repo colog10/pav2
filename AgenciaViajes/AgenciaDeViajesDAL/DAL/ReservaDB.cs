@@ -61,7 +61,79 @@ namespace AgenciaDeViajesDAL.DAL
                 }
                 foreach (ReservaDetalleDTO reservaDetalle in reserva.DetallesReserva)
                 {
-                    command.Parameters.Clear();                    
+
+                    ServicioAlojamientoDTO servicioAlojamiento = reservaDetalle.ServicioAlojamiento;
+
+                    if (servicioAlojamiento != null) { 
+                        command.Parameters.Clear();
+                        command.CommandText = "usp_ServicioAlojamiento_Insert";
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.Add(CreateOutputParameter("@idServicioAlojamiento", SqlDbType.Int));
+                        command.Parameters.Add(CreateParameter("@categoria", servicioAlojamiento.CategoriaDTO, 50));
+                        command.Parameters.Add(CreateParameter("@comision", servicioAlojamiento.comisionDTO));
+                        command.Parameters.Add(CreateParameter("@descripcion", servicioAlojamiento.descripcionDTO, 50));
+                        command.Parameters.Add(CreateParameter("@fechaDesde", servicioAlojamiento.fechaDesdeDTO));
+                        command.Parameters.Add(CreateParameter("@fechaHasta", servicioAlojamiento.fechaHastaDTO));
+                        command.Parameters.Add(CreateParameter("@fechaVencReserva", servicioAlojamiento.fechaVencReservaDTO));
+                        command.Parameters.Add(CreateParameter("@monto", servicioAlojamiento.montoDTO));
+                        command.Parameters.Add(CreateParameter("@numeroReserva", servicioAlojamiento.numeroReservaDTO, 10));
+                        command.Parameters.Add(CreateParameter("@idAlojamiento", servicioAlojamiento.idAlojamientoDTO));
+                        command.Parameters.Add(CreateParameter("@numeroVenta", servicioAlojamiento.numeroVentaDTO));
+                        command.Parameters.Add(CreateParameter("@tipoDocumento", servicioAlojamiento.tipoDocumentoDTO));
+                        command.Parameters.Add(CreateParameter("@numeroDocumento", servicioAlojamiento.numeroDocumentoDTO, 8));
+                        command.Parameters.Add(CreateParameter("@numeroCompra", servicioAlojamiento.numeroCompraDTO));
+
+                        command.ExecuteNonQuery();
+
+                        reservaDetalle.IdServicioAlojamiento = (int)command.Parameters["@idServicioAlojamiento"].Value;
+                    }
+
+                    SeguroViajeroDTO seguroViajero = reservaDetalle.Seguro;
+                    
+                    if (seguroViajero != null) {
+                        command.Parameters.Clear();
+                        command.CommandText = "usp_SeguroViajero_Insert";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add(CreateOutputParameter("@idSeguroViajero", SqlDbType.Int));
+                        command.Parameters.Add(CreateParameter("@comision", seguroViajero.Comision));
+                        command.Parameters.Add(CreateParameter("@monto", seguroViajero.Monto));
+                        command.Parameters.Add(CreateParameter("@tipoSeguroViajero", seguroViajero.TipoSeguroViajero));
+                        command.Parameters.Add(CreateParameter("@numeroCompra", seguroViajero.NumeroCompra));
+                        command.Parameters.Add(CreateParameter("@descripcion", seguroViajero.Descripcion, 50));
+                        command.ExecuteNonQuery();
+
+                        reservaDetalle.IdSeguroViajero = (int)command.Parameters["@idSeguroViajero"].Value;
+                    }
+                    
+                    
+
+
+                    ServicioTrasladoDTO servicioTraslado = reservaDetalle.ServicioTraslado;
+                    if (servicioTraslado != null)
+                    { 
+                        command.Parameters.Clear();
+                        command.CommandText = "usp_ServicioTraslado_Insert";
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add(CreateOutputParameter("@idServicioTraslado", SqlDbType.Int));
+                        command.Parameters.Add(CreateParameter("@comision", servicioTraslado.comisionDTO));
+                        command.Parameters.Add(CreateParameter("@destino", servicioTraslado.destinoDTO));
+                        command.Parameters.Add(CreateParameter("@fechaSalida", servicioTraslado.fechaSalidaDTO));
+                        command.Parameters.Add(CreateParameter("@fechaRegreso", servicioTraslado.fechaLlegadaDTO));
+                        command.Parameters.Add(CreateParameter("@monto", servicioTraslado.montoDTO));
+                        command.Parameters.Add(CreateParameter("@numeroReserva", servicioTraslado.numeroReservaDTO, 10));
+                        command.Parameters.Add(CreateParameter("@origen", servicioTraslado.origenDTO));
+                        command.Parameters.Add(CreateParameter("@idCompaniaAerea", servicioTraslado.idCompaniaAereaDTO));
+                        command.Parameters.Add(CreateParameter("@idEmpresaColectivos", servicioTraslado.idEmpresaColectivoDTO));
+                        command.Parameters.Add(CreateParameter("@numeroCompra", servicioTraslado.numeroCompraDTO));
+                        command.Parameters.Add(CreateParameter("@numeroVenta", servicioTraslado.numeroVentaDTO));
+                        command.Parameters.Add(CreateParameter("@tipoDocumento", servicioTraslado.tipoDocumentoDTO));
+                        command.Parameters.Add(CreateParameter("@numeroDocumento", servicioTraslado.numeroDocumentoDTO, 8));
+                        command.ExecuteNonQuery();
+                        reservaDetalle.IdServicioTraslado = (int)command.Parameters["@idServicioTraslado"].Value;
+                    }
+                    
+                    command.Parameters.Clear();
                     command.CommandText = "usp_ReservaDetalle_Insert";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add(CreateOutputParameter("@IDDetalleReserva", SqlDbType.Int));
@@ -73,8 +145,10 @@ namespace AgenciaDeViajesDAL.DAL
                     command.Parameters.Add(CreateParameter("@IdServicioAlojamiento", reservaDetalle.IdServicioAlojamiento));
                     command.Parameters.Add(CreateParameter("@IdServicioTraslado", reservaDetalle.IdServicioTraslado));
                     command.Parameters.Add(CreateParameter("@IdTipoDocumento", reservaDetalle.IdTipoDocumento));
+                    command.Parameters.Add(CreateParameter("@Monto", reservaDetalle.Monto));
                     command.Parameters.Add(CreateParameter("@NumeroDocumento", reservaDetalle.NumeroDocumento, 8));
                     command.ExecuteNonQuery();
+
                 }
                 // Run the command.
 

@@ -144,6 +144,11 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-6">
+                <asp:TextBox runat="server" ID="txtMontoDetalle"></asp:TextBox>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 <h2>Servicio Translado</h2>
             </div>
@@ -194,18 +199,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div  class="form-group">
-                    <label>Fecha Vencimiento Reserva:</label>
-                    <asp:TextBox ID="txtFechaVencimientoReserva" runat="server"></asp:TextBox>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div  class="form-group">
                     <label>Compañia Aerea:</label><br />
                     <asp:DropDownList ID="ddlTransporte" runat="server"></asp:DropDownList>
                 </div>
             </div>
-        </div>
-        <div class="row">
+        
             <div class="col-md-6">
                 <div  class="form-group">
                     <label>Monto:</label><br />
@@ -241,16 +239,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-
-                <div class="col-md-6">
-                    <div  class="form-group">
-                        <label>Fecha Vencimiento Reserva:</label><br />
-                        <asp:TextBox ID="txtFechaVencimientoReservaAlojamiento" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-            </div>
-        
             <div class="row">
                 <div class="col-md-6">
                     <div  class="form-group">

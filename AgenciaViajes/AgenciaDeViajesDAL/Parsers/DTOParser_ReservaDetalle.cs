@@ -23,6 +23,7 @@ namespace AgenciaDeViajesDAL.Parsers
         private int Ord_IdDocumentoViaje;
         private int Ord_Comprada;
         private int Ord_Efectuada;
+        private int Ord_Monto;
 
         internal override void PopulateOrdinals(SqlDataReader reader)
         {
@@ -37,6 +38,7 @@ namespace AgenciaDeViajesDAL.Parsers
             Ord_IdDocumentoViaje = reader.GetOrdinal("IdDocumentoViaje");
             Ord_Comprada = reader.GetOrdinal("Comprada");
             Ord_Efectuada = reader.GetOrdinal("Efectuada");
+            Ord_Monto = reader.GetOrdinal("Monto");
 
         }
 
@@ -97,6 +99,12 @@ namespace AgenciaDeViajesDAL.Parsers
             if (!reader.IsDBNull(Ord_Efectuada))
             {
                 detalleReserva.Efectuada = reader.GetBoolean(Ord_Efectuada);
+            }
+
+            // Monto
+            if (!reader.IsDBNull(Ord_Monto))
+            {
+                detalleReserva.Monto = reader.GetFloat(Ord_Monto);
             }
 
             return detalleReserva;

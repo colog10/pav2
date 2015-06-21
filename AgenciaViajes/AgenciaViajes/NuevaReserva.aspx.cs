@@ -130,11 +130,10 @@ namespace AgenciaViajes
             txtNumeroDocumentoViaje.Text = "";
             txtFechaSalida.Text = "";
             txtFechaRegreso.Text = "";
-            txtFechaVencimientoReserva.Text = "";
             txtMonto.Text = "";
             txtFechaDesdeAlojamiento.Text = "";
             txtFechaHastaAlojamiento.Text = "";
-            txtFechaVencimientoReservaAlojamiento.Text = "";
+            
             txtMontoAlojamiento.Text = "";
             txtMontoSeguro.Text = "";
         }
@@ -168,29 +167,13 @@ namespace AgenciaViajes
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             ReservaDTO reserva = new ReservaDTO();
-            ServicioTrasladoDTO servicioTraslado = new ServicioTrasladoDTO();
-            DateTime fechaSalida = CommonBase.DateTime_NullValue;
-            DateTime fechaLlegada = CommonBase.DateTime_NullValue;
 
             reserva.IsNew = true;
             reserva.NumeroReserva = Convert.ToInt32(txtNumero.Text);
             reserva.IdCliente = Convert.ToInt32(gvClientes.SelectedDataKey.Value);
-            servicioTraslado.IsNew = true;
-            servicioTraslado.destinoDTO = Int32.Parse(ddlDestino.SelectedValue);
-            servicioTraslado.origenDTO = Int32.Parse(ddlOrigen.SelectedValue);
+                     
             
-            if (txtFechaSalida.Text != "" && !DateTime.TryParseExact(txtFechaSalida.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaSalida))
-            {
-                DangerMessage.Visible = true;
-                LblDanger.Text = "El formato de la fecha de baja debe ser dd/MM/yyyy.";
-                return;
-            }
-            servicioTraslado.fechaSalidaDTO = fechaSalida;
-            servicioTraslado.fechaLlegadaDTO = fechaLlegada;
-
             
-
-            reserva.ServicioTraslado = servicioTraslado;
             reserva.DetallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
             ReservaManager.Save(reserva);
             LblSuccess.Text = "La Reserva se guardo con exito";
@@ -204,11 +187,101 @@ namespace AgenciaViajes
         protected void btnAceptar_Click1(object sender, EventArgs e)
         {
             ReservaDetalleDTO detalle = new ReservaDetalleDTO();
+
+            ServicioTrasladoDTO servicioTraslado = new ServicioTrasladoDTO();
+            DateTime fechaSalida = CommonBase.DateTime_NullValue;
+            DateTime fechaLlegada = CommonBase.DateTime_NullValue;
+
+            if (Session["detalles"] != null) { 
+                detalles = (List<ReservaDetalleDTO>)Session["detalles"];
+            }
             
             detalle.IdPasajero = Convert.ToInt32(gvPasajeros.SelectedDataKey.Value);
             detalle.Pasajero = PasajeroManager.GetPasajeroByID(detalle.IdPasajero);
             detalle.NumeroDocumento = txtNumeroDocumentoViaje.Text;
             detalle.IdTipoDocumento = Convert.ToInt32(ddlDocumentoViaje.SelectedValue);
+            detalle.Monto = float.Parse(txtMontoDetalle.Text);
+            servicioTraslado.IsNew = true;
+            servicioTraslado.destinoDTO = Int32.Parse(ddlDestino.SelectedValue);
+            servicioTraslado.origenDTO = Int32.Parse(ddlOrigen.SelectedValue);
+
+            if (txtFechaSalida.Text != "" && !DateTime.TryParseExact(txtFechaSalida.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaSalida))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El formato de la fecha de salida debe ser dd/MM/yyyy.";
+                return;
+            }
+
+            if (txtFechaRegreso.Text != "" && !DateTime.TryParseExact(txtFechaRegreso.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaLlegada))
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "El formato de la fecha de regreso debe ser dd/MM/yyyy.";
+                return;
+            }
+
+            servicioTraslado.fechaSalidaDTO = fechaSalida;
+            servicioTraslado.fechaLlegadaDTO = fechaLlegada;
+            servicioTraslado.montoDTO = float.Parse(txtMonto.Text);
+            detalle.ServicioTraslado = servicioTraslado;
+
+            if (ddlAlojamiento.SelectedValue != "")
+            {
+                DateTime fechaDesdeAlojamiento = CommonBase.DateTime_NullValue;
+                DateTime fechaHastaAlojamiento = CommonBase.DateTime_NullValue;
+
+                ServicioAlojamientoDTO alojamiento = new ServicioAlojamientoDTO();
+                alojamiento.IsNew = true;
+                alojamiento.idAlojamientoDTO = Int32.Parse(ddlAlojamiento.SelectedValue);
+
+                if (txtFechaDesdeAlojamiento.Text != "" && !DateTime.TryParseExact(txtFechaDesdeAlojamiento.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaDesdeAlojamiento))
+                {
+                    DangerMessage.Visible = true;
+                    LblDanger.Text = "El formato de la fecha desde del alojamiento debe ser dd/MM/yyyy.";
+                    return;
+                }
+
+                if (txtFechaHastaAlojamiento.Text != "" && !DateTime.TryParseExact(txtFechaHastaAlojamiento.Text, "dd/MM/yyyy", new CultureInfo("es-AR"), DateTimeStyles.None, out fechaHastaAlojamiento))
+                {
+                    DangerMessage.Visible = true;
+                    LblDanger.Text = "El formato de la fecha hasta del alojamiento debe ser dd/MM/yyyy.";
+                    return;
+                }
+
+                if (txtMontoAlojamiento.Text != "")
+                {
+                    alojamiento.montoDTO = float.Parse(txtMontoAlojamiento.Text);
+                }
+                alojamiento.fechaDesdeDTO = fechaDesdeAlojamiento;
+                alojamiento.fechaHastaDTO = fechaHastaAlojamiento;
+
+
+                detalle.Alojamiento = alojamiento;
+            }
+
+
+            if (ddlTipoSeguro.SelectedValue != "")
+            {
+                SeguroViajeroDTO seguro = new SeguroViajeroDTO();
+                seguro.IsNew = true;
+                if (txtMontoSeguro.Text != "")
+                {
+                    seguro.Monto = float.Parse(txtMontoSeguro.Text);
+                }
+
+                if (Int32.Parse(ddlTipoSeguro.SelectedValue) > 0)
+                {
+                    seguro.TipoSeguroViajero = Int32.Parse(ddlTipoSeguro.SelectedValue);
+                }
+                if (txtObservaciones.Text != "")
+                {
+                    seguro.Descripcion = txtObservaciones.Text;
+                }
+
+
+            }
+
+
+
             detalles.Add(detalle);
             gvDetalleReserva.DataSource = detalles;
             gvDetalleReserva.DataBind();

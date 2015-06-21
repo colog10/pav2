@@ -20,6 +20,9 @@ namespace AgenciaDeViajesDTO.Entities
         public bool Comprada { get; set; }
         public bool Efectuada { get; set; }
         public int IdPasajero { get; set; }
+        public ServicioAlojamientoDTO Alojamiento { get; set; }
+        public ServicioTrasladoDTO ServicioTraslado { get; set; }
+        public float Monto { get; set; }
 
         public ReservaDetalleDTO()
         {
@@ -34,6 +37,7 @@ namespace AgenciaDeViajesDTO.Entities
             Comprada = Boolean_NullValue;
             Efectuada = Boolean_NullValue;
             IdPasajero = Int_NullValue;
+            Monto = Float_NullValue;
         }
 
 
@@ -78,7 +82,9 @@ namespace AgenciaDeViajesDTO.Entities
             }
         }
 
-       
 
+
+
+        
     }
 }

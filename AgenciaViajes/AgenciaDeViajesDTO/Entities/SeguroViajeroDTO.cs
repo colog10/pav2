@@ -15,6 +15,7 @@ namespace AgenciaDeViajesDTO.Entities
         public int TipoSeguroViajero { get; set; }
         public int NumeroCompra { get; set; }
         public string Descripcion { get; set; }
+        
 
         public SeguroViajeroDTO() {
             IdSeguroViajero = Int_NullValue;
@@ -23,6 +24,7 @@ namespace AgenciaDeViajesDTO.Entities
             TipoSeguroViajero = Int_NullValue;
             NumeroCompra = Int_NullValue;
             Descripcion = String_NullValue;
+            
         }
     }
 }
