@@ -40,6 +40,24 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.Button btnBuscarCliente;
         
         /// <summary>
+        /// Control gvReserva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvReserva;
+        
+        /// <summary>
+        /// Control SectionDetalleReserva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SectionDetalleReserva;
+        
+        /// <summary>
         /// Control gvDetalleReserva.
         /// </summary>
         /// <remarks>
@@ -49,12 +67,12 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.GridView gvDetalleReserva;
         
         /// <summary>
-        /// Control btnGuardar.
+        /// Control Button2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

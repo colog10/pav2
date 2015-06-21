@@ -16,25 +16,26 @@ namespace AgenciaViajes
         {
             if (!IsPostBack)
             {
-                InicializarDetalleReserva();
+                InicializarReserva();
             }
 
         }
 
-        private void InicializarDetalleReserva()
+        private void InicializarReserva()
         {
-            List<ReservaDetalleDTO> det = DetalleReservaManager.ReservasDetalle_getAll();
+            gvDetalleReserva.Visible = false;
+            List<ReservaDTO> det = ReservaManager.Reservas_getAll();
                       
-            gvDetalleReserva.DataSource =det ;
-            gvDetalleReserva.DataBind();
+            gvReserva.DataSource =det ;
+            gvReserva.DataBind();
 
         }
 
         protected void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            int filtroBusqueda = Convert.ToInt32(txtCliente.Text);
-            gvDetalleReserva.DataSource = DetalleReservaManager.Reservas_ReservaDTO(filtroBusqueda);
-            gvDetalleReserva.DataBind();
+            String filtroBusqueda = txtCliente.Text;
+            gvReserva.DataSource = ReservaManager.GetCliente(filtroBusqueda);
+            gvReserva.DataBind();
         }
 
 
@@ -76,6 +77,27 @@ namespace AgenciaViajes
         protected void actualizarDetalle(object sender, EventArgs e)
         {
             ReservaDetalleDTO detalle = new ReservaDetalleDTO();
+        }
+
+
+
+        private void InicializarDetalleReserva(int idReserva)
+        {
+
+            List<ReservaDetalleDTO> det = DetalleReservaManager.GetDetalleByReserva(idReserva);
+
+            gvDetalleReserva.DataSource = det;
+            gvDetalleReserva.DataBind();
+
+        }
+
+        protected void gvReserva_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            VentaSection.Visible = false;
+            SectionDetalleReserva.Visible = true;
+            int st = Convert.ToInt32(gvReserva.SelectedValue);
+            InicializarDetalleReserva(st);
+
         }
 
     }

@@ -16,13 +16,23 @@ namespace AgenciaDeViajesDAL.DAL
         {
             SqlCommand command = GetDbSprocCommand("usp_Reservas_GetByID");
             command.Parameters.Add(CreateParameter("@IDReserva", IDReserva));
-            return GetSingleDTO<ReservaDTO>(ref command);
+            ReservaDTO dr = GetSingleDTO<ReservaDTO>(ref command);
+
+            dr.Cliente = ClienteDB.GetClienteByID(dr.IdCliente);
+            
+            return dr;
         }
 
         public static List<ReservaDTO> GetAll()
         {
             SqlCommand command = GetDbSprocCommand("usp_Reservas_GetAll");
-            return GetDTOList<ReservaDTO>(ref command);
+            List<ReservaDTO> dr = GetDTOList<ReservaDTO>(ref command);
+            foreach (ReservaDTO re in dr)
+            {
+                re.Cliente = ClienteDB.GetClienteByID(re.IdCliente);
+                
+            }
+            return dr;
         }
 
         public static void SaveReserva(ref ReservaDTO reserva)
@@ -103,6 +113,22 @@ namespace AgenciaDeViajesDAL.DAL
             return GetDTOList<ReservaDTO>(ref command);
 
         }
-}
+
+        public static List<ReservaDTO> GetReservasByCliente(string termino)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_Reserva_GetByRazonSocialOrCuil");
+            command.Parameters.Add(CreateParameter("@filtroCliente", termino, 50));
+
+
+            List<ReservaDTO> dr = GetDTOList<ReservaDTO>(ref command);
+
+            foreach (ReservaDTO re in dr)
+            {
+                re.Cliente = ClienteDB.GetClienteByID(re.IdCliente);
+                
+            }
+            return dr;
+        }
+    }
     }
 
