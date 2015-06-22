@@ -21,13 +21,17 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="SuccessMessage" runat="server" class="alert alert-success" role="alert" visible="false">
-                    <asp:Label ID="LblSuccess" runat="server"></asp:Label></div>
+                    <asp:Label ID="LblSuccess" runat="server"></asp:Label>
+                </div>
                 <div id="InfoMessage" runat="server" class="alert alert-info" role="alert" visible="false">
-                    <asp:Label ID="LblInfo" runat="server"></asp:Label></div>
+                    <asp:Label ID="LblInfo" runat="server"></asp:Label>
+                </div>
                 <div id="WarningMessage" runat="server" class="alert alert-warning" role="alert" visible="false">
-                    <asp:Label ID="LblWarning" runat="server"></asp:Label></div>
+                    <asp:Label ID="LblWarning" runat="server"></asp:Label>
+                </div>
                 <div id="DangerMessage" runat="server" class="alert alert-danger" role="alert" visible="false">
-                    <asp:Label ID="LblDanger" runat="server"></asp:Label></div>
+                    <asp:Label ID="LblDanger" runat="server"></asp:Label>
+                </div>
             </div>
         </div>
     </div>
@@ -58,7 +62,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView ID="gvOperadoresTuristicos" DataKeyNames="IdOperadorTuristico" runat="server" ShowHeaderWhenEmpty="true" EmptyDataText="No hay datos para mostrar" AutoGenerateColumns="false">
+                <asp:GridView ID="gvOperadoresTuristicos" DataKeyNames="IdOperadorTuristico" runat="server" ShowHeaderWhenEmpty="true" EmptyDataText="No hay datos para mostrar" AutoGenerateColumns="false" AllowPaging="true" OnPageIndexChanging="gvOperadoresTuristicos_PageIndexChanging" PageSize="5">
                     <Columns>
                         <asp:TemplateField ItemStyle-Width="40px">
                             <HeaderTemplate>
@@ -113,9 +117,11 @@
                 <div class="form-group">
                     <label>Calificacion</label>
                     <asp:TextBox ID="txtCalificacion" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator runat="server" ValidationGroup="GuardarGroup" ControlToValidate="txtCalificacion" Text="Requerido" CssClass="label label-danger" Display="Dynamic"></asp:RequiredFieldValidator>
+
                 </div>
 
-            </div>            
+            </div>
         </div>
 
         <div class="row">

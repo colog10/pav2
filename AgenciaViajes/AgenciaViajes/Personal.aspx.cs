@@ -302,5 +302,11 @@ namespace AgenciaViajes
             ddlUsuario.SelectedValue = Convert.ToString(empleadoDTO.IdUsuario);
             hdIdEmpleado.Value = Convert.ToString(empleadoDTO.IdEmpleado);
         }
+
+        protected void gvEmpleados_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvEmpleados.PageIndex = e.NewPageIndex;
+            LoadData();
+        }
     }
 }

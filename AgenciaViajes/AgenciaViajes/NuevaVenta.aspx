@@ -44,7 +44,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView runat="server" ID="gvReserva" DataKeyNames="IdReserva" EmptyDataText="no hay ninguna reserva de los datos ingresados" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnSelectedIndexChanged="gvReserva_SelectedIndexChanged">
+                <asp:GridView runat="server" ID="gvReserva" DataKeyNames="IdReserva" EmptyDataText="no hay ninguna reserva de los datos ingresados" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" OnSelectedIndexChanged="gvReserva_SelectedIndexChanged" AllowPaging="true" OnPageIndexChanging="gvReserva_PageIndexChanging" PageSize="5">
                     <Columns>
 
                         <asp:BoundField DataField="IdReserva" HeaderText="IdReserva" SortExpression="idReserva" Visible="False" />

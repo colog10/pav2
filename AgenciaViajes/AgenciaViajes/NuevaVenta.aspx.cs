@@ -139,5 +139,11 @@ namespace AgenciaViajes
             InicializarDetalleReserva(st);
         }
 
+        protected void gvReserva_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvDetalleReserva.PageIndex = e.NewPageIndex;
+            InicializarReserva();
+        }
+
     }
 }

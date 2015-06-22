@@ -46,7 +46,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView ID="gvEmpleados" runat="server" DataKeyNames="IdEmpleado" EmptyDataText="No hay datos para mostrar" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" >
+                <asp:GridView ID="gvEmpleados" runat="server" DataKeyNames="IdEmpleado" EmptyDataText="No hay datos para mostrar" ShowHeaderWhenEmpty="True" AutoGenerateColumns="False" AllowPaging="true" OnPageIndexChanging="gvEmpleados_PageIndexChanging" PageSize="5">
                     <Columns>
                         
                         <asp:TemplateField ItemStyle-Width="40px">

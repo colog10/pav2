@@ -343,6 +343,12 @@ namespace AgenciaViajes
 
         }
 
+        protected void gvPasajero_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvPasajero.PageIndex = e.NewPageIndex;
+            LoadData();
+        }
+
 
     }
 }

@@ -283,5 +283,12 @@ namespace AgenciaViajes
             hdId.Value = Convert.ToString(value.IdOperadorTuristico);
             
         }
+
+        protected void gvOperadoresTuristicos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            
+            gvOperadoresTuristicos.PageIndex = e.NewPageIndex;
+            LoadData();
+        }
     }
 }
