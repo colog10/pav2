@@ -38,6 +38,12 @@ namespace AgenciaViajes
 
         protected void btnBuscarVenta_Click(object sender, EventArgs e)
         {
+            LoadVentas();
+            
+        }
+
+        private void LoadVentas()
+        {
             DateTime fechaVenta = CommonBase.DateTime_NullValue;
             string nombreCliente = CommonBase.String_NullValue;
             int nroFactura = CommonBase.Int_NullValue;
@@ -51,7 +57,7 @@ namespace AgenciaViajes
                 return;
             }
 
-            
+
             if (txtNumeroFactura.Text != "")
             {
                 nroFactura = Convert.ToInt32(txtNumeroFactura.Text);
@@ -70,6 +76,12 @@ namespace AgenciaViajes
             gvVentas.DataSource = VentaManager.GetVentas(fechaVenta, nroFactura, nombreCliente, idVendedor); ;
             gvVentas.DataBind();
 
+        }
+
+        protected void gvVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            LoadVentas();
+            gvVentas.PageIndex = e.NewPageIndex;
         }
 
     }

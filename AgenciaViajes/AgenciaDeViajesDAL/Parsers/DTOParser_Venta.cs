@@ -58,7 +58,7 @@ namespace AgenciaDeViajesDAL.Parsers
             // Monto
             if (!reader.IsDBNull(Ord_monto))
             {
-                Venta.montoDTO = reader.GetInt32(Ord_monto);
+                Venta.montoDTO = reader.GetDecimal(Ord_monto);
             }
             
             if (!reader.IsDBNull(Ord_motivoViajeDTO))

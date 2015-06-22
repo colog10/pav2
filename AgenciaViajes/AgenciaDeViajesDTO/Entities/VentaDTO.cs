@@ -22,20 +22,30 @@ namespace AgenciaDeViajesDTO.Entities
 
         public string NombreCliente{
             get{
-                return Cliente.razonSocialDTO;
+                string nombre = "";
+                if (Cliente != null)
+                    nombre = Cliente.razonSocialDTO;
+                return nombre;
             }
         }
 
          public string NombreVendedor{
              get{
-                 return Vendedor.Nombre;
+                 string nombre = "";
+                 if (Vendedor != null)
+                     nombre = Vendedor.Nombre;
+                 return nombre;
              }
          }
 
         public int LegajoVendedor{
             get
             {
-                return Vendedor.Legajo;
+                int legajo = 0;
+                if (Cliente != null)
+                    legajo = Vendedor.Legajo;
+                return legajo;
+                
             }
         }
                         
@@ -49,7 +59,7 @@ namespace AgenciaDeViajesDTO.Entities
         {
             numeroVentaDTO = Int_NullValue;
             idClienteDTO = Int_NullValue;
-            idVendedorDTO = Int_NullValue;
+            idVendedorDTO = 3;
             montoDTO = Decimal_NullValue;
             comisionDTO = Int_NullValue;
             motivoViajeDTO = Int_NullValue;

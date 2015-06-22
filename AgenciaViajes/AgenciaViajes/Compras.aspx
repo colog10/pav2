@@ -73,14 +73,26 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView runat="server" ID="gvCompras" AutoGenerateColumns="False" >
+                <br/>
+                <asp:GridView runat="server" ID="gvCompras" AutoGenerateColumns="False" PageSize="5" OnPageIndexChanging="gvCompras_PageIndexChanging" AllowPaging="true"  >
                     <Columns>
                         <asp:BoundField DataField="NumeroFactura" HeaderText="Nro. Factura" />
-                        <asp:BoundField DataField="fechaCompraDTO" HeaderText="Fecha Compra" />
+                        
+                        <asp:TemplateField HeaderText="Fecha Compra">
+                            <ItemTemplate>
+                                <%# Convert.ToDateTime(Eval("fechaCompraDTO")).ToShortDateString() %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
                         <asp:BoundField DataField="NombreOperadorTuristico" HeaderText="Operador Turístico" />
                         <asp:BoundField DataField="TelefonoOperadorTuristico" HeaderText="Telefono" />
-                        <asp:BoundField DataField="montoDTO" HeaderText="Monto" />
                         
+                        <asp:TemplateField HeaderText="Monto">
+                            <ItemTemplate>
+                                <%# String.Format("${0}", Convert.ToDouble(Eval("montoDTO"))) %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
 
                     </Columns>
 

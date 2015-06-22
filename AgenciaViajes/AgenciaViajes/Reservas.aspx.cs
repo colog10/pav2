@@ -73,6 +73,7 @@ namespace AgenciaViajes
         protected void gvReservas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             LoadData();
+            gvReservas.PageIndex = e.NewPageIndex;
         }
     }
 }

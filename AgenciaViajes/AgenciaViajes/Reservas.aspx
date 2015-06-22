@@ -66,7 +66,8 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView runat="server" ID="gvReservas" AutoGenerateColumns="False"  AllowSorting="true" AllowPaging="true" OnPageIndexChanging="gvReservas_PageIndexChanging" PageSize="15">
+                <br/>
+                <asp:GridView runat="server" ID="gvReservas" AutoGenerateColumns="False"  AllowSorting="true" AllowPaging="true" OnPageIndexChanging="gvReservas_PageIndexChanging" PageSize="5">
                     <Columns>
                         <asp:BoundField DataField="NumeroReserva" HeaderText="Numero" />
                         <asp:BoundField DataField="NombreYApellidoEmpleado" HeaderText="Empleado" />

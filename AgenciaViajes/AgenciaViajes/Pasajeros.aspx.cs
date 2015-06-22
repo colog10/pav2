@@ -1,5 +1,6 @@
 ﻿using AgenciaDeViajesBLL;
 using AgenciaDeViajesDTO.Entities;
+using AgenciaDeViajesDTO.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -111,6 +112,7 @@ namespace AgenciaViajes
 
         private void LoadPasajeros()
         {
+            
             List<PasajeroDTO> pasajero = PasajeroManager.GetPasajeros();
             gvPasajero.DataSource = pasajero;
             gvPasajero.DataBind();
@@ -190,6 +192,7 @@ namespace AgenciaViajes
             pasajero.IdEstadoCivil = Convert.ToInt32(ddlEstadoCivil.SelectedValue);
             pasajero.IdNacionalidad = Convert.ToString(ddlNacionalidad.SelectedValue);
             pasajero.Eliminado = "0";
+            pasajero.NumeroDocumento = Convert.ToInt32(txtNumero.Text);
             pasajero.IsNew = true;
             pasajero.Telefono = txtTelefono.Text;
             PasajeroManager.SavePasajero(pasajero);
@@ -263,6 +266,8 @@ namespace AgenciaViajes
             pasajero.Profesion = txtProfesion.Text;
             pasajero.Telefono = txtTelefono.Text;
             PasajeroManager.SavePasajero(pasajero);
+            InicializarPantalla();
+            LoadPasajeros();
         }
 
 
@@ -320,7 +325,10 @@ namespace AgenciaViajes
             txtApellido.Text = pasajero.Apellido;
             txtNombre.Text = pasajero.Nombre;
 
-            txtNacimiento.Text = Convert.ToString(pasajero.FechaNacimiento);
+            if (pasajero.FechaNacimiento != CommonBase.DateTime_NullValue)
+            {
+                txtNacimiento.Text = Convert.ToString(pasajero.FechaNacimiento.ToShortDateString());
+            }
             txtCuil.Text = pasajero.Cuilcuit1 + '-' + pasajero.Cuilcuit2 + '-' + pasajero.Cuilcuit3;
             txtDomicilio.Text = pasajero.Domicilio;
             txtEmail.Text = pasajero.Email;

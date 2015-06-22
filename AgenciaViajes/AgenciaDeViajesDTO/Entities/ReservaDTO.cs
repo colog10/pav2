@@ -66,5 +66,7 @@ namespace AgenciaDeViajesDTO.Entities
                 return nombreEmpleado;
             }
         }
+
+        public static decimal MontoMaximo { get { return 1000000; } }
     }
 }

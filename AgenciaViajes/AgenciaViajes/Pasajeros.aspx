@@ -72,7 +72,11 @@
                         <asp:BoundField HeaderText="Numero Documento" DataField="numeroDocumento" />
                         <%--<asp:BoundField HeaderText="CUIL" DataField="cuilcuit1" />--%>
                        <%-- <asp:BoundField HeaderText="Estado Civil" DataField="idEstadoCivil" />--%>
-                        <asp:BoundField HeaderText="Fecha Nacimiento" DataField="fechaNacimiento" />
+                        <asp:TemplateField HeaderText="fechaNacimiento">
+                        <ItemTemplate>
+                            <%# (Convert.ToDateTime(Eval("fechaNacimiento")) == AgenciaDeViajesDTO.Util.CommonBase.DateTime_NullValue)?"":Convert.ToDateTime(Eval("fechaNacimiento")).ToShortDateString()%>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                         <asp:BoundField HeaderText="Nacionalidad" DataField="idNacionalidad" />
                         <asp:BoundField HeaderText="Profesion" DataField="profesion" />
                      <%--   <asp:BoundField HeaderText="Domicilio" DataField="domicilio" />
@@ -150,8 +154,7 @@
                         <asp:TextBox ID="txtNumero" runat="server" CssClass="form-control"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ValidationGroup="GuardarGroup" ControlToValidate="txtNumero" Text="Requerido" CssClass="label label-danger"
                             Display="Dynamic"></asp:RequiredFieldValidator>
-                        <asp:RangeValidator runat="server" ValidationGroup="GuardarGroup" Type="Integer" ControlToValidate="txtNumero" MinimumValue="1" Text="Valor numérico entre 1 y 100000"
-                            MaximumValue="100000" CssClass="label label-danger" Display="Dynamic"></asp:RangeValidator>
+                        
                     </div>
                 </div>
             </div>

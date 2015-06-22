@@ -37,6 +37,13 @@ namespace AgenciaViajes
 
         protected void btnBuscarCompra_Click(object sender, EventArgs e)
         {
+            LoadCompras();
+
+        }
+
+        private void LoadCompras()
+        {
+
             DateTime fechaCompra = CommonBase.DateTime_NullValue;
             DateTime fechaReserva = CommonBase.DateTime_NullValue;
             int nroFactura = CommonBase.Int_NullValue;
@@ -57,17 +64,25 @@ namespace AgenciaViajes
                 return;
             }
 
-            if(txtNumeroFactura.Text != ""){
+            if (txtNumeroFactura.Text != "")
+            {
                 nroFactura = Convert.ToInt32(txtNumeroFactura.Text);
             }
 
-            if(Convert.ToInt32(ddlOperadorTuristico.SelectedValue) > 0){
+            if (Convert.ToInt32(ddlOperadorTuristico.SelectedValue) > 0)
+            {
                 idOperadorTuristico = Convert.ToInt32(ddlOperadorTuristico.SelectedValue);
             }
 
             gvCompras.DataSource = CompraManager.GetCompras(fechaCompra, fechaReserva, nroFactura, idOperadorTuristico);
             gvCompras.DataBind();
 
+        }
+
+        protected void gvCompras_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            LoadCompras();
+            gvCompras.PageIndex = e.NewPageIndex;
         }
     }
 }

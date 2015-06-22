@@ -164,21 +164,39 @@ namespace AgenciaViajes
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            ReservaDTO reserva = new ReservaDTO();
+            OcultarMensajes();
+            try{
+                decimal monto = 0;
 
-            reserva.IsNew = true;
-            reserva.NumeroReserva = Convert.ToInt32(txtNumero.Text);
-            reserva.IdCliente = Convert.ToInt32(gvClientes.SelectedDataKey.Value);
-            
-            reserva.DetallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
-            ReservaManager.Save(reserva);
-            LblSuccess.Text = "La Reserva se guardo con exito";
-            reservaSection.Visible = false;
+                foreach(ReservaDetalleDTO rd in ((List<ReservaDetalleDTO>)Session["detalles"]))
+                {
+                    monto += rd.Monto;
+                }
+                if(monto > ReservaDTO.MontoMaximo)
+                {
+                    DangerMessage.Visible = true;
+                    LblDanger.Text = "El monto ingresado excede el máximo.";
+                    return;
+                }
+                ReservaDTO reserva = new ReservaDTO();
 
-            SuccessMessage.Visible = true;
+                reserva.IsNew = true;
+                reserva.NumeroReserva = Convert.ToInt32(txtNumero.Text);
+                reserva.IdCliente = Convert.ToInt32(gvClientes.SelectedDataKey.Value);
+                reserva.FechaReserva = DateTime.Now;
+                reserva.DetallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
+                ReservaManager.Save(reserva);
+                LblSuccess.Text = "La Reserva se guardo con exito";
+                reservaSection.Visible = false;
+
+                SuccessMessage.Visible = true;
+            }
+            catch (Exception)
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "No se pudo guardar la reserva, verifique que los datos ingresados son correctos.";
+            }
         }
-
-        
 
         protected void btnAceptar_Click1(object sender, EventArgs e)
         {

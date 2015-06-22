@@ -94,7 +94,17 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@nroFactura", nroFactura));
             command.Parameters.Add(CreateParameter("@nombreCliente", nombreCliente, 50));
             command.Parameters.Add(CreateParameter("@idVendedor", idVendedor));
-            return GetDTOList<VentaDTO>(ref command);
+            List<VentaDTO> ventas = new List<VentaDTO>();
+            List<VentaDTO> ventasAux = GetDTOList<VentaDTO>(ref command);
+            foreach(VentaDTO ventaAux in ventasAux)
+            {
+                VentaDTO venta = ventaAux;
+                venta.Vendedor = EmpleadoDB.GetEmpleadoByID(venta.idVendedorDTO);
+                venta.Cliente = ClienteDB.GetClienteByID(venta.idClienteDTO);
+                ventas.Add(venta);
+
+            }
+            return ventas;
         }
     }
 }

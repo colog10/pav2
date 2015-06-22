@@ -83,6 +83,7 @@ namespace AgenciaViajes
             List<OperadorTuristicoDTO> operadoresTuristicos = OperadorTuristicoManager.GetOperadorTuristico();
             gvOperadoresTuristicos.DataSource = operadoresTuristicos;
             gvOperadoresTuristicos.DataBind();
+
         }
 
 
@@ -173,6 +174,7 @@ namespace AgenciaViajes
             OperadorTuristicoManager.SaveOperadorTuristico(operadorTuristico);
             InicializarPantalla();
             LoadData();
+            OcultarMensajes();
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
@@ -188,7 +190,7 @@ namespace AgenciaViajes
             OperadorTuristicoDTO operadorTuristico = new OperadorTuristicoDTO();
 
             operadorTuristico.Activo = chkActivo.Checked;
-            operadorTuristico.Calificacion = 1;
+            operadorTuristico.Calificacion = Convert.ToInt32(txtCalificacion.Text);
             operadorTuristico.Descripcion = txtNombreOperadorTuristico.Text;
             operadorTuristico.Direccion = txtDomicilioOperador.Text;
             operadorTuristico.Email = TextMailContacto.Text;
@@ -204,6 +206,7 @@ namespace AgenciaViajes
             OperadorTuristicoManager.UpdateOperadorTuristico(operadorTuristico);
             InicializarPantalla();
             LoadData();
+            OcultarMensajes();
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -264,7 +267,13 @@ namespace AgenciaViajes
             chkActivo.Checked = value.Activo;
             txtNombreOperadorTuristico.Text = value.Descripcion;
             txtDomicilioOperador.Text = value.Direccion;
-            txtFechaAlta.Text = Convert.ToString(value.FechaAlta).Split(' ')[0];
+            if (value.FechaAlta != CommonBase.DateTime_NullValue)
+            {
+                txtFechaAlta.Text = Convert.ToString(value.FechaAlta.ToShortDateString());
+            }
+               
+                
+            
             if(value.IdTipoDestino != CommonBase.Int_NullValue)
              ddlTipoDestino.SelectedIndex = Convert.ToInt32(value.IdTipoDestino);
             txtNombreContacto.Text = value.Nombre;
