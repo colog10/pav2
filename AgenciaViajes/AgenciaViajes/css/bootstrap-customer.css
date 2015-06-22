@@ -5,7 +5,7 @@
 
 .content-page > section {
   padding: 15px 0px;
-  padding-bottom: 160px;
+  padding-bottom: 15px;
 }
 
 .header-section{
@@ -20,6 +20,10 @@
     margin-left:auto;
     margin-right:auto;
     width:700px;
+}
+
+.content-page{
+    min-height:700px;
 }
 
 h2{

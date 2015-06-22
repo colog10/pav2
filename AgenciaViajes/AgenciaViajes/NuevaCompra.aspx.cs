@@ -58,43 +58,58 @@ namespace AgenciaViajes
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            decimal montoCompra = 0;
-            OcultarMensajes();
-            List<CompraDetalleDTO> detalles = new List<CompraDetalleDTO>();
-            ReservaDTO reserva = (ReservaDTO)Session["Reserva"];
+            try{
+                decimal montoCompra = 0;
+                OcultarMensajes();
+                List<CompraDetalleDTO> detalles = new List<CompraDetalleDTO>();
+                ReservaDTO reserva = (ReservaDTO)Session["Reserva"];
 
-            List<ReservaDetalleDTO> detallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
+                List<ReservaDetalleDTO> detallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
 
-            foreach (ReservaDetalleDTO dr in detallesReserva)
-            {
-                CompraDetalleDTO cd = new CompraDetalleDTO();
-                dr.IsNew = true;
-                cd.idDetalleReservaDTO = dr.IdDetallaReserva;
-                cd.Monto = Math.Round(dr.Monto / (decimal)1.10, 2);
-                cd.descripcionDTO = "Pasajero: " + dr.NombrePasajero + " - Translado: " + dr.NombreTraslado + " - Alojamiento: " + dr.NombreAlojamiento + " - Seguro: " + dr.NombreSeguro; 
-                detalles.Add(cd);
-                montoCompra += cd.Monto;
+                foreach (ReservaDetalleDTO dr in detallesReserva)
+                {
+
+                    if (dr.Comprada)
+                    {
+                        DangerMessage.Visible = true;
+                        LblDanger.Text = "No se puede realizar la compra porque uno o mas items ya han sido comprados.";
+                        return;
+                    }
+
+
+                    CompraDetalleDTO cd = new CompraDetalleDTO();
+                    dr.IsNew = true;
+                    cd.idDetalleReservaDTO = dr.IdDetallaReserva;
+                    cd.Monto = Math.Round(dr.Monto / (decimal)1.10, 2);
+                    cd.descripcionDTO = "Pasajero: " + dr.NombrePasajero + " - Translado: " + dr.NombreTraslado + " - Alojamiento: " + dr.NombreAlojamiento + " - Seguro: " + dr.NombreSeguro; 
+                    detalles.Add(cd);
+                    montoCompra += cd.Monto;
+                }
+
+                CompraDTO compra = new CompraDTO();
+                compra.IsNew = true;
+                compra.idOperadorTuristicoDTO = Convert.ToInt32(ddlOperadorTuristico.SelectedValue);
+                compra.fechaCompraDTO = DateTime.Now;
+                compra.montoDTO = montoCompra;
+                compra.saldoDTO = montoCompra;
+                compra.Detalles = detalles;
+                compra.IdReserva = reserva.IdReserva;
+            
+                compra.NumeroFactura = Convert.ToInt32(txtNroFactura.Text);
+            
+                CompraManager.SaveCompra(compra);
+
+                SuccessMessage.Visible = true;
+                LblSuccess.Text = "La compra se ha guardado correctamente";
+                CompraSection.Visible = false;
+                SectionDetalleReserva.Visible = false;
             }
-
-            CompraDTO compra = new CompraDTO();
-            compra.IsNew = true;
-            compra.idOperadorTuristicoDTO = Convert.ToInt32(ddlOperadorTuristico.SelectedValue);
-            compra.fechaCompraDTO = DateTime.Now;
-            compra.montoDTO = montoCompra;
-            compra.saldoDTO = montoCompra;
-            compra.Detalles = detalles;
-            compra.IdReserva = reserva.IdReserva;
-            
-            compra.NumeroFactura = Convert.ToInt32(txtNroFactura.Text);
-            
-            CompraManager.SaveCompra(compra);
-
-            SuccessMessage.Visible = true;
-            LblSuccess.Text = "La compra se ha guardado correctamente";
-            CompraSection.Visible = false;
-            SectionDetalleReserva.Visible = false;
+            catch (Exception)
+            {
+                DangerMessage.Visible = true;
+                LblDanger.Text = "No se pudo guardar la compra, verifique que los datos ingresados sean válidos.";
+            }
         }
-
 
         private void InicializarDetalleReserva(int idReserva)
         {

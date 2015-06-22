@@ -49,13 +49,30 @@ namespace AgenciaViajes
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             OcultarMensajes();
+            try{
+
+                
             List<VentaDetalleDTO> detalles = new List<VentaDetalleDTO>();
             ReservaDTO reserva = (ReservaDTO)Session["Reserva"];
             
             List<ReservaDetalleDTO> detallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
 
+
+
             foreach (ReservaDetalleDTO dr in detallesReserva)
             {
+                if(!dr.Comprada){
+                    DangerMessage.Visible = true;
+                    LblDanger.Text = "No se puede realizar la venta porque uno o mas items no han sido comprados.";
+                    return;
+                }
+
+                if (dr.Efectuada)
+                {
+                    DangerMessage.Visible = true;
+                    LblDanger.Text = "No se puede realizar la venta porque uno o mas items ya han sido vendidas.";
+                    return;
+                }
                 VentaDetalleDTO vd = new VentaDetalleDTO();
                 dr.IsNew = true;
                 vd.idDetalleReservaDTO = dr.IdDetallaReserva;
@@ -82,6 +99,12 @@ namespace AgenciaViajes
             LblSuccess.Text = "La venta se ha guardado correctamente";
             VentaSection.Visible = false;
             SectionDetalleReserva.Visible = false;
+            
+            }
+            catch(Exception){
+                DangerMessage.Visible = true;
+                LblDanger.Text = "No se pudo guardar la venta, verifique que los datos ingresados sean válidos.";
+            }
         }
 
         

@@ -37,8 +37,6 @@
 
                         <asp:BoundField DataField="IdReserva" HeaderText="IdReserva" SortExpression="idReserva" Visible="False" />
                         <asp:BoundField DataField="NombreCliente" HeaderText="RazonSocial" />
-                        <asp:BoundField DataField="Comprada" HeaderText="Comprada" />
-                        <asp:BoundField DataField="Efectuada" HeaderText="Efectuada" />
                         <asp:CommandField ShowSelectButton="True" />
 
                     </Columns>
