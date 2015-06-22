@@ -13,7 +13,7 @@ namespace AgenciaDeViajesDAL.Parsers
     class DTOParser_Venta : DTOParserSQLClient
     {
 
-        private int Ord_numeroVentaDTO;
+
         private int Ord_idClienteDTO;
         private int Ord_idVendedorDTO;
         private int Ord_monto;
@@ -24,7 +24,7 @@ namespace AgenciaDeViajesDAL.Parsers
 
         internal override void PopulateOrdinals(SqlDataReader reader)
         {
-            Ord_numeroVentaDTO = reader.GetOrdinal("numeroVenta");
+
             Ord_idClienteDTO = reader.GetOrdinal("idCliente");
             Ord_idVendedorDTO = reader.GetOrdinal("idVendedor");
             Ord_monto = reader.GetOrdinal("monto");

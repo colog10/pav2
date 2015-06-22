@@ -23,7 +23,7 @@ namespace AgenciaDeViajesDTO.Entities
 
         public string NombreOperadorTuristico { 
             get {
-                return OperadorTuristico.Nombre;
+                return OperadorTuristico.Descripcion;
             } 
         }
 

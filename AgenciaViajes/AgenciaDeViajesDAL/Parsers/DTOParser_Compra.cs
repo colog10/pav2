@@ -60,6 +60,14 @@ namespace AgenciaDeViajesDAL.Parsers
             //saldo
             if (!reader.IsDBNull(Ord_saldo)) { compraDTO.saldoDTO = reader.GetDecimal(Ord_saldo); }
 
+            //numeroFactura
+            if (!reader.IsDBNull(Ord_NumeroFactura)) { compraDTO.NumeroFactura = reader.GetInt32(Ord_NumeroFactura); }
+
+            //IdReserva
+            if (!reader.IsDBNull(Ord_IdReserva)) { compraDTO.IdReserva = reader.GetInt32(Ord_IdReserva); }
+
+            //IdOperadorTuristico
+            if (!reader.IsDBNull(Ord_idOperadorTuristico)) { compraDTO.idOperadorTuristicoDTO = reader.GetInt32(Ord_idOperadorTuristico); }
 
             return compraDTO;
         }
