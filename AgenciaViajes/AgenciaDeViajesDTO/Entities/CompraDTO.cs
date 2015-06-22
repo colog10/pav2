@@ -12,6 +12,7 @@ namespace AgenciaDeViajesDTO.Entities
         public int idCompraDTO { get; set; }
         public int idOperadorTuristicoDTO { get; set; }
         public int idDetalleCompraDTO { get; set; }
+        public int IdReserva { get; set; }
         public DateTime fechaCompraDTO { get; set; }
         public DateTime fechaPagoDTO { get; set; }
         public decimal montoDTO { get; set; }
@@ -46,6 +47,7 @@ namespace AgenciaDeViajesDTO.Entities
             montoDTO = Decimal_NullValue;
             saldoDTO = Decimal_NullValue;
             NumeroFactura = Int_NullValue;
+            IdReserva = Int_NullValue;
         }
 
 

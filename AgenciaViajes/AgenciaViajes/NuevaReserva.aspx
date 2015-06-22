@@ -139,16 +139,12 @@
                     <asp:DropDownList runat="server" ID="ddlDocumentoViaje"></asp:DropDownList>
                 </div>
             </div>
+            
             <div class="col-md-6">
-                <div  class="form-group">
-                    <label>Número documento:</label>
-                    <asp:TextBox runat="server" ID="txtNumeroDocumentoViaje" MaxLength="8"></asp:TextBox>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <asp:TextBox runat="server" ID="txtMontoDetalle"></asp:TextBox>
+                    <div  class="form-group">
+                        <label>Monto:</label>
+                        <asp:TextBox runat="server" ID="txtMontoDetalle"></asp:TextBox>
+                    </div>
             </div>
         </div>
         <div class="row">
@@ -207,12 +203,7 @@
                 </div>
             </div>
         
-            <div class="col-md-6">
-                <div  class="form-group">
-                    <label>Monto:</label><br />
-                    <asp:TextBox runat="server" ID="txtMonto"></asp:TextBox>
-                </div>
-            </div>
+            
         </div>                 
         <div id="alojamientoSection" runat="server">
             <div class="row">
@@ -242,14 +233,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div  class="form-group">
-                        <label>Monto:</label>
-                        <asp:TextBox runat="server" ID="txtMontoAlojamiento"></asp:TextBox>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         <div id="seguroViajeroSection" runat="server">
             <div class="row">
@@ -271,14 +255,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div  class="form-group">
-                        <label>Monto:</label>
-                        <asp:TextBox runat="server" ID="txtMontoSeguro"></asp:TextBox>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         
             

@@ -20,6 +20,8 @@ namespace AgenciaDeViajesDAL.Parsers
         private int Ord_fechaPago;
         private int Ord_monto;
         private int Ord_saldo;
+        private int Ord_NumeroFactura;
+        private int Ord_IdReserva;
 
         internal override void PopulateOrdinals(SqlDataReader reader)
         {
@@ -30,6 +32,8 @@ namespace AgenciaDeViajesDAL.Parsers
             Ord_fechaPago = reader.GetOrdinal("fechaPago");
             Ord_monto = reader.GetOrdinal("monto");
             Ord_saldo = reader.GetOrdinal("saldo");
+            Ord_NumeroFactura = reader.GetOrdinal("numeroFactura");
+            Ord_IdReserva = reader.GetOrdinal("idReserva");
         }
 
         internal override DTOBase PopulateDTO(SqlDataReader reader)
@@ -62,3 +66,4 @@ namespace AgenciaDeViajesDAL.Parsers
 
     }
 }
+

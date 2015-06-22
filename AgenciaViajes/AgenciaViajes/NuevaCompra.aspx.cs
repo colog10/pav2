@@ -70,7 +70,7 @@ namespace AgenciaViajes
                 CompraDetalleDTO cd = new CompraDetalleDTO();
                 dr.IsNew = true;
                 cd.idDetalleReservaDTO = dr.IdDetallaReserva;
-                cd.Monto = dr.Monto / (decimal)1.10;
+                cd.Monto = Math.Round(dr.Monto / (decimal)1.10, 2);
                 cd.descripcionDTO = "Pasajero: " + dr.NombrePasajero + " - Translado: " + dr.NombreTraslado + " - Alojamiento: " + dr.NombreAlojamiento + " - Seguro: " + dr.NombreSeguro; 
                 detalles.Add(cd);
                 montoCompra += cd.Monto;
@@ -83,6 +83,8 @@ namespace AgenciaViajes
             compra.montoDTO = montoCompra;
             compra.saldoDTO = montoCompra;
             compra.Detalles = detalles;
+            compra.IdReserva = reserva.IdReserva;
+            
             compra.NumeroFactura = Convert.ToInt32(txtNroFactura.Text);
             
             CompraManager.SaveCompra(compra);
@@ -111,7 +113,7 @@ namespace AgenciaViajes
             {
                 MontoTotal += (re.Monto / (decimal)1.10);
             }
-            txtMontoTotal.Text = Convert.ToString(MontoTotal);
+            txtMontoTotal.Text = Convert.ToString(Math.Round(MontoTotal, 2));
         }
 
 

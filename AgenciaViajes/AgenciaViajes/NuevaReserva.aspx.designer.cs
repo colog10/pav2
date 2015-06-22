@@ -202,15 +202,6 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.DropDownList ddlDocumentoViaje;
         
         /// <summary>
-        /// txtNumeroDocumentoViaje control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumeroDocumentoViaje;
-        
-        /// <summary>
         /// txtMontoDetalle control.
         /// </summary>
         /// <remarks>
@@ -283,15 +274,6 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.DropDownList ddlTransporte;
         
         /// <summary>
-        /// txtMonto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMonto;
-        
-        /// <summary>
         /// alojamientoSection control.
         /// </summary>
         /// <remarks>
@@ -328,15 +310,6 @@ namespace AgenciaViajes {
         protected global::System.Web.UI.WebControls.TextBox txtFechaHastaAlojamiento;
         
         /// <summary>
-        /// txtMontoAlojamiento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMontoAlojamiento;
-        
-        /// <summary>
         /// seguroViajeroSection control.
         /// </summary>
         /// <remarks>
@@ -362,15 +335,6 @@ namespace AgenciaViajes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
-        
-        /// <summary>
-        /// txtMontoSeguro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMontoSeguro;
         
         /// <summary>
         /// btnAceptar control.

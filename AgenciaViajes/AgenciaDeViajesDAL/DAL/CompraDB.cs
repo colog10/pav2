@@ -47,6 +47,7 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@monto", (float)compra.montoDTO));
             command.Parameters.Add(CreateParameter("@saldo", compra.saldoDTO));
             command.Parameters.Add(CreateParameter("@numeroFactura", compra.NumeroFactura));
+            command.Parameters.Add(CreateParameter("@idReserva", compra.IdReserva));
 
             // Run the command.
             command.Connection.Open();

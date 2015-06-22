@@ -24,6 +24,7 @@ namespace AgenciaViajes
                 InicializarDetalleReserva();
                 InicializarCombos();
                 OcultarMensajes();
+                Session["detalles"] = new List<ReservaDetalleDTO>();
             }
 
         }
@@ -127,15 +128,12 @@ namespace AgenciaViajes
             txtPasajero.Text = "";
             gvPasajeros.DataSource = new List<PasajeroDTO>();
             gvPasajeros.DataBind();
-            txtNumeroDocumentoViaje.Text = "";
             txtFechaSalida.Text = "";
             txtFechaRegreso.Text = "";
-            txtMonto.Text = "";
+            txtMontoDetalle.Text = "";
             txtFechaDesdeAlojamiento.Text = "";
             txtFechaHastaAlojamiento.Text = "";
             
-            txtMontoAlojamiento.Text = "";
-            txtMontoSeguro.Text = "";
         }
 
         protected void ddlPaisOrigen_SelectedIndexChanged(object sender, EventArgs e)
@@ -171,10 +169,6 @@ namespace AgenciaViajes
             reserva.IsNew = true;
             reserva.NumeroReserva = Convert.ToInt32(txtNumero.Text);
             reserva.IdCliente = Convert.ToInt32(gvClientes.SelectedDataKey.Value);
-            if((string)Session["Usuario"] != null){
-                reserva.IdEmpleado = EmpleadoManager.GetEmpleadoByNombreUsuario((string)Session["Usuario"]).IdEmpleado;
-            }
-            
             
             reserva.DetallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
             ReservaManager.Save(reserva);
@@ -200,9 +194,9 @@ namespace AgenciaViajes
             
             detalle.IdPasajero = Convert.ToInt32(gvPasajeros.SelectedDataKey.Value);
             detalle.Pasajero = PasajeroManager.GetPasajeroByID(detalle.IdPasajero);
-            detalle.NumeroDocumento = txtNumeroDocumentoViaje.Text;
             detalle.IdTipoDocumento = Convert.ToInt32(ddlDocumentoViaje.SelectedValue);
             detalle.Monto = decimal.Parse(txtMontoDetalle.Text);
+
             servicioTraslado.IsNew = true;
             servicioTraslado.destinoDTO = Int32.Parse(ddlDestino.SelectedValue);
             servicioTraslado.origenDTO = Int32.Parse(ddlOrigen.SelectedValue);
@@ -223,7 +217,9 @@ namespace AgenciaViajes
 
             servicioTraslado.fechaSalidaDTO = fechaSalida;
             servicioTraslado.fechaLlegadaDTO = fechaLlegada;
-            servicioTraslado.montoDTO = float.Parse(txtMonto.Text);
+            
+            servicioTraslado.idCompaniaAereaDTO = Convert.ToInt32(ddlTransporte.SelectedValue);
+
             detalle.ServicioTraslado = servicioTraslado;
 
             if (ddlAlojamiento.SelectedValue != "")
@@ -249,10 +245,6 @@ namespace AgenciaViajes
                     return;
                 }
 
-                if (txtMontoAlojamiento.Text != "")
-                {
-                    alojamiento.montoDTO = float.Parse(txtMontoAlojamiento.Text);
-                }
                 alojamiento.fechaDesdeDTO = fechaDesdeAlojamiento;
                 alojamiento.fechaHastaDTO = fechaHastaAlojamiento;
 
@@ -265,11 +257,7 @@ namespace AgenciaViajes
             {
                 SeguroViajeroDTO seguro = new SeguroViajeroDTO();
                 seguro.IsNew = true;
-                if (txtMontoSeguro.Text != "")
-                {
-                    seguro.Monto = float.Parse(txtMontoSeguro.Text);
-                }
-
+                
                 if (Int32.Parse(ddlTipoSeguro.SelectedValue) > 0)
                 {
                     seguro.TipoSeguroViajero = Int32.Parse(ddlTipoSeguro.SelectedValue);

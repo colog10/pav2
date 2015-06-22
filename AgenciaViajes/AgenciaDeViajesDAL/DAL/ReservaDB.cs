@@ -163,6 +163,7 @@ namespace AgenciaDeViajesDAL.DAL
                     command.Parameters.Add(CreateParameter("@IdServicioTraslado", reservaDetalle.IdServicioTraslado));
                     command.Parameters.Add(CreateParameter("@IdTipoDocumento", reservaDetalle.IdTipoDocumento));
                     command.Parameters.Add(CreateParameter("@Monto", reservaDetalle.Monto));
+                    command.Parameters.Add(CreateParameter("@IdPasajero", reservaDetalle.IdPasajero));
                     command.Parameters.Add(CreateParameter("@NumeroDocumento", reservaDetalle.NumeroDocumento, 8));
                     command.ExecuteNonQuery();
 
