@@ -12,14 +12,14 @@ namespace AgenciaDeViajesDTO.Entities
         public int idCompraDetalleDTO { get; set; }
         public int idDetalleReservaDTO { get; set; }
         public string descripcionDTO { get; set; }
-        public double Monto { get; set; }
+        public decimal Monto { get; set; }
 
         public CompraDetalleDTO()
         {
             idCompraDetalleDTO = Int_NullValue;
             idDetalleReservaDTO = Int_NullValue;
             descripcionDTO = String_NullValue;
-            Monto = Float_NullValue;
+            Monto = Decimal_NullValue;
         }
 
         

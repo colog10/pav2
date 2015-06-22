@@ -51,10 +51,10 @@ namespace AgenciaDeViajesDAL.Parsers
             if(!reader.IsDBNull(Ord_fechaPago)) { compraDTO.fechaPagoDTO = reader.GetDateTime(Ord_fechaPago);}
 
             //monto
-            if(!reader.IsDBNull(Ord_monto)) { compraDTO.montoDTO = reader.GetFloat(Ord_monto);}
+            if(!reader.IsDBNull(Ord_monto)) { compraDTO.montoDTO = reader.GetDecimal(Ord_monto);}
 
             //saldo
-            if(!reader.IsDBNull(Ord_saldo)) { compraDTO.saldoDTO = reader.GetFloat(Ord_saldo);}
+            if (!reader.IsDBNull(Ord_saldo)) { compraDTO.saldoDTO = reader.GetDecimal(Ord_saldo); }
 
 
             return compraDTO;

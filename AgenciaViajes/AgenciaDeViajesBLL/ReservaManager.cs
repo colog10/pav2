@@ -24,9 +24,9 @@ namespace AgenciaDeViajesBLL
         }
 
         
-            public static List<ReservaDTO> GetInforme(int monto, DateTime fecha, bool efectuada)
+            public static List<ReservaDTO> GetInforme(int monto, DateTime fecha, bool efectuada, int idEmpleado)
         {
-            return ReservaDB.GetInforme(monto, fecha, efectuada);
+            return ReservaDB.GetInforme(monto, fecha, efectuada, idEmpleado);
 
         }
 

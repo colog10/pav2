@@ -5,6 +5,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <section class="row container-transaccion">
+        <div class="col-md-12">
+            <div id="SuccessMessage" runat="server" class="alert alert-success" role="alert" visible="false">
+                <asp:Label ID="LblSuccess" runat="server"></asp:Label>
+            </div>
+            <div id="InfoMessage" runat="server" class="alert alert-info" role="alert" visible="false">
+                <asp:Label ID="LblInfo" runat="server"></asp:Label>
+            </div>
+            <div id="WarningMessage" runat="server" class="alert alert-warning" role="alert" visible="false">
+                    <asp:Label ID="LblWarning" runat="server"></asp:Label>
+            </div>
+            <div id="DangerMessage" runat="server" class="alert alert-danger" role="alert" visible="false">
+                    <asp:Label ID="LblDanger" runat="server"></asp:Label>
+            </div>
+        </div>
+    </section>
+
     <section runat="server" class="container-transaccion">
         <div class="row">
             <div class="col-md-12">
@@ -34,6 +51,13 @@
                 </div>
 
             </div>
+            <div class="col-md-6">
+                <div  class="form-group">
+                    <label>Empleado</label>
+                    <asp:DropDownList runat="server" ID="ddlEmpleado"></asp:DropDownList>
+                </div>
+
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -42,12 +66,17 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:GridView runat="server" ID="gvReservas" AutoGenerateColumns="False" >
+                <asp:GridView runat="server" ID="gvReservas" AutoGenerateColumns="False"  AllowSorting="true" AllowPaging="true" OnPageIndexChanging="gvReservas_PageIndexChanging" PageSize="15">
                     <Columns>
                         <asp:BoundField DataField="NumeroReserva" HeaderText="Numero" />
                         <asp:BoundField DataField="NombreYApellidoEmpleado" HeaderText="Empleado" />
-                        <asp:BoundField DataField="NombreYApellidoCliente" HeaderText="Cliente" />
-                        <asp:BoundField DataField="Monto" HeaderText="Monto" />
+                        <asp:BoundField DataField="NombreCliente" HeaderText="Cliente" />
+                        
+                        <asp:TemplateField HeaderText="Monto">
+                        <ItemTemplate>
+                            <%# String.Format("${0}", Convert.ToDouble(Eval("Monto"))) %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     </Columns>
 
                 </asp:GridView>

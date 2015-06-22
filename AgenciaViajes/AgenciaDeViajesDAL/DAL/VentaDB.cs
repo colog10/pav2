@@ -29,7 +29,7 @@ namespace AgenciaDeViajesDAL.DAL
         {
             SqlCommand command = null;
             
-            float montoVenta = 0;
+            decimal montoVenta = 0;
 
             foreach (VentaDetalleDTO rd in Venta.DetallesVenta)
             {
@@ -83,6 +83,16 @@ namespace AgenciaDeViajesDAL.DAL
                 command.ExecuteNonQuery();
             }
             command.Connection.Close();
+        }
+
+        public static List<VentaDTO> GetVentas(DateTime fechaVenta, int nroFactura, string nombreCliente, int idVendedor)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_Venta_GetByFiltros");
+            command.Parameters.Add(CreateParameter("@fechaVenta", fechaVenta));
+            command.Parameters.Add(CreateParameter("@nroFactura", nroFactura));
+            command.Parameters.Add(CreateParameter("@nombreCliente", nombreCliente, 50));
+            command.Parameters.Add(CreateParameter("@idVendedor", idVendedor));
+            return GetDTOList<VentaDTO>(ref command);
         }
     }
 }

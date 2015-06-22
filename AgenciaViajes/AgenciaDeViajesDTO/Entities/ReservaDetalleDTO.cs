@@ -22,7 +22,7 @@ namespace AgenciaDeViajesDTO.Entities
         public int IdPasajero { get; set; }
         public ServicioAlojamientoDTO Alojamiento { get; set; }
         public ServicioTrasladoDTO ServicioTraslado { get; set; }
-        public float Monto { get; set; }
+        public decimal Monto { get; set; }
 
         public ReservaDetalleDTO()
         {
@@ -37,7 +37,7 @@ namespace AgenciaDeViajesDTO.Entities
             Comprada = Boolean_NullValue;
             Efectuada = Boolean_NullValue;
             IdPasajero = Int_NullValue;
-            Monto = Float_NullValue;
+            Monto = Decimal_NullValue;
         }
 
 

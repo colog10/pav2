@@ -52,6 +52,8 @@ namespace AgenciaDeViajesDAL.Util
                     return new DTOParser_TipoSeguroViajero();
                 case "ServicioAlojamientoDTO":
                     return new DTOParser_ServicioAlojamiento();
+                case "CompraDTO":
+                    return new DTOParser_Compra();
             }
 
             throw new Exception("Unknown Type");

@@ -14,5 +14,10 @@ namespace AgenciaDeViajesBLL
         {
             VentaDB.SaveVenta(ref venta);
         }
+
+        public static List<VentaDTO> GetVentas(DateTime fechaVenta, int nroFactura, string nombreCliente, int idVendedor)
+        {
+            return VentaDB.GetVentas(fechaVenta, nroFactura, nombreCliente, idVendedor);
+        }
     }
 }

@@ -58,7 +58,7 @@ namespace AgenciaViajes
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            double montoCompra = 0;
+            decimal montoCompra = 0;
             OcultarMensajes();
             List<CompraDetalleDTO> detalles = new List<CompraDetalleDTO>();
             ReservaDTO reserva = (ReservaDTO)Session["Reserva"];
@@ -70,7 +70,7 @@ namespace AgenciaViajes
                 CompraDetalleDTO cd = new CompraDetalleDTO();
                 dr.IsNew = true;
                 cd.idDetalleReservaDTO = dr.IdDetallaReserva;
-                cd.Monto = dr.Monto / 1.10;
+                cd.Monto = dr.Monto / (decimal)1.10;
                 cd.descripcionDTO = "Pasajero: " + dr.NombrePasajero + " - Translado: " + dr.NombreTraslado + " - Alojamiento: " + dr.NombreAlojamiento + " - Seguro: " + dr.NombreSeguro; 
                 detalles.Add(cd);
                 montoCompra += cd.Monto;
@@ -80,9 +80,10 @@ namespace AgenciaViajes
             compra.IsNew = true;
             compra.idOperadorTuristicoDTO = Convert.ToInt32(ddlOperadorTuristico.SelectedValue);
             compra.fechaCompraDTO = DateTime.Now;
-            compra.montoDTO = (float)montoCompra;
-            compra.saldoDTO = (float)montoCompra;
+            compra.montoDTO = montoCompra;
+            compra.saldoDTO = montoCompra;
             compra.Detalles = detalles;
+            compra.NumeroFactura = Convert.ToInt32(txtNroFactura.Text);
             
             CompraManager.SaveCompra(compra);
 
@@ -105,10 +106,10 @@ namespace AgenciaViajes
 
         private void CalcularMonto(List<ReservaDetalleDTO> det)
         {
-            double MontoTotal = 0;
+            decimal MontoTotal = 0;
             foreach (ReservaDetalleDTO re in det)
             {
-                MontoTotal += (re.Monto / 1.10);
+                MontoTotal += (re.Monto / (decimal)1.10);
             }
             txtMontoTotal.Text = Convert.ToString(MontoTotal);
         }

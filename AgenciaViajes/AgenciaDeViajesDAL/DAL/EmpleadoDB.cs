@@ -84,6 +84,13 @@ namespace AgenciaDeViajesDAL.DAL
             
         }
 
-        
+
+
+        public static EmpleadoDTO GetEmpleadoByNombreUsuario(string usuario)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_Empleado_GetByUsuario");
+            command.Parameters.Add(CreateParameter("@Usuario", usuario, 50));
+            return GetSingleDTO<EmpleadoDTO>(ref command);
+        }
     }
 }

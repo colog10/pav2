@@ -171,7 +171,9 @@ namespace AgenciaViajes
             reserva.IsNew = true;
             reserva.NumeroReserva = Convert.ToInt32(txtNumero.Text);
             reserva.IdCliente = Convert.ToInt32(gvClientes.SelectedDataKey.Value);
-                     
+            if((string)Session["Usuario"] != null){
+                reserva.IdEmpleado = EmpleadoManager.GetEmpleadoByNombreUsuario((string)Session["Usuario"]).IdEmpleado;
+            }
             
             
             reserva.DetallesReserva = (List<ReservaDetalleDTO>)Session["detalles"];
@@ -200,7 +202,7 @@ namespace AgenciaViajes
             detalle.Pasajero = PasajeroManager.GetPasajeroByID(detalle.IdPasajero);
             detalle.NumeroDocumento = txtNumeroDocumentoViaje.Text;
             detalle.IdTipoDocumento = Convert.ToInt32(ddlDocumentoViaje.SelectedValue);
-            detalle.Monto = float.Parse(txtMontoDetalle.Text);
+            detalle.Monto = decimal.Parse(txtMontoDetalle.Text);
             servicioTraslado.IsNew = true;
             servicioTraslado.destinoDTO = Int32.Parse(ddlDestino.SelectedValue);
             servicioTraslado.origenDTO = Int32.Parse(ddlOrigen.SelectedValue);

@@ -14,5 +14,10 @@ namespace AgenciaDeViajesBLL
         {
             CompraDB.SaveCompra(ref compra);
         }
+
+        public static List<CompraDTO> GetCompras(DateTime fechaCompra, DateTime fechaReserva, int nroFactura, int idOperadorTuristico)
+        {
+            return CompraDB.GetCompras(fechaCompra, fechaReserva, nroFactura, idOperadorTuristico);
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace AgenciaViajes
             if (UsuarioManager.AutenticarUsuario(LoginControl.UserName, LoginControl.Password))
             {
                 e.Authenticated = true;  // genera cookie de seguridad con datos del usuario 
-                
+                Session["Usuario"] = LoginControl.UserName;
             }
             else
             {

@@ -35,5 +35,10 @@ namespace AgenciaDeViajesBLL
         {
             EmpleadoDB.DeleteEmpleado(idEmpleado);
         }
+
+        public static EmpleadoDTO GetEmpleadoByNombreUsuario(string usuario)
+        {
+            return EmpleadoDB.GetEmpleadoByNombreUsuario(usuario);
+        }
     }
 }

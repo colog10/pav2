@@ -97,7 +97,7 @@ namespace AgenciaViajes
 
         private void CalcularMonto(List<ReservaDetalleDTO> det)
         {
-            float MontoTotal=0;
+            decimal MontoTotal=0;
             foreach (ReservaDetalleDTO re in det)
             {
                 MontoTotal += re.Monto;

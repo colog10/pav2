@@ -14,8 +14,27 @@ namespace AgenciaDeViajesDTO.Entities
         public int idDetalleCompraDTO { get; set; }
         public DateTime fechaCompraDTO { get; set; }
         public DateTime fechaPagoDTO { get; set; }
-        public float montoDTO { get; set; }
-        public float saldoDTO { get; set; }
+        public decimal montoDTO { get; set; }
+        public decimal saldoDTO { get; set; }
+        public int NumeroFactura { get; set; }
+
+        public OperadorTuristicoDTO OperadorTuristico { get; set; }
+
+        public string NombreOperadorTuristico { 
+            get {
+                return OperadorTuristico.Nombre;
+            } 
+        }
+
+        public string TelefonoOperadorTuristico
+        {
+            get
+            {
+                return OperadorTuristico.Telefono;
+            }
+        }
+
+        public List<CompraDetalleDTO> Detalles { get; set; }
 
         public CompraDTO()
         {
@@ -24,11 +43,14 @@ namespace AgenciaDeViajesDTO.Entities
             idDetalleCompraDTO = Int_NullValue;
             fechaCompraDTO = DateTime_NullValue;
             fechaPagoDTO = DateTime_NullValue;
-            montoDTO = Float_NullValue;
-            saldoDTO = Float_NullValue;
+            montoDTO = Decimal_NullValue;
+            saldoDTO = Decimal_NullValue;
+            NumeroFactura = Int_NullValue;
         }
 
 
-        public List<CompraDetalleDTO> Detalles { get; set; }
+
+
+        
     }
 }

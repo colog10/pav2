@@ -16,7 +16,7 @@ namespace AgenciaDeViajesDTO.Entities
         public string NumeroDocumento { get; set; }
         public int IdDocumentoViaje { get; set; }
         public int NumeroReserva { get; set; }
-        public float Monto { get; set; }
+        public decimal Monto { get; set; }
         public DateTime FechaReserva { get; set; }
         public int IdSeguroViajero { get; set; }
         public int IdServicioAlojamiento { get; set; }
@@ -28,7 +28,7 @@ namespace AgenciaDeViajesDTO.Entities
         {
             IdReserva = Int_NullValue;
             IdCliente = Int_NullValue;
-            IdEmpleado = Int_NullValue;
+            IdEmpleado = 3;
             IdTipoDocumento = Int_NullValue;
             NumeroDocumento = String_NullValue;
             IdDocumentoViaje = Int_NullValue;
@@ -51,6 +51,20 @@ namespace AgenciaDeViajesDTO.Entities
         public string NombreCliente { get { return Cliente.razonSocialDTO; } }
 
 
+
+
         public EmpleadoDTO Empleado { get; set; }
+        public string NombreYApellidoEmpleado
+        {
+            get
+            {
+                string nombreEmpleado = "N/D";
+                if (Empleado != null)
+                {
+                    nombreEmpleado = Empleado.Nombre;
+                }
+                return nombreEmpleado;
+            }
+        }
     }
 }

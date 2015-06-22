@@ -3,7 +3,90 @@
 <%@ Register Src="~/Modules/ConstructionPage.ascx" TagPrefix="uc1" TagName="ConstructionPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script>
+        $(document).ready(function () {
+            $("[id$=txtFechaCompra]").datepicker();
+            $("[id$=txtFechaReserva]").datepicker();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <uc1:ConstructionPage runat="server" id="ConstructionPage" />
+    <section class="row container-transaccion">
+        <div class="col-md-12">
+            <div id="SuccessMessage" runat="server" class="alert alert-success" role="alert" visible="false">
+                <asp:Label ID="LblSuccess" runat="server"></asp:Label>
+            </div>
+            <div id="InfoMessage" runat="server" class="alert alert-info" role="alert" visible="false">
+                <asp:Label ID="LblInfo" runat="server"></asp:Label>
+            </div>
+            <div id="WarningMessage" runat="server" class="alert alert-warning" role="alert" visible="false">
+                    <asp:Label ID="LblWarning" runat="server"></asp:Label>
+            </div>
+            <div id="DangerMessage" runat="server" class="alert alert-danger" role="alert" visible="false">
+                    <asp:Label ID="LblDanger" runat="server"></asp:Label>
+            </div>
+        </div>
+    </section>
+
+
+<section runat="server" class="container-transaccion">
+        <div class="row">
+            <div class="col-md-12">
+               <h3>Informe Compras</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div  class="form-group">
+                    <label>Fecha Compra</label>
+                    <asp:TextBox type="text" id="txtFechaCompra" runat="server" maxlength="10" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div  class="form-group">
+                    <label>Fecha Reserva</label>
+                    <asp:TextBox type="text" id="txtFechaReserva" runat="server" maxlength="10" class="form-control" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div  class="form-group">
+                    <label>Numero Factura</label>
+                    <asp:TextBox type="text" id="txtNumeroFactura" runat="server" maxlength="12" class="form-control" />
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Operador Turistico</label>
+                    <asp:DropDownList runat="server" ID="ddlOperadorTuristico"></asp:DropDownList>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <asp:Button runat="server" ID="btnBuscarCompra" OnClick="btnBuscarCompra_Click" Text="Buscar" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <asp:GridView runat="server" ID="gvCompras" AutoGenerateColumns="False" >
+                    <Columns>
+                        <asp:BoundField DataField="NumeroFactura" HeaderText="Nro. Factura" />
+                        <asp:BoundField DataField="fechaCompraDTO" HeaderText="Fecha Compra" />
+                        <asp:BoundField DataField="NombreOperadorTuristico" HeaderText="Operador Turístico" />
+                        <asp:BoundField DataField="TelefonoOperadorTuristico" HeaderText="Telefono" />
+                        <asp:BoundField DataField="montoDTO" HeaderText="Monto" />
+                        
+
+                    </Columns>
+
+                </asp:GridView>
+            </div>
+        </div>
+
+    </section>
 </asp:Content>

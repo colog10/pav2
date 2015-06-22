@@ -29,14 +29,14 @@ namespace AgenciaDeViajesDAL.DAL
         {
             SqlCommand command = null;
 
-            double montoCompra = 0;
+            decimal montoCompra = 0;
 
             foreach (CompraDetalleDTO rd in compra.Detalles)
             {
                 montoCompra += rd.Monto;
             }
 
-            compra.montoDTO = (float)montoCompra;
+            compra.montoDTO = montoCompra;
 
             command = GetDbSprocCommand("usp_Compra_Insert");
 
@@ -46,7 +46,7 @@ namespace AgenciaDeViajesDAL.DAL
             command.Parameters.Add(CreateParameter("@fechaPago", compra.fechaPagoDTO));
             command.Parameters.Add(CreateParameter("@monto", (float)compra.montoDTO));
             command.Parameters.Add(CreateParameter("@saldo", compra.saldoDTO));
-
+            command.Parameters.Add(CreateParameter("@numeroFactura", compra.NumeroFactura));
 
             // Run the command.
             command.Connection.Open();
@@ -85,6 +85,27 @@ namespace AgenciaDeViajesDAL.DAL
         }
 
 
-        
+
+
+        public static List<CompraDTO> GetCompras(DateTime fechaCompra, DateTime fechaReserva, int nroFactura, int idOperadorTuristico)
+        {
+            SqlCommand command = GetDbSprocCommand("usp_Compra_GetByFiltros");
+            command.Parameters.Add(CreateParameter("@fechaCompra", fechaCompra));
+            command.Parameters.Add(CreateParameter("@fechaReserva", fechaReserva));
+            command.Parameters.Add(CreateParameter("@nroFactura", nroFactura));
+            command.Parameters.Add(CreateParameter("@idOperadorTuristico", idOperadorTuristico));
+
+            List<CompraDTO> comprasAux = GetDTOList<CompraDTO>(ref command);
+            List<CompraDTO> compras = new List<CompraDTO>();
+
+            foreach (CompraDTO compraAux in comprasAux)
+            {
+                CompraDTO compra = compraAux;
+                compra.OperadorTuristico = OperadorTuristicoDB.GetById(compra.idOperadorTuristicoDTO);
+                compras.Add(compra);
+            }
+
+            return compras;
+        }
     }
 }

@@ -39,7 +39,7 @@ namespace AgenciaDeViajesDAL.DAL
         {
             
             SqlCommand command = null;
-            float montoReserva = 0;
+            decimal montoReserva = 0;
 
             foreach (ReservaDetalleDTO reservaDetalle in reserva.DetallesReserva)
             {
@@ -185,12 +185,13 @@ namespace AgenciaDeViajesDAL.DAL
     
       
 
-        public static List<ReservaDTO> GetInforme(int monto, DateTime fecha, bool efectuada)
+        public static List<ReservaDTO> GetInforme(int monto, DateTime fecha, bool efectuada, int idEmpleado)
         {
             SqlCommand command = GetDbSprocCommand("usp_Reserva_GetInforme");
             command.Parameters.Add(CreateParameter("@monto", monto));
             command.Parameters.Add(CreateParameter("@fechaReserva", fecha));
             command.Parameters.Add(CreateParameter("@efectuada", efectuada));
+            command.Parameters.Add(CreateParameter("@idEmpleado", idEmpleado));
 
             List<ReservaDTO> reservasAux = GetDTOList<ReservaDTO>(ref command);
             List<ReservaDTO> reservas = new List<ReservaDTO>();

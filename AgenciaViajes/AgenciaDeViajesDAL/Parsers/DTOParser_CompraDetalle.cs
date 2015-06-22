@@ -39,7 +39,7 @@ namespace AgenciaDeViajesDAL.Parsers
             if (!reader.IsDBNull(Ord_descripcion)) { compraDetalleDTO.descripcionDTO = reader.GetString(Ord_descripcion);}
             
             //monto 
-            if (!reader.IsDBNull(Ord_monto)) { compraDetalleDTO.Monto = reader.GetFloat(Ord_monto); }
+            if (!reader.IsDBNull(Ord_monto)) { compraDetalleDTO.Monto = reader.GetDecimal(Ord_monto); }
 
             return compraDetalleDTO;
 
